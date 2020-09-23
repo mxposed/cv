@@ -1,0 +1,377 @@
+<!doctype html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
+<script type="text/javascript">
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+String.prototype.replaceAll = function(a, b) {
+  var result = [this];
+  var idx = result.last().indexOf(a);
+  while (idx > -1) {
+    var item = result.pop();
+    result.push(item.substr(0, idx));
+    result.push(b);
+    result.push(item.substr(idx + a.length));
+    idx = result.last().indexOf(a);
+  }
+  return result.join("");
+};
+
+document.addEventListener('readystatechange', function() {
+  if (document.readyState == "complete") {
+    var all = document.body.innerHTML;
+    all = all.replaceAll('—', '<span class="dash">—</span>');
+    all = all.replaceAll('–', '<span class="dash">–</span>');
+    console.log(all);
+    document.body.innerHTML = all;
+  }
+});
+</script>
+<style type="text/css">
+html {margin: 0; padding: 0;}
+body {
+  margin: 0;
+  padding: 30px 20px 0 20px;
+  font-family: Cochin;
+}
+.dash {
+  position: relative;
+  top: -2px;
+}
+h1, h2, h3, h4 {
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 180%;
+}
+h3 {
+  font-size: 130%;
+}
+h3+section {
+  margin-top: 80px;
+}
+section {
+  margin-bottom: 20px;
+}
+section h2 {
+  font-family: Optima;
+  margin: 0 0 0 20px;
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.entry .date {
+  min-width: 100px;
+  justify-self: flex-end;
+  margin-left: 20px;
+  text-align: right;
+}
+.entry .details {
+  margin-left: 20px;
+}
+.separator {
+  height: 1px;
+  width: 80px;
+  border-bottom: 0.5px solid gray;
+  position: relative;
+  left: 42px;
+  bottom: -8.5px;
+}
+u {
+  text-decoration: none;
+  border-bottom: 0.5px solid gray;
+}
+</style></head>
+<body>
+
+<h1>Nikolay S. Markov</h1>
+<h3>Curriculum Vitæ</h3>
+
+<section>
+  <h2>Contact Details</h2>
+  <div>Email: nikolai.markov@icloud.com
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="entry">
+    <div>M.S. in Bioinformatics, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">
+        Disctinction
+      </div>
+    </div>
+    <div class="date">2017–2018</div>
+  </div>
+  <div class="entry">
+    <div>Undergraduate coursework in Biology, Moscow State University, Moscow, Russia
+      <div class="details">
+        Genetics major
+      </div>
+    </div>
+    <div class="date">2003–2006</div>
+  </div>
+</section>
+
+<section>
+  <h2>Publications and Research</h2>
+  <div class="entry">
+    <div>Alveolitis in severe SARS-CoV-2 pneumonia is driven by self-sustaining
+      circuits between infected alveolar macrophages and T cells
+      <br/><em>bioRxiv</em>
+      <div class="details">
+        Rogan A. Grant*, Luisa Morales-Nebreda*, ※ Nikolay S. Markov*,
+        Suchitra Swaminathan, Estefany R. Guzman, Darryl A. Abbott, Helen K. Donnelly, Alvaro Donayre,
+        Isaac A. Goldberg, Zasu M. Klug, Nicole Borkowski, Ziyan Lu, Hermon Kihshen, Yuliya Politanska,
+        Lango Sichizya, Mengjia Kang, Ali Shilatifard, Chao Qi, A. Christine Argento, Jacqueline M. Kruser,
+        Elizabeth S. Malsin, Chiagozie O. Pickens, Sean Smith, James M. Walter, Anna E. Pawlowski,
+        Daniel Schneider, Prasanth Nannapaneni, Hiam Abdala-Valencia, Ankit Bharat, Cara J. Gottardi,
+        GR Scott Budinger, Alexander V. Misharin, Benjamin D. Singer, Richard G. Wunderink,
+        The NU SCRIPT Study Investigators
+      </div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Resetting proteostasis with ISRIB prevents pulmonary fibrosis
+      <br/><em>bioRxiv</em>
+      <div class="details">
+        Satoshi Watanabe, ※ Nikolay S. Markov, Ziyan Lu, Raul Piseaux Aillon,
+        Saul Soberanes, Constance E. Runyan, Ziyou Ren, Rogan A. Grant,
+        Mariana Maciel, Hiam Abdala-Valencia, Yuliya Politanska, Kiwon Nam,
+        Lango Sichizya, Hermon G. Kihshen, Nikita Joshi,
+        Alexandra C. McQuattie-Pimentel, Richard I. Morimoto, Paul A. Reyfman,
+        G.R. Scott Budinger, Alexander V. Misharin
+      </div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Aging imparts cell-autonomous dysfunction to regulatory T cells during
+      recovery from influenza pneumonia
+      <br/><em>bioRxiv</em>
+      <div class="details">
+        Luisa Morales-Nebreda, Kathryn A. Helmin, ※ Nikolay S. Markov,
+        Raul Piseaux, Manuel A. Torres Acosta, Hiam Abdala-Valencia,
+        Yuliya Politanska, Benjamin D. Singer
+      </div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry" style="margin-top: 140px;">
+    <div>Impaired phagocytic function in CX3CR1<sup>+</sup> tissue‐resident
+      skeletal muscle macrophages prevents muscle recovery after influenza A
+      virus‐induced pneumonia in old mice
+      <br/><em>Aging Cell</em>
+      <div class="details">
+        Constance E. Runyan, Lynn C. Welch, Emilia Lecuona, Masahiko Shigemura,
+        Luciano Amarelle, Hiam Abdala‐Valencia, Nikita Joshi, Ziyan Lu,
+        Kiwon Nam, ※ Nikolay S. Markov, Alexandra C. McQuattie‐Pimentel,
+        Raul Piseaux‐Aillon, Yuliya Politanska, Lango Sichizya,
+        Satoshi Watanabe, Kinola J.N. Williams, G. R. Scott Budinger,
+        Jacob I. Sznajder, Alexander V. Misharin
+      </div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>A spatially restricted fibrotic niche in pulmonary fibrosis is
+      sustained by M-CSF/M-CSFR signalling in monocyte-derived
+      alveolar macrophages
+      <br/><em>European Respiratory Journal</em>
+      <div class="details">
+        Nikita Joshi, Satoshi Watanabe, Rohan Verma, Renea P. Jablonski,
+        Ching-I Chen, Paul Cheresh, ※ Nikolay S. Markov, Paul A. Reyfman,
+        Alexandra C. McQuattie-Pimentel, Lango Sichizya, Ziyan Lu,
+        Raul Piseaux-Aillon, David Kirchenbuechler, Annette S. Flozak,
+        Cara J. Gottardi, Carla M. Cuda, Harris Perlman, Manu Jain,
+        David W. Kamp, G.R. Scott Budinger, Alexander V. Misharin
+      </div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Evaluation of machine learning strategies for classification and
+      unbiased discovery of the new cell types in the single cell
+      RNA-seq datasets
+      <br/><em>M.S. thesis, Newcastle University.</em>
+      <br/>Advisers:<br/>— Jaume Bacardit, Reader at Newcastle University;
+      <br/>— Alexander Misharin, Assistant Professor at Northwestern University.
+
+      <div class="details" style="margin-top:8px">We evaluated the possibility
+      of using machine learning methods to rapidly annotate new single cell
+      RNA-seq datasets based on the reference dataset.<br/>
+      We assessed the performance of a gradient boosting algorithm
+      <tt>catboost</tt> for predicting cell types in Mouse Cell Atlas dataset
+      and 3 samples of mouse lungs. We explored several strategies to explicitly
+      train our models to detect novel cell types that are absent in the
+      reference dataset. <tt>Catboost</tt> showed good performance, and was
+      able to detect novel cell types while retaining good quality of cell type
+      predictions. This demonstrated the possibility to use machine learning
+      classification for unbiased high-throughput cell type discovery.</div>
+    </div>
+    <div class="date">2018</div>
+  </div>
+</section>
+
+<section>
+  <h2>Work Experience</h2>
+  <div class="entry">
+    <div>Post-Baccalaureate Research Fellow, Division of Pulmonary and Critical Care,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">Analyse transcriptomic data from human samples and mouse
+          experiments to gain insights into COVID-19, pulmonary fibrosis,
+          systemic sclerosis and other pulmonary diseases. Write manuscripts,
+          support and organize data exchange, data management infrastructure,
+          survey and apply new tools to RNA-seq analysis, develop in-house
+          algorithms.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2019–present</div>
+  </div>
+  <div class="entry">
+    <div>Head of maintenance tools development group, Yandex, Moscow, Russia
+      <div class="details">Develop, design and support web-services and console
+      tools for system administrators and other employees. Manage a team
+      of developers on these projects: mentor, resolve conflicts,
+      improve performance, code review.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2014–2017</div>
+  </div>
+  <div class="entry">
+    <div>Full-stack software engineer, Yandex, Moscow, Russia
+      <div class="details">Develop, design and support web-services and console
+      tools for automating and improving employees’ workflows.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2007–2014</div>
+  </div>
+  <div class="entry">
+    <div>Software engineer, Art. Lebedev Studio, Moscow, Russia
+      <div class="details">Develop and support web-sites and content management
+      system.</div>
+    </div>
+    <div class="date">2006–2007</div>
+  </div>
+</section>
+
+<section style="margin-top: 80px;">
+  <h2>Teaching Experience</h2>
+  <div class="entry">
+    <div>Summer Students Program 2020 at Division of Pulmonary and Critical Care
+      <div class="details">Mentoring college students on a bioinformatics project
+          in a remote setting during the 4-week Summer Students Program. Contributed
+          to project's design, teaching required material and software tutorials,
+          mentoring and troubleshooting.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Python, Introduction to Pandas and Matplotlib
+      <div class="details">Small introductory lecture series during Data Science Nights
+          at NICO, Northwestern University.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Programming, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">Unofficial 5-lecture course for fellow students.</div>
+      <div class="separator"></div>
+    </div>
+    <div class="date">2017</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Computer Science with Python 3, Yandex, Moscow, Russia
+      <div class="details">High-school students.</div>
+    </div>
+    <div class="date">2013</div>
+  </div>
+</section>
+
+<section>
+  <h2>Miscalleneous</h2>
+  <div class="entry">
+    <div>Contributions to single-cell RNA-seq open-source tools <tt>Seurat</tt> and <tt>CellBrowser</tt>,
+      bioinformatics tool <tt>biopython</tt>
+    </div>
+    <div class="date">2018–present</div>
+  </div>
+  <div class="entry">
+    <div>Dataset visualisation for Reyfman <i>et al.</i>, 2018 paper for Northwestern University
+      <div class="details">Create a website with interactive dataset visualisation for
+        single-cell RNA-seq lung datasets from Reyfman <i>et al.</i>, 2018 paper using open-source
+        tools.</div>
+    </div>
+    <div class="date">2018</div>
+  </div>
+  <div class="entry">
+    <div>Lab system administrator, Polilov lab, Moscow State University, Moscow, Russia
+      <div class="details">Install and maintain software for connectome
+      proofreading from Janelia Institute. Setup file sharing and backup for lab members.</div>
+    </div>
+    <div class="date">2017–2019</div>
+  </div>
+</section>
+
+<section>
+  <h2>Online Courses</h2>
+  <div class="entry">
+    <div>Machine Learning, Stanford University, Coursera
+      <div class="separator"></div>
+    </div>
+    <div class="date">2016</div>
+  </div>
+  <div class="entry">
+    <div>
+      Machine Learning and Data Analysis, Moscow Institute of Physics<br/>
+      and Technology, Yandex, Coursera
+      <div class="separator"></div>
+    </div>
+    <div class="date">2016</div>
+  </div>
+  <div class="entry">
+    <div>
+      Introduction into Machine Learning, Higher School of Economics,
+      Yandex School of Data Analysis, Coursera
+    </div>
+    <div class="date">2016</div>
+  </div>
+</section>
+
+<section>
+  <h2>Key Competences</h2>
+  <div>
+    Software engineering, automation, machine learning, data analysis, data visualization.
+  </div>
+</section>
+
+<section>
+  <h2>Computer Skills</h2>
+  <div>
+    Programming languages: Python, R, Java, others. Linux. Latex. HTML, JS.<br/>
+    Github: https://github.com/mxposed
+  </div>
+</section>
+
+<section>
+  <h2>Personal Information</h2>
+  <div>
+    Russian citizenship<br/>
+    Born in 1986
+  </div>
+</section>
+
+</body>
+</html>
