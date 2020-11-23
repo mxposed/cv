@@ -49,9 +49,6 @@ h1 {
 h3 {
   font-size: 130%;
 }
-h3+section {
-  margin-top: 40px;
-}
 section {
   margin-bottom: 20px;
 }
@@ -79,7 +76,6 @@ a:after {
     font-size: 80%;
     margin-left: 4px;
 }
-
 .entry .date {
   min-width: 100px;
   justify-self: flex-end;
@@ -88,6 +84,9 @@ a:after {
 }
 .entry .details {
   margin-left: 20px;
+}
+.publications .details {
+    margin-top: 5px;
 }
 .separator {
   height: 1px;
@@ -106,19 +105,19 @@ u {
 
 <h1>Nikolay S. Markov</h1>
 <h3>Curriculum Vitæ</h3>
+<div>nikolay.markov@northwestern.edu</div>
 
-<section>
-  <h2>Contact Details</h2>
-  <div>Email: nikolai.markov@icloud.com
-  </div>
-</section>
-
-<section>
+<section style="margin-top: 40px;">
   <h2>Education</h2>
   <div class="entry">
     <div>M.S. in Bioinformatics, Newcastle University, Newcastle upon Tyne, UK
       <div class="details">
-        Disctinction
+        Disctinction<br/>
+        Dissertation: Evaluation of machine learning strategies for classification and
+        unbiased discovery of the new cell types in the single cell
+        RNA-seq datasets
+        <br/>Advisors:<br/>— Jaume Bacardit, Reader at Newcastle University;
+        <br/>— Alexander Misharin, Assistant Professor at Northwestern University.
       </div>
     </div>
     <div class="date">2017–2018</div>
@@ -133,14 +132,11 @@ u {
   </div>
 </section>
 
-<section>
-  <h2>Publications and Research</h2>
+<section class="publications">
+  <h2>Publications</h2>
   <div class="entry">
-    <div>Alveolitis in severe SARS-CoV-2 pneumonia is driven by self-sustaining
-      circuits between infected alveolar macrophages and T cells
-      <br/><em><a href="https://www.biorxiv.org/content/10.1101/2020.08.05.238188v2">bioRxiv</a></em>
-      <div class="details">
-        Rogan A. Grant*, Luisa Morales-Nebreda*, ※ Nikolay S. Markov*,
+    <div>
+        Rogan A. Grant*, Luisa Morales-Nebreda*, <b>Nikolay S. Markov</b>*,
         Suchitra Swaminathan, Estefany R. Guzman, Darryl A. Abbott, Helen K. Donnelly, Alvaro Donayre,
         Isaac A. Goldberg, Zasu M. Klug, Nicole Borkowski, Ziyan Lu, Hermon Kihshen, Yuliya Politanska,
         Lango Sichizya, Mengjia Kang, Ali Shilatifard, Chao Qi, A. Christine Argento, Jacqueline M. Kruser,
@@ -148,94 +144,112 @@ u {
         Daniel Schneider, Prasanth Nannapaneni, Hiam Abdala-Valencia, Ankit Bharat, Cara J. Gottardi,
         GR Scott Budinger, Alexander V. Misharin, Benjamin D. Singer, Richard G. Wunderink,
         The NU SCRIPT Study Investigators
+      <div class="details">
+        Alveolitis in severe SARS-CoV-2 pneumonia is driven by self-sustaining
+        circuits between infected alveolar macrophages and T cells.
+        <em>bioRxiv</em>, 2020.
+        <a href="https://doi.org/10.1101/2020.08.05.238188">https://doi.org/10.1101/2020.08.05.238188</a>
+        <br/>* equally contributing first co-author
       </div>
       <div class="separator"></div>
     </div>
-    <div class="date">2020</div>
   </div>
   <div class="entry">
-    <div>Lung transplantation for pulmonary fibrosis secondary to severe COVID-19
-      <br/><em><a href="https://www.medrxiv.org/content/10.1101/2020.10.26.20218636v1">medRxiv</a></em>
-      <div class="details">
-        Ankit Bharat, Melissa Querrey, ※ Nikolay S. Markov, Samuel Kim, Chitaru Kurihara,
+    <div>
+        Ankit Bharat, Melissa Querrey, <b>Nikolay S. Markov</b>, Samuel Kim, Chitaru Kurihara,
         Rafael Garza-Castillon, Adwaiy Manerikar, Ali Shilatifard, Rade Tomic,
         Yuliya Politanska, Hiam Abdala-Valencia, Anjana V. Yeldandi, Jon W. Lomasney,
         Alexander V. Misharin, G.R. Scott Budinger
+      <div class="details">
+        Lung transplantation for pulmonary fibrosis secondary to severe COVID-19.
+        <em>medRxiv</em>, 2020.
+        <a href="https://doi.org/10.1101/2020.10.26.20218636">https://doi.org/10.1101/2020.10.26.20218636</a>
       </div>
-      <div class="separator"></div>
     </div>
-    <div class="date">2020</div>
   </div>
   <div class="entry">
-    <div>UCSC Cell Browser: Visualize Your Single-Cell Data
-      <br/><em><a href="https://www.biorxiv.org/content/10.1101/2020.10.30.361162v1.abstract">bioRxiv</a></em>
-      <div class="details">
-        Matthew L. Speir, Aparna Bhaduri, ※ Nikolay S. Markov, Pablo Moreno,
+    <div>
+        Matthew L. Speir, Aparna Bhaduri, <b>Nikolay S. Markov</b>, Pablo Moreno,
         Tomasz J. Nowakowski, Irene Papatheodorou, Alex A. Pollen, Lucas Seninge,
         W. James Kent, Maximilian Haeussler
+      <div class="details">
+        UCSC Cell Browser: Visualize Your Single-Cell Data.
+        <em>bioRxiv</em>, 2020.
+        <a href="https://doi.org/10.1101/2020.10.30.361162">https://doi.org/10.1101/2020.10.30.361162</a>
       </div>
-      <div class="separator"></div>
     </div>
-    <div class="date">2020</div>
   </div>
   <div class="entry">
-    <div>Resetting proteostasis with ISRIB prevents pulmonary fibrosis
-      <br/><em><a href="https://www.biorxiv.org/content/10.1101/2020.02.26.965566v1">bioRxiv</a></em>
-      <div class="details">
-        Satoshi Watanabe, ※ Nikolay S. Markov, Ziyan Lu, Raul Piseaux Aillon,
+    <div>
+        Satoshi Watanabe, <b>Nikolay S. Markov</b>, Ziyan Lu, Raul Piseaux Aillon,
         Saul Soberanes, Constance E. Runyan, Ziyou Ren, Rogan A. Grant,
         Mariana Maciel, Hiam Abdala-Valencia, Yuliya Politanska, Kiwon Nam,
         Lango Sichizya, Hermon G. Kihshen, Nikita Joshi,
         Alexandra C. McQuattie-Pimentel, Richard I. Morimoto, Paul A. Reyfman,
         G.R. Scott Budinger, Alexander V. Misharin
-      </div>
-      <div class="separator"></div>
-    </div>
-    <div class="date">2020</div>
-  </div>
-  <div class="entry" style="margin-top: 60px">
-    <div>Aging imparts cell-autonomous dysfunction to regulatory T cells during
-      recovery from influenza pneumonia
-      <br/><em><a href="https://www.biorxiv.org/content/10.1101/2020.06.05.135194v1">bioRxiv</a></em>
       <div class="details">
-        Luisa Morales-Nebreda, Kathryn A. Helmin, ※ Nikolay S. Markov,
-        Raul Piseaux, Manuel A. Torres Acosta, Hiam Abdala-Valencia,
-        Yuliya Politanska, Benjamin D. Singer
+        Resetting proteostasis with ISRIB prevents pulmonary fibrosis.
+        <em>bioRxiv</em>, 2020.
+        <a href="https://doi.org/10.1101/2020.02.26.965566">https://doi.org/10.1101/2020.02.26.965566</a>
       </div>
     </div>
-    <div class="date">2020</div>
   </div>
   <div class="entry">
-    <div>Impaired phagocytic function in CX3CR1<sup>+</sup> tissue‐resident
-      skeletal muscle macrophages prevents muscle recovery after influenza A
-      virus‐induced pneumonia in old mice
-      <br/><em><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/acel.13180">Aging Cell</a></em>
+    <div>
+        Luisa Morales-Nebreda, Kathryn A. Helmin, <b>Nikolay S. Markov</b>,
+        Raul Piseaux, Manuel A. Torres Acosta, Hiam Abdala-Valencia,
+        Yuliya Politanska, Benjamin D. Singer
       <div class="details">
+        Aging imparts cell-autonomous dysfunction to regulatory T cells during
+        recovery from influenza pneumonia.
+        <em>bioRxiv</em>, 2020.
+        <a href="https://doi.org/10.1101/2020.06.05.135194">https://doi.org/10.1101/2020.06.05.135194</a>
+      </div>
+    </div>
+  </div>
+  <div class="entry">
+    <div>
         Constance E. Runyan, Lynn C. Welch, Emilia Lecuona, Masahiko Shigemura,
         Luciano Amarelle, Hiam Abdala‐Valencia, Nikita Joshi, Ziyan Lu,
-        Kiwon Nam, ※ Nikolay S. Markov, Alexandra C. McQuattie‐Pimentel,
+        Kiwon Nam, <b>Nikolay S. Markov</b>, Alexandra C. McQuattie‐Pimentel,
         Raul Piseaux‐Aillon, Yuliya Politanska, Lango Sichizya,
         Satoshi Watanabe, Kinola J.N. Williams, G. R. Scott Budinger,
         Jacob I. Sznajder, Alexander V. Misharin
+      <div class="details">
+        Impaired phagocytic function in CX3CR1<sup>+</sup> tissue‐resident
+        skeletal muscle macrophages prevents muscle recovery after influenza A
+        virus‐induced pneumonia in old mice.
+      <em>Aging Cell</em>, 2020; 19:e13180.
+      <a href="https://doi.org/10.1111/acel.13180">https://doi.org/10.1111/acel.13180</a>
       </div>
-      <div class="separator"></div>
     </div>
-    <div class="date">2020</div>
   </div>
   <div class="entry">
-    <div>A spatially restricted fibrotic niche in pulmonary fibrosis is
-      sustained by M-CSF/M-CSFR signalling in monocyte-derived
-      alveolar macrophages
-      <br/><em><a href="https://erj.ersjournals.com/content/55/1/1900646.short">European Respiratory Journal</a></em>
-      <div class="details">
+    <div>
         Nikita Joshi, Satoshi Watanabe, Rohan Verma, Renea P. Jablonski,
-        Ching-I Chen, Paul Cheresh, ※ Nikolay S. Markov, Paul A. Reyfman,
+        Ching-I Chen, Paul Cheresh, <b>Nikolay S. Markov</b>, Paul A. Reyfman,
         Alexandra C. McQuattie-Pimentel, Lango Sichizya, Ziyan Lu,
         Raul Piseaux-Aillon, David Kirchenbuechler, Annette S. Flozak,
         Cara J. Gottardi, Carla M. Cuda, Harris Perlman, Manu Jain,
         David W. Kamp, G.R. Scott Budinger, Alexander V. Misharin
+      <div class="details">
+        A spatially restricted fibrotic niche in pulmonary fibrosis is
+        sustained by M-CSF/M-CSFR signalling in monocyte-derived
+        alveolar macrophages.
+      <em>European Respiratory Journal</em>, 2020; 55 (1) 1900646.
+      <a href="https://doi.org/10.1183/13993003.00646-2019">https://doi.org/10.1183/13993003.00646-2019</a>
       </div>
-      <div class="separator"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Coursework</h2>
+  <div class="entry">
+    <div>DGP 440 Immunology
+      <div class="details">
+          Auditioned the course
+      </div>
     </div>
     <div class="date">2020</div>
   </div>
@@ -273,7 +287,8 @@ u {
           systemic sclerosis and other pulmonary diseases. Write manuscripts,
           support and organize data exchange, data management infrastructure,
           survey and apply new tools to RNA-seq analysis, develop in-house
-          algorithms.</div>
+          algorithms, design biological experiments to test hypothesis generated
+          from analysis of transcriptomic data.</div>
       <div class="separator"></div>
     </div>
     <div class="date">2019–present</div>
@@ -292,7 +307,6 @@ u {
     <div>Full-stack software engineer, Yandex, Moscow, Russia
       <div class="details">Develop, design and support web-services and console
       tools for automating and improving employees’ workflows.</div>
-      <div class="separator"></div>
     </div>
     <div class="date">2007–2014</div>
   </div>
@@ -309,9 +323,11 @@ u {
   <h2>Teaching Experience</h2>
   <div class="entry">
     <div>Summer Students Program 2020 at Division of Pulmonary and Critical Care
-      <div class="details">Mentoring college students on a bioinformatics project
-          in a remote setting during the 4-week Summer Students Program. Contributed
-          to project's design, teaching required material and software tutorials,
+      <div class="details">Oversaw a group of 4 college students on a bioinformatics
+          project of analysis of single-cell bronchial brushing samples in a remote
+          setting during the 4-week Summer Students Program. Contributed
+          to project's design, teaching R programming environment, single-cell
+          RNA-seq experimental technology, single-cell analysis software (Seurat),
           mentoring and troubleshooting.</div>
       <div class="separator"></div>
     </div>
@@ -349,9 +365,9 @@ u {
     <div class="date">2018–present</div>
   </div>
   <div class="entry">
-    <div>Dataset visualisation for Reyfman <i>et al.</i>, 2018 paper for Northwestern University
+    <div>Dataset visualisation for Reyfman <i>et al.</i>, 2019 for Northwestern University
       <div class="details">Create a website with interactive dataset visualisation for
-        single-cell RNA-seq lung datasets from Reyfman <i>et al.</i>, 2018 paper using open-source
+        single-cell RNA-seq lung datasets from Reyfman <i>et al.</i>, 2019 using open-source
         tools.</div>
     </div>
     <div class="date">2018</div>
@@ -398,9 +414,9 @@ u {
 </section>
 
 <section>
-  <h2>Computer Skills</h2>
+  <h2>Programming languages</h2>
   <div>
-    Programming languages: Python, R, Java, others. Linux. Latex. HTML, JS.<br/>
+    Python, R, Java, C++, Ruby, Perl. Linux. Latex. HTML, JS.<br/>
     Github: <a href="https://github.com/mxposed">https://github.com/mxposed</a>
   </div>
 </section>
@@ -408,6 +424,8 @@ u {
 <section style="margin-bottom: 0;">
   <h2>Personal Information</h2>
   <div>
+    Spanish: basic; Frech: basic; Japanese: basic<br/>
+    Hobbies: piano, photography<br/>
     Russian citizenship<br/>
     Born in 1986
   </div>
