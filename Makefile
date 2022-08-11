@@ -1,5 +1,7 @@
+current_dir := $(shell pwd)
+
 default:
-	electroshot file:///Users/markov/Documents/CV/cv.html 2048x --format pdf --filename "cv.pdf" --pdf-page-size A4
+	./node_modules/.bin/electron-pdf -m 0 $(current_dir)/cv.html $(current_dir)/cv.pdf
 
 export: default
 	cp -f cv.pdf MarkovCV.pdf

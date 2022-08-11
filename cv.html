@@ -29,10 +29,14 @@ document.addEventListener('readystatechange', function() {
 });
 </script>
 <style type="text/css">
+@page {
+  size: A4 portrait;
+  margin: 20px;
+}
 html {margin: 0; padding: 0;}
 body {
   margin: 0;
-  padding: 0px 20px 0 20px;
+  padding: 0 20px;
   font-family: Cochin;
 }
 .dash {
@@ -44,17 +48,21 @@ h1, h2, h3, h4 {
   margin: 0;
 }
 h1 {
-  font-size: 180%;
+  font-size: 150%;
+}
+h2 {
+  font-size: 130%;
 }
 h3 {
   font-size: 130%;
 }
 section {
   margin-bottom: 20px;
+  /* padding-left: 10px; */
 }
 section h2 {
-  font-family: Optima;
-  margin: 0 0 0 20px;
+  font-family: 'Lucida Grande';
+  margin: 0 0 8px 50px;
 }
 .entry {
   display: flex;
@@ -66,6 +74,7 @@ a {
     text-decoration: none;
     color: black;
     border-bottom: 1px solid gray;
+    white-space: nowrap;
 }
 
 a:after {
@@ -77,9 +86,10 @@ a:after {
     margin-left: 4px;
 }
 .entry .date {
-  min-width: 100px;
+  white-space: nowrap;
+  min-width: 80px;
   justify-self: flex-end;
-  margin-left: 20px;
+  margin-left: 5px;
   text-align: right;
 }
 .entry .details {
@@ -102,17 +112,23 @@ u {
 }
 </style></head>
 <body>
-
 <h1>Nikolay S. Markov</h1>
-<h3>Curriculum Vitæ</h3>
-<div>nikolay.markov@northwestern.edu</div>
+<div>nikolay.markov@northwestern.edu | <a href="https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en">Google Scholar profile</a></div>
 
-<section style="margin-top: 40px;">
+<section style="margin-top: 20px;">
   <h2>Education</h2>
+  <div class="entry">
+    <div>Ph.D. student, Northwestern University, Chicago, USA
+      <div class="details">
+        Driskill Graduate Program in Life Sciences
+      </div>
+    </div>
+    <div class="date">2022–present</div>
+  </div>
   <div class="entry">
     <div>M.S. in Bioinformatics, Newcastle University, Newcastle upon Tyne, UK
       <div class="details">
-        Disctinction<br/>
+        <em>With distinction</em><br/>
         Dissertation: Evaluation of machine learning strategies for classification and
         unbiased discovery of the new cell types in the single cell
         RNA-seq datasets
@@ -146,7 +162,28 @@ u {
         <a href="https://doi.org/10.1038/s41586-020-03148-w">https://doi.org/10.1038/s41586-020-03148-w</a>
         <br/>* equally contributing first co-author
       </div>
-      <div class="separator"></div>
+    </div>
+  </div>
+  <div class="entry">
+    <div>
+        Marc A Sala*, <b>Nikolay S. Markov</b>*, Yuliya Politanska, Hiam Abdala-Valencia, Alexander V Misharin, Manu Jain
+      <div class="details">
+        Expression of ACE2–A Key SARS-CoV-2 Entry Factor–Is Not Increased in the Nasal Mucosa of People with Cystic Fibrosis.
+        <em>American Journal of Respiratory Cell and Molecular Biology</em>, 2022.
+        <a href="https://doi.org/10.1165/rcmb.2021-0341LE">https://doi.org/10.1165/rcmb.2021-0341LE</a>
+        <br/>* equally contributing first co-author
+      </div>
+    </div>
+  </div>
+  <div class="entry">
+    <div>
+      L. Sikkema, D. Strobl, L. Zappia, E. Madissoon, <b>N.S. Markov</b>, … A.V. Misharin, M.C. Nawijn,
+      <br/>M.D. Luecken, F. Theis
+      <div class="details">
+        An integrated cell atlas of the human lung in health and disease.
+        <em>bioRxiv</em>, 2022.
+        <a href="https://doi.org/10.1101/2022.03.10.483747">https://doi.org/10.1101/2022.03.10.483747</a>
+      </div>
     </div>
   </div>
   <div class="entry">
@@ -181,25 +218,23 @@ u {
         <b>NU SCRIPT Study Investigators*</b>, … Alexander V. Misharin,
         Sam M. Janes, Sarah A. Teichmann, Marko Z. Nikolić, Kerstin B. Meyer
       <div class="details">
-        The local and systemic response to SARS-CoV-2 infection in children and adults.
-        <em>medRxiv</em>, 2021.
-        <a href="https://doi.org/10.1101/2021.03.09.21253012">https://doi.org/10.1101/2021.03.09.21253012</a>
+        Local and systemic responses to SARS-CoV-2 infection in children and adults.
+        <em>Nature</em>, 2022; 602 321–327.
+        <a href="https://doi.org/10.1038/s41586-021-04345-x">https://doi.org/10.1038/s41586-021-04345-x</a>
         <br/>* part of the collective author
       </div>
-      <div class="separator"></div>
     </div>
   </div>
   <div class="entry">
     <div>
         Clarissa M. Koch, Andrew D. Prigge, Kishore R. Anekalla, Avani Shukla,
         Hanh Chi Do-Umehara, Leah Setar, Jairo Chavez, Hiam Abdala-Valencia,
-        Yuliya Politanska, <b>Nikolay S. Markov</b>, Grant R. Hahn, Taylor Heald-Sargent,
-        L. Nelson Sanchez-Pinto, William J. Muller, Alexander V. Misharin,
+        Yuliya Politanska, <b>Nikolay S. Markov</b>, … Alexander V. Misharin,
         Karen M. Ridge, Bria M. Coates
       <div class="details">
-        Immune response to SARS-CoV-2 in the nasal mucosa in children and adults.
-        <em>medRxiv</em>, 2021.
-        <a href="https://doi.org/10.1101/2021.01.26.21250269">https://doi.org/10.1101/2021.01.26.21250269</a>
+        Age-related Differences in the Nasal Mucosal Immune Response to SARS-CoV-2.
+        <em>American Journal of Respiratory Cell and Molecular Biology</em>, 2021; volume 66 issue 2.
+        <a href="https://doi.org/10.1165/rcmb.2021-0292OC">https://doi.org/10.1165/rcmb.2021-0292OC</a>
       </div>
     </div>
   </div>
@@ -231,15 +266,13 @@ u {
   <div class="entry">
     <div>
         Constance E. Runyan, Lynn C. Welch, Emilia Lecuona, Masahiko Shigemura,
-        Luciano Amarelle, Hiam Abdala‐Valencia, Nikita Joshi, Ziyan Lu,
-        Kiwon Nam, <b>Nikolay S. Markov</b>, Alexandra C. McQuattie‐Pimentel,
-        Raul Piseaux‐Aillon, Yuliya Politanska, Lango Sichizya,
-        Satoshi Watanabe, Kinola J.N. Williams, G. R. Scott Budinger,
+        Luciano Amarelle, Hiam Abdala-Valencia, Nikita Joshi, Ziyan Lu,
+        Kiwon Nam, <b>Nikolay S. Markov</b>, … G. R. Scott Budinger,
         Jacob I. Sznajder, Alexander V. Misharin
       <div class="details">
-        Impaired phagocytic function in CX3CR1<sup>+</sup> tissue‐resident
+        Impaired phagocytic function in CX3CR1<sup>+</sup> tissue-resident
         skeletal muscle macrophages prevents muscle recovery after influenza A
-        virus‐induced pneumonia in old mice.
+        virus-induced pneumonia in old mice.
       <em>Aging Cell</em>, 2020; 19:e13180.
       <a href="https://doi.org/10.1111/acel.13180">https://doi.org/10.1111/acel.13180</a>
       </div>
@@ -249,10 +282,7 @@ u {
     <div>
         Nikita Joshi, Satoshi Watanabe, Rohan Verma, Renea P. Jablonski,
         Ching-I Chen, Paul Cheresh, <b>Nikolay S. Markov</b>, Paul A. Reyfman,
-        Alexandra C. McQuattie-Pimentel, Lango Sichizya, Ziyan Lu,
-        Raul Piseaux-Aillon, David Kirchenbuechler, Annette S. Flozak,
-        Cara J. Gottardi, Carla M. Cuda, Harris Perlman, Manu Jain,
-        David W. Kamp, G.R. Scott Budinger, Alexander V. Misharin
+        … G.R. Scott Budinger, Alexander V. Misharin
       <div class="details">
         A spatially restricted fibrotic niche in pulmonary fibrosis is
         sustained by M-CSF/M-CSFR signalling in monocyte-derived
@@ -285,13 +315,16 @@ u {
         Feinberg School of Medicine, Northwestern University, Chicago, USA
       <div class="details">Analyse transcriptomic data from human samples and mouse
           experiments to gain insights into COVID-19, pulmonary fibrosis,
-          systemic sclerosis and other pulmonary diseases. Write manuscripts,
+          systemic sclerosis and other pulmonary diseases. Analyse clinical
+          data to correlate -omics data to clinical states and effects of
+          treatment.
+          Write manuscripts,
           support and organize data exchange, data management infrastructure,
           survey and apply new tools to RNA-seq analysis, develop in-house
           algorithms, design biological experiments to test hypothesis generated
           from analysis of transcriptomic data.</div>
     </div>
-    <div class="date">2019–present</div>
+    <div class="date">2019–2022</div>
   </div>
   <div class="entry">
     <div>Head of maintenance tools development group, Yandex, Moscow, Russia
@@ -372,7 +405,7 @@ u {
 
       <div class="details" style="margin-top:8px">We evaluated the possibility
       of using machine learning methods to rapidly annotate new single cell
-      RNA-seq datasets based on the reference dataset.<br/>
+      RNA-seq datasets based on the reference dataset.
       We assessed the performance of a gradient boosting algorithm
       <tt>catboost</tt> for predicting cell types in Mouse Cell Atlas dataset
       and 3 samples of mouse lungs. We explored several strategies to explicitly
@@ -388,6 +421,12 @@ u {
 
 <section>
   <h2>Miscalleneous</h2>
+  <div class="entry">
+    <div>The Open Problems for Single-Cell Analysis Jamboree
+      <div class="details"><a href="https://openproblems.bio/jamboree/">https://openproblems.bio/jamboree/</a></div>
+    </div>
+    <div class="date">March 2021</div>
+  </div>
   <div class="entry">
     <div>Contributions to single-cell RNA-seq open-source tools <tt>Seurat</tt> and <tt>CellBrowser</tt>,
       bioinformatics tool <tt>biopython</tt>
