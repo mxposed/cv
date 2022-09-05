@@ -1,0 +1,22 @@
+{
+  "name": "cv",
+  "version": "2022.9.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxposed/cv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mxposed/cv/issues"
+  },
+  "homepage": "https://github.com/mxposed/cv#readme",
+  "dependencies": {
+    "electron-pdf": "^20.0.0"
+  }
+}
