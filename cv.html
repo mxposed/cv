@@ -25,6 +25,10 @@ document.addEventListener('readystatechange', function() {
     all = all.replaceAll('–', '<span class="dash">–</span>');
     console.log(all);
     document.body.innerHTML = all;
+
+    document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
+        'en-US', {year: 'numeric', month: 'long'}
+    );
   }
 });
 </script>
@@ -56,7 +60,7 @@ h2 {
   font-size: 140%;
 }
 h3 {
-  font-size: 120%;
+  font-size: 130%;
 }
 section {
   margin-bottom: 20px;
@@ -144,7 +148,7 @@ u {
   <a href="mailto:nikolay.markov@northwestern.edu" class="no-icon">nikolay.markov@northwestern.edu</a> |
   <a href="https://mxposed.github.io" class="no-icon">mxposed.github.io</a> |
   <a href="https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en">Google Scholar profile</a>
-  <span style="float: right; font-size: 11px;">updated Aug 2024</span>
+  <span style="float: right; font-size: 11px;" id="updated-dt">updated</span>
 </div>
 
 <section style="margin-top: 20px;">
@@ -185,13 +189,26 @@ u {
   <h3>1.&nbsp;&nbsp;Research articles under peer-review</h3>
   <div class="entry">
     <div>
+      Zhu M, Pickens CI, <b>Markov NS</b>, Pawlowski A, Kang M, Rasmussen LV, Walter JM, Nadig NR,
+      Singer BD, Wunderink RG, Gao CA, NU SCRIPT Study Investigators.
+      <div class="details">
+        Antibiotic De-escalation Patterns and Outcomes in Critically Ill Patients with
+        Suspected Pneumonia as Informed by Bronchoalveolar Lavage Results.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2024.09.10.24313149v1">https://doi.org/10.1101/2024.09.10.24313149v1</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
       Fenske SW, Peltekian A, Kang M, <b>Markov NS</b>, Zhu M, Grudzinski K, Bak MJ,
       Pawlowski A, Gupta V, Mao Y, Bratchikov S, Stoeger T, Rasmussen LV,
       Choudhary AN, Misharin AV, Singer BD, Budinger GS, Wunderink RG, Agrawal A, Gao CA,
       NU SCRIPT Study Investigators.
       <div class="details">
         Developing and validating a machine learning model to predict successful next-day
-        extubation in the ICU.
+        extubation<br/>in the ICU.
         <em>medRxiv</em>.
         <a href="https://doi.org/10.1101/2024.06.28.24309547v1">https://doi.org/10.1101/2024.06.28.24309547v1</a>
       </div>
@@ -202,7 +219,7 @@ u {
     <div>
       Luecken M, Gigante S, Burkhardt D, Cannoodt R, Strobl D, <b>Markov N</b>, Zappia L, Palla G,
       Lewis W, Dimitrov D, Vinyard M, Magruder D, Andersson A, Dann E, Qin Q, Otto D, Klein M,
-      Botvinnik O, Deconinck L, Waldrant K, Rieck B, Ahlmann-Eltze C, Beltrame EdV, Benz A,
+      Botvinnik O,
       […],
       Bloom J, Pisco A, Saez-Rodriguez J, Wulsin D, Pinello L, Saeys Y, Theis F,
       <s>Krishnaswamy S.</s>
@@ -229,14 +246,14 @@ u {
   <div class="entry">
     <div>
       Bailey JI, Puritz CH, Senkow KJ, <b>Markov NS</b>, Diaz E, Jonasson E, Yu Z, Swaminathan S,
-      Lu Z, Fenske S, Grant RA, Abdala-Valencia H, Mylvaganam RJ, Miller J, Cumming RI, Tighe RM,
-      Gowdy KM, Kalhan R, Jain M, Bharat A, Kurihara C, Estepar Ruben SJ, Estepar Raul SJ,
+      Lu Z, Fenske S, Grant RA, Abdala-Valencia H, […], Jain M, Bharat A, Kurihara C, Estepar Ruben SJ, Estepar Raul SJ,
       Washko GR, Shilatifard A, Sznajder JI, Ridge KM, Budinger GRS, Braun R, Misharin AV, Sala MA.
       <div class="details">
         Expansion of profibrotic monocyte-derived alveolar macrophages in patients with persistent
         respiratory symptoms and radiographic abnormalities after COVID-19.
         <em>bioRxiv</em>.
-        <a href="https://doi.org/10.1101/2023.07.30.551145">https://doi.org/10.1101/2023.07.30.551145</a>
+        <a href="https://doi.org/10.1101/2023.07.30.551145">https://doi.org/10.1101/2023.07.30.551145</a>.
+        Accepted to <em>Nature Immunology</em>.
       </div>
     </div>
     <div class="date">2023</div>
@@ -246,7 +263,7 @@ u {
   <div class="entry">
     <div>
       <b>Markov NS</b>, Ren Z, Senkow KJ, Grant RA, Gao CA, Malsin ES, Sichizya L, Kihshen H,
-      Helmin KA, Jovisic M, Arnold JM, Pérez-Leonor XG, Abdala-Valencia H, Swaminathan S,
+      […],
       Nwaezeapu J, Kang M, Rasmussen L, Ozer EA, Lorenzo-Redondo R, Hultquist JF, Simons LM,
       Rios-Guzman E, Misharin AV, Wunderink RG, Budinger GRS, Singer BD, Morales-Nebreda L;
       NU SCRIPT Study Investigators.
@@ -288,7 +305,7 @@ u {
     </div>
     <div class="date">2023</div>
   </div>
-  <div class="entry">
+  <div class="entry" style="padding-top: 10px;">
     <div>
       Gao CA, Howard FM, <b>Markov NS</b>, Dyer EC, Ramesh S, Luo Y, Pearson AT.
       <div class="details">
@@ -298,9 +315,9 @@ u {
         <a href="https://doi.org/10.1038/s41746-023-00819-6">https://doi.org/10.1038/s41746-023-00819-6</a>
       </div>
     </div>
-    <div class="date">2023</div>
+    <div class="date" style="padding-top: 5px">2023</div>
   </div>
-  <div class="entry" style="padding-top: 20px;">
+  <div class="entry">
     <div>
       Villéger R, Chulkina M, Mifflin RC, <b>Markov NS</b>, Trieu J, Sinha M, Johnson P, Saada JI,
       Adegboyega PA, Luxon BA, Beswick EJ, Powell DW, Pinchuk IV.
@@ -327,7 +344,7 @@ u {
   </div>
   <div class="entry">
     <div>
-      Yoshida M, Worlock KB, Huang N, Lindeboom RGH, Butler CR, Kumasaka N, Dominguez Conde C,
+      Yoshida M, Worlock KB, Huang N, Lindeboom RGH, Butler CR,
       […],
       <s><b>NU SCRIPT Study Investigators</b><sup>†</sup></s>, Reynolds G, Haniffa M, Bowyer GS,
       Coates M, Clatworthy MR, Calero-Nieto FJ, Göttgens B, O’Callaghan C, Sebire NJ, Jolly C,
@@ -397,7 +414,7 @@ u {
   <div class="entry">
     <div>
       Grant RA*, Morales-Nebreda L*, <b>Markov NS</b>*, Swaminathan S, Querrey M, Guzman ER,
-      Abbott DA, Donnelly HK, Donayre A, Goldberg IA, Klug ZM, Borkowski N, Lu Z, Kihshen H,
+      Abbott DA,
       […],
       Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P,
       Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG.
@@ -454,7 +471,7 @@ u {
   </div>
 </section>
 
-<section style="margin-top: 120px; padding-top: 20px;">
+<section style="margin-top: 120px; padding-top: 10px;">
   <h2>Invited Talks</h2>
   <div class="entry">
     <div>Cellular and molecular biomarkers of successful responses to therapy in severe pneumonia,
