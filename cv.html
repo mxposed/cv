@@ -23,7 +23,6 @@ document.addEventListener('readystatechange', function() {
     var all = document.body.innerHTML;
     all = all.replaceAll('—', '<span class="dash">—</span>');
     all = all.replaceAll('–', '<span class="dash">–</span>');
-    console.log(all);
     document.body.innerHTML = all;
 
     document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
@@ -473,6 +472,14 @@ u {
 
 <section style="margin-top: 120px; padding-top: 10px;">
   <h2>Invited Talks</h2>
+  <div class="entry">
+    <div>Host response in severe pneumonia is pathogen-specific
+        <div class="details">
+             Systems Biology for Infectious Diseases Annual Meeting.
+        </div>
+    </div>
+    <div class="date">September 2024</div>
+  </div>
   <div class="entry">
     <div>Cellular and molecular biomarkers of successful responses to therapy in severe pneumonia,
         including COVID-19
