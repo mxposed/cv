@@ -1,0 +1,321 @@
+<!doctype html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
+<script type="text/javascript">
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+String.prototype.replaceAll = function(a, b) {
+  var result = [this];
+  var idx = result.last().indexOf(a);
+  while (idx > -1) {
+    var item = result.pop();
+    result.push(item.substr(0, idx));
+    result.push(b);
+    result.push(item.substr(idx + a.length));
+    idx = result.last().indexOf(a);
+  }
+  return result.join("");
+};
+
+document.addEventListener('readystatechange', function() {
+  if (document.readyState == "complete") {
+    var all = document.body.innerHTML;
+    all = all.replaceAll('—', '<span class="dash">—</span>');
+    all = all.replaceAll('–', '<span class="dash">–</span>');
+    document.body.innerHTML = all;
+
+    document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
+        'en-US', {year: 'numeric', month: 'long'}
+    );
+  }
+});
+</script>
+<style type="text/css">
+@page {
+  size: A4 portrait;
+  margin: 20px;
+}
+html {margin: 0; padding: 0;}
+body {
+  margin: 0;
+  padding: 0 20px;
+  font-family: 'Avenir';
+  font-size: 13px;
+}
+.dash {
+  position: relative;
+  /* top: -2px; */
+}
+h1, h2, h3, h4 {
+  font-family: 'Quattrocento';
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 150%;
+}
+h2 {
+  font-size: 140%;
+}
+h3 {
+  font-size: 130%;
+}
+section {
+  margin-bottom: 20px;
+  /* padding-left: 10px; */
+}
+section h2 {
+  margin: 0 80px 4px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+section h3 {
+  font-family: 'Quattrocento';
+  margin: -5px 0 8px 50px;
+}
+.remark {
+  font-size: 11px;
+  font-family: 'Avenir';
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  line-height: 1.05em;
+}
+sup { /* will not change line height */
+  line-height: 0em;
+}
+a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #abc6ce;
+    display: inline-block;
+    white-space: nowrap;
+}
+a:after {
+    display: inline-block;
+    content: "⎋";
+    transform: scaleX(-1);
+    font-style: normal;
+    font-size: 80%;
+    margin-left: 4px;
+}
+a.no-icon:after {
+    content: "";
+}
+s { /* non-breakable unit */
+  text-decoration: none;
+  white-space: nowrap;
+}
+tt {
+  font-family: 'PT Mono';
+  font-size: 12px;
+}
+.entry .date {
+  white-space: nowrap;
+  min-width: 80px;
+  flex-shrink: 0;
+  justify-self: flex-end;
+  margin-left: 5px;
+  text-align: right;
+}
+.entry .details {
+  margin-left: 20px;
+}
+.entry ul {
+  margin: 0;
+  padding-left: 10px;
+}
+.publications .details {
+    margin-top: 5px;
+}
+.separator {
+  height: 1px;
+  width: 80px;
+  border-bottom: 0.5px solid gray;
+  position: relative;
+  left: 42px;
+  bottom: -8.5px;
+}
+u {
+  text-decoration: none;
+  border-bottom: 0.5px solid gray;
+}
+</style></head>
+<body>
+<h1>Nikolay S. Markov</h1>
+<div>
+  <a href="mailto:nikolai.markov@icloud.com" class="no-icon">nikolai.markov@icloud.com</a> |
+  <a href="https://mxposed.github.io" class="no-icon">mxposed.github.io</a> |
+  <a href="https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en">Google Scholar profile</a>
+  <span style="float: right; font-size: 11px;" id="updated-dt">updated</span>
+</div>
+
+<div style="margin: 15px 40px; line-height: 1.05em;">
+    Ph.D. candidate in Computational Biology with extensive industry software engineering experience and a very strong publication record in discovering pathogenesis and immune response mechanisms in pulmonary diseases. <s>I excel</s> in applying machine learning tools (newly published or custom built) to high-resolution and multimodal data, such as single-cell RNA-seq, spatial transcriptomics or EHR data, to deliver high-quality analytics, interpretability and interactive visualizations. My interest is to use vast amount of published data via novel machine learning models to estimate causal relationships within and between cells. This will inform the search for new therapeutic targets and biomarkers, and will guide future experiments to fill the gaps.
+</div>
+
+<section style="margin-top: 15px;">
+  <h2>Education</h2>
+  <div class="entry">
+      <div><b>Ph.D. in Computational Biology</b>, Northwestern University, Chicago, USA
+      <div class="details">
+          Driskill Graduate Program in Life Sciences
+      </div>
+      </div>
+      <div class="date">2022–2025 (anticipated)</div>
+  </div>
+  <div class="entry">
+      <div><b>M.S. in Bioinformatics</b>, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">
+          <em>With distinction</em>
+      </div>
+      </div>
+      <div class="date">2017–2018</div>
+  </div>
+  <div class="entry">
+      <div>Undergraduate coursework in Biology, Genetics, Moscow State University, Moscow, Russia
+      </div>
+      <div class="date">2003–2006</div>
+  </div>
+</section>
+
+<section>
+  <h2>Work Experience</h2>
+  <div class="entry">
+    <div><b>Post-Baccalaureate Research Fellow, Bioinformatics</b>, Division of Pulmonary and Critical Care Medicine,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">
+        <ul>
+          <li>Analyze scRNAseq and other high-throughput data from human samples and mouse experiments</li>
+          <li>Clean and analyze clinical EHR data from patient cohorts</li>
+          <li>Deliver analytical insights to principal investigators in presentations and data exploration tools</li>
+          <li>Develop and maintain data processing pipelines, data exchange and management infrastructure</li>
+          <li>Write and publish scientific manuscripts</li>
+          <li>Read literature to stay up-to-date with new computational tools for -omics analyses</li>
+        </ul>
+      </div>
+    </div>
+    <div class="date">2019–2022</div>
+  </div>
+  <div class="entry">
+    <div><b>Head of maintenance tools development group</b>, Yandex, Moscow, Russia
+      <div class="details">
+        <ul>
+          <li>Manage a team of engineers: mentoring, resolving conflicts, improving performance, code
+            review, hiring</li>
+          <li>Develop, design and support tools for system administrators and other employees</li>
+        </ul>
+    </div>
+    </div>
+    <div class="date">2014–2017</div>
+  </div>
+  <div class="entry">
+    <div><b>Full-stack software engineer</b>, Yandex, Moscow, Russia
+      <div class="details">
+        <ul>
+          <li>Identify employees’ workflows bottlenecks for automation</li>
+          <li>Develop, design and support web-services and console tools for system administrators and other employees</li>
+        </ul>
+      </div>
+    </div>
+    <div class="date">2007–2014</div>
+  </div>
+  <div class="entry">
+    <div><b>Software engineer</b>, Art. Lebedev Studio, Moscow, Russia
+      <div class="details">Develop and support web-sites and a content management system.</div>
+    </div>
+    <div class="date">2006–2007</div>
+  </div>
+</section>
+
+<section>
+  <h2>Computational skills</h2>
+  <div class="entry">
+    <div>Programming languages:
+      <div class="details">
+        Python, R, Java, C++, Ruby, Perl. Linux. Latex. SQL. HTML, JavaScript.<br/>
+        Github: <a href="https://github.com/mxposed">https://github.com/mxposed</a>
+      </div>
+      Techniques:
+      <div class="details">
+        Machine learning, deep learning (torch, jax), statistics, bayesian modeling, scRNAseq (scanpy, Seurat), <br/>bioinformatics tools, interactive visualizations (d3.js, plotly), pipelines (nextflow, snakemake).
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Key publications<span class="remark">(* denotes equal contribution)</span></h2>
+  <div class="entry">
+    <div>
+      <b>Markov NS</b>,
+      […],
+      Wunderink RG, Budinger GRS, Singer BD, Morales-Nebreda L,
+      NU SCRIPT Study Investigators.
+      <div class="details">
+        A distinctive evolution of alveolar T cell responses is associated with clinical outcomes
+        in unvaccinated patients with SARS-CoV-2 pneumonia.
+        <em>Nature Immunology</em>.
+        <a href="https://doi.org/10.1038/s41590-024-01914-w">10.1038/s41590-024-01914-w</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
+      Gao CA*, <b>Markov NS</b>*, Stoeger T*, […], Misharin AV, Singer BD, NU SCRIPT Study Investigators.
+      <div class="details">
+        Machine learning links unresolving secondary pneumonia to mortality in patients with severe
+        pneumonia, including COVID-19.
+        <em>The Journal of Clinical Investigation (JCI)</em>.
+        <a href="https://doi.org/10.1172/JCI170682">10.1172/JCI170682</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Sikkema L, Ramírez-Suástegui C, Strobl DC, Gillett TE, Zappia L, Madissoon E, <b>Markov NS</b>,
+      […],
+      Theis FJ.
+      <div class="details">
+        An integrated cell atlas of the lung in health and disease.
+        <em>Nature Medicine</em>.
+        <a href="https://doi.org/10.1038/s41591-023-02327-2">10.1038/s41591-023-02327-2</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Speir ML, Bhaduri A, <b>Markov NS</b>, […], Papatheodorou I, Pollen AA,
+      Raney BJ, Seninge L, Kent WJ, Haeussler M.
+      <div class="details">
+        UCSC Cell Browser: visualize your single-cell data.
+        <em>Bioinformatics</em>.
+        <a href="https://doi.org/10.1093/bioinformatics/btab503">10.1093/bioinformatics/btab503</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Grant RA*, Morales-Nebreda L*, <b>Markov NS</b>*,
+      […],
+      Budinger GRS, Misharin AV, Singer BD, Wunderink RG.
+      <div class="details">
+        Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
+        <em>Nature</em>.
+        <a href="https://doi.org/10.1038/s41586-020-03148-w">10.1038/s41586-020-03148-w</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+</section>
+
+</body>
+</html>
