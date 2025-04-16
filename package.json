@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/mxposed/cv#readme",
   "dependencies": {
-    "electron-pdf": "^20.0.0"
+    "electron-pdf": "^25.0.0"
   }
 }
