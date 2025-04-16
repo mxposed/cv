@@ -30,6 +30,25 @@ document.addEventListener('readystatechange', function() {
     );
   }
 });
+
+document.addEventListener('readystatechange', function () {
+    if (document.readyState === "complete") {
+        const pageHeight = 1082;
+        const bodyHeight = document.body.scrollHeight;
+        const totalPages = Math.ceil(bodyHeight / pageHeight);
+
+        for (let i = 0; i < totalPages; i++) {
+            const pageNumber = document.createElement('div');
+            pageNumber.textContent = `page ${i + 1}/${totalPages}`;
+            if (i > 0) {
+                pageNumber.textContent = 'Markov CV ' + pageNumber.textContent;
+            }
+            pageNumber.className = 'page-number';
+            pageNumber.style.top = `${pageHeight * i + pageHeight - 20}px`; // Position at the bottom of the page
+            document.body.appendChild(pageNumber);
+        }
+    }
+});
 </script>
 <style type="text/css">
 @page {
@@ -140,6 +159,14 @@ u {
   text-decoration: none;
   border-bottom: 0.5px solid gray;
 }
+.page-number {
+  position: absolute;
+  right: 10px;
+  font-size: 11px;
+  color: gray;
+  text-align: right;
+  width: 100%;
+}
 </style></head>
 <body>
 <h1>Nikolay S. Markov</h1>
@@ -190,11 +217,39 @@ u {
   <h3>1.&nbsp;&nbsp;Research articles under peer-review</h3>
   <div class="entry">
     <div>
+        Amagai S, Chaudhari V, Chhikara K, Ingraham NE, Hochberg CH, Barker AK, Mao C, Ortiz AC,
+        Weissman GE, Schmid BE, Schwinne M, Bhavani SV, Guleria S, Liao Z, <b>Markov N</b>, Lyons PG,
+        Park-Egan B, CLIF Consortium, Parker WF, Luo Y, Rojas JC, Gao CA.
+      <div class="details">
+        The Epidemiology of Intensive Care Unit Readmissions Across Ten Health Systems.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2025.03.10.25323672">https://doi.org/10.1101/2025.03.10.25323672</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+        Grudzinski KM, Fenske S, Peltekian A, <b>Markov NS</b>, Pawlowski A, Kang M, Walter JM,
+        Pickens CI, Nadig NR, Agrawal A, Singer BD, Wunderink RG, Gao CA.
+      <div class="details">
+        Neutrophil percentages in bronchoalveolar lavage fluid: Implications for diagnosing
+        bacterial pneumonia in patients with immunocompromise and neutropenia.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2024.05.04.24306709">https://doi.org/10.1101/2024.05.04.24306709</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
       Luo L, Możejko M, <b>Markov N</b>, Peltekian A, Mohsin S, Carns M, Cooper P, Lysne J, Joudi A,
       Betensley A, Bemiss BC, Myers C, Bharat A, Tomic R, Arunachalam A, Szczurek E, Budinger GS,
       Misharin AV, Subramani MV.
       <div class="details">
-        Machine learning analysis of the UNOS database fails to predict lung transplant outcomes
+        Machine learning analysis of the UNOS database fails to predict lung transplant outcomes.
         <em>medRxiv</em>.
         <a href="https://doi.org/10.1101/2024.10.19.24315817v1">https://doi.org/10.1101/2024.10.19.24315817v1</a>
       </div>
@@ -246,21 +301,33 @@ u {
     </div>
     <div class="date">2024</div>
   </div>
+
+  <h3>2.&nbsp;&nbsp;Peer-reviewed research articles</h3>
+  <div class="entry">
+    <div>
+      Cannoodt R*, Deconinck L*, Couckuyt A*, <b>Markov NS*</b>, Zappia L, Luecken MD, Interlandi M,
+      Saeys Y, Saelens W.
+      <div class="details">
+        funkyheatmap: Visualising data frames with mixed data types.
+        <em>Journal of Open Source Software</em>.
+        <a href="https://doi.org/10.21105/joss.07698">https://doi.org/10.21105/joss.07698</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
   <div class="entry">
     <div>
       Gao CA, <b>Markov NS</b>, Pickens C, Pawlowski A, Kang M, Walter JM, Singer BD, Wunderink RG.
       <div class="details">
         An observational cohort study of bronchoalveolar lavage fluid galactomannan and Aspergillus
         culture positivity in patients requiring mechanical ventilation.
-        <em>medRxiv</em>.
-        <a href="https://doi.org/10.1101/2024.02.07.24302392">https://doi.org/10.1101/2024.02.07.24302392</a>
+        <em>Open Forum Infectious Diseases</em>.
+        <a href="https://doi.org/10.1093/ofid/ofaf090">https://doi.org/10.1093/ofid/ofaf090</a>
       </div>
     </div>
-    <div class="date">2024</div>
+    <div class="date">2025</div>
   </div>
-
-  <h3>2.&nbsp;&nbsp;Peer-reviewed research articles</h3>
-  <div class="entry">
+  <div class="entry" style="margin-top: 100px; padding-top: 10px;">
     <div>
       <b>Markov NS</b>, Ren Z, Senkow KJ, Grant RA, Gao CA, Malsin ES, Sichizya L, Kihshen H,
       […],
@@ -290,7 +357,7 @@ u {
     </div>
     <div class="date">2024</div>
   </div>
-  <div class="entry" style="margin-top: 100px; padding-top: 10px;">
+  <div class="entry">
     <div>
       Gao CA*, <b>Markov NS</b>*, Stoeger T*, Pawlowski A, Kang M, Nannapaneni P, Grant RA, Pickens C,
       Walter JM, Kruser JM, Rasmussen L, Schneider D, Starren J, Donnelly HK, Donayre A, Luo Y,
@@ -411,7 +478,7 @@ u {
     </div>
     <div class="date">2021</div>
   </div>
-  <div class="entry">
+  <div class="entry" style="margin-top: 100px; padding-top: 10px;">
     <div>
       Morales-Nebreda L, Helmin KA, Acosta MAT, <b>Markov NS</b>, Hu JYS, Joudi AM, Piseaux-Aillon R,
       Abdala-Valencia H, Politanska Y, Singer BD.
@@ -453,7 +520,7 @@ u {
     </div>
     <div class="date">2020</div>
   </div>
-  <div class="entry" style="margin-top: 120px; padding-top: 10px;">
+  <div class="entry">
     <div>
       Runyan CE, Welch LC, Lecuona E, Shigemura M, Amarelle L, Abdala‐Valencia H, Joshi N, Lu Z,
       Nam K, <b>Markov NS</b>, McQuattie‐Pimentel AC, Piseaux‐Aillon R, Politanska Y, Sichizya L,
@@ -488,7 +555,15 @@ u {
 <section>
   <h2>Invited Talks</h2>
   <div class="entry">
-    <div>Host response in severe pneumonia is pathogen-specific
+    <div>Distinct pathogen-specific host responses in patients with severe pneumonia.
+        <div class="details">
+            Systems Biology Consortium for Infectious Diseases Lecture Series.
+        </div>
+    </div>
+    <div class="date">March 2025</div>
+  </div>
+  <div class="entry">
+    <div>Host response in severe pneumonia is pathogen-specific.
         <div class="details">
              Systems Biology for Infectious Diseases Annual Meeting.
         </div>
@@ -497,7 +572,7 @@ u {
   </div>
   <div class="entry">
     <div>Cellular and molecular biomarkers of successful responses to therapy in severe pneumonia,
-        including COVID-19
+        including COVID-19.
         <div class="details">
             CZI Single-Cell Biology 2022 Annual meeting.
             <a href="https://fast.wistia.com/embed/channel/n9ne6nikz4?wchannelid=n9ne6nikz4&wmediaid=x46zqa026r">Recording</a>
@@ -506,7 +581,7 @@ u {
     <div class="date">November 2022</div>
   </div>
   <div class="entry">
-    <div>Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia
+    <div>Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
       <div class="details">
         American Thoracic Society Allergy, Immunology and Inflammation (AII) assembly
         journal club.<br/>
@@ -569,7 +644,7 @@ u {
     </div>
     <div class="date">2007–2014</div>
   </div>
-  <div class="entry">
+  <div class="entry" style="padding-top: 10px;">
     <div>Software engineer, Art. Lebedev Studio, Moscow, Russia
       <div class="details">Develop and support web-sites and a content management system.</div>
     </div>
