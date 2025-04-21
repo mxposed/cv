@@ -1,0 +1,349 @@
+<!doctype html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
+<script type="text/javascript">
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+String.prototype.replaceAll = function(a, b) {
+  var result = [this];
+  var idx = result.last().indexOf(a);
+  while (idx > -1) {
+    var item = result.pop();
+    result.push(item.substr(0, idx));
+    result.push(b);
+    result.push(item.substr(idx + a.length));
+    idx = result.last().indexOf(a);
+  }
+  return result.join("");
+};
+
+document.addEventListener('readystatechange', function() {
+  if (document.readyState == "complete") {
+    var all = document.body.innerHTML;
+    all = all.replaceAll('—', '<span class="dash">—</span>');
+    all = all.replaceAll('–', '<span class="dash">–</span>');
+    document.body.innerHTML = all;
+
+    document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
+        'en-US', {year: 'numeric', month: 'long'}
+    );
+  }
+});
+</script>
+<style type="text/css">
+@page {
+  size: A4 portrait;
+  margin: 20px;
+}
+html {margin: 0; padding: 0;}
+body {
+  margin: 0;
+  padding: 0 20px;
+  font-family: 'Avenir';
+  font-size: 13px;
+}
+.dash {
+  position: relative;
+  /* top: -2px; */
+}
+h1, h2, h3, h4 {
+  font-family: 'Quattrocento';
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 150%;
+}
+h2 {
+  font-size: 140%;
+}
+h3 {
+  font-size: 130%;
+}
+section {
+  margin-bottom: 15px;
+  /* padding-left: 10px; */
+}
+section h2 {
+  margin: 0 80px 4px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+section h3 {
+  font-family: 'Quattrocento';
+  margin: -5px 0 8px 50px;
+}
+.remark {
+  font-size: 11px;
+  font-family: 'Avenir';
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  line-height: 1.05em;
+}
+sup { /* will not change line height */
+  line-height: 0em;
+}
+a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #abc6ce;
+    display: inline-block;
+    white-space: nowrap;
+}
+a:after {
+    display: inline-block;
+    content: "⎋";
+    transform: scaleX(-1);
+    font-style: normal;
+    font-size: 80%;
+    margin-left: 4px;
+}
+a.no-icon:after {
+    content: "";
+}
+s { /* non-breakable unit */
+  text-decoration: none;
+  white-space: nowrap;
+}
+tt {
+  font-family: 'PT Mono';
+  font-size: 12px;
+}
+.entry .date {
+  white-space: nowrap;
+  min-width: 80px;
+  flex-shrink: 0;
+  justify-self: flex-end;
+  margin-left: 5px;
+  text-align: right;
+}
+.entry .details {
+  margin-left: 20px;
+}
+.entry ul {
+  margin: 0;
+  padding-left: 10px;
+}
+.publications .details {
+    margin-top: 5px;
+}
+.separator {
+  height: 1px;
+  width: 80px;
+  border-bottom: 0.5px solid gray;
+  position: relative;
+  left: 42px;
+  bottom: -8.5px;
+}
+u {
+  text-decoration: none;
+  border-bottom: 0.5px solid gray;
+}
+.entry.two-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+}
+.entry.two-col > div {
+  flex: 1 1 calc(50% - 21px);
+  padding-left: 10px;
+  text-indent: -10px;
+}
+</style></head>
+<body>
+<h1>Nikolay S. Markov</h1>
+<div>
+  <a href="mailto:nikolai.markov@icloud.com" class="no-icon">nikolai.markov@icloud.com</a> |
+  <a href="https://mxposed.github.io" class="no-icon">mxposed.github.io</a> |
+  <a href="https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en">Google Scholar profile</a>
+  <span style="float: right; font-size: 11px;" id="updated-dt">updated</span>
+</div>
+
+<div style="margin: 10px 40px; line-height: 1.05em;">
+    Machine learning scientist in biomedical field with expertise in developing and applying advanced ML models to multimodal healthcare data. Skilled in building predictive algorithms using clinical, transcriptomic, and imaging data to derive actionable insights that improve patient outcomes, and propose new therapies. Experienced in communicating complex technical findings to diverse stakeholders while collaborating across interdisciplinary teams.
+</div>
+
+<section>
+  <h2>Technical expertise</h2>
+  <div class="entry two-col">
+    <div>
+      • <b>Machine learning</b><br/>
+      Deep learning frameworks (torch, jax), large language models, multimodal fusion, embedding representations, bayesian modeling
+    </div>
+    <div>
+      • <b>Healthcare data</b><br/>
+      Electronic health records (EHR), clinical notes analysis, single-cell RNA-seq, spatial transcriptomics, imaging data, statistics
+    </div>
+    <div>
+      • <b>Software & tools</b><br/>
+      Python, R, SQL, Linux, computational clusters, interactive visualizations, pipelines
+    </div>
+    <div>
+      • <b>Leadership</b><br/>
+      Cross-functional collaboration, project management, team management, mentorship, scientific communication
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Work experience</h2>
+  <div class="entry">
+    <div><b>Ph.D. researcher</b>, Division of Pulmonary and Critical Care Medicine,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">
+        <ul>
+          <li>Developed machine learning models integrating EHR and RNA-seq data to predict patient outcomes from severe pneumonia</li>
+          <li>Created interpretable ML algorithms to identify key molecular features across multiple data modalities</li>
+          <li>Acquired external funding for the project through competitive AHA predoctoral fellowship</li>
+          <li>Consulted Northwestern students and faculty on deep learning, data science and data visualization</li>
+          <li>Presented and published our research in 3 peer-reviewed papers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="date">2022–present</div>
+  </div>
+  <div class="entry">
+    <div><b>Post-baccalaureate research fellow, bioinformatics</b>, Division of Pulmonary and Critical Care Medicine,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">
+        <ul>
+          <li>Built and deployed machine learning pipelines for integrated analysis of high-dimensional transcriptomic data</li>
+          <li>Engineered feature extraction algorithms for clinical EHR data to identify patient outcome predictors</li>
+          <li>Developed interactive visualization tools to present complex analysis results to clinical teams</li>
+          <li>Maintained data processing infrastructure for sensitive healthcare data across multiple research teams</li>
+        </ul>
+      </div>
+    </div>
+    <div class="date">2019–2022</div>
+  </div>
+  <div class="entry">
+    <div><b>Head of maintenance tools development group</b>, Yandex, Moscow, Russia
+      <div class="details">
+        <ul>
+          <li>Managed a team of 6 engineers: hiring, mentoring, resolving conflicts, improving performance</li>
+          <li>Developed, designed and supported tools for system administrators and other employees</li>
+        </ul>
+    </div>
+    </div>
+    <div class="date">2014–2017</div>
+  </div>
+  <div class="entry">
+    <div><b>Full-stack software engineer</b>, Yandex, Moscow, Russia
+      <div class="details">
+        <ul>
+          <li>Identified employees’ workflows bottlenecks for automation</li>
+          <li>Developed, designed and supported web-services and console tools for system administrators and other employees</li>
+        </ul>
+      </div>
+    </div>
+    <div class="date">2007–2014</div>
+  </div>
+  <div class="entry">
+    <div><b>Software engineer</b>, Art. Lebedev Studio, Moscow, Russia
+      <div class="details">Developed and supported web-sites and a content management system</div>
+    </div>
+    <div class="date">2006–2007</div>
+  </div>
+</section>
+
+<section>
+  <h2>Key publications<span class="remark">(* denotes equal contribution)</span></h2>
+  <div class="entry">
+    <div>
+      <b>Markov NS</b>,
+      […],
+      Budinger GRS, Singer BD, Morales-Nebreda L,
+      NU SCRIPT Study Investigators.
+      <div class="details">
+        A distinctive evolution of alveolar T cell responses is associated with clinical outcomes
+        in unvaccinated patients with SARS-CoV-2 pneumonia.
+        <em>Nature Immunology</em>.
+        <a href="https://doi.org/10.1038/s41590-024-01914-w">10.1038/s41590-024-01914-w</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
+      Gao CA*, <b>Markov NS</b>*, Stoeger T*, […], Misharin AV, Singer BD, NU SCRIPT Study Investigators.
+      <div class="details">
+        Machine learning links unresolving secondary pneumonia to mortality in patients with severe
+        pneumonia, including COVID-19.
+        <em>The Journal of Clinical Investigation (JCI)</em>.
+        <a href="https://doi.org/10.1172/JCI170682">10.1172/JCI170682</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Sikkema L, Ramírez-Suástegui C, Strobl DC, Gillett TE, Zappia L, Madissoon E, <b>Markov NS</b>,
+      […],
+      Theis FJ.
+      <div class="details">
+        An integrated cell atlas of the lung in health and disease.
+        <em>Nature Medicine</em>.
+        <a href="https://doi.org/10.1038/s41591-023-02327-2">10.1038/s41591-023-02327-2</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Speir ML, Bhaduri A, <b>Markov NS</b>, […], Pollen AA,
+      Raney BJ, Seninge L, Kent WJ, Haeussler M.
+      <div class="details">
+        UCSC Cell Browser: visualize your single-cell data.
+        <em>Bioinformatics</em>.
+        <a href="https://doi.org/10.1093/bioinformatics/btab503">10.1093/bioinformatics/btab503</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Grant RA*, Morales-Nebreda L*, <b>Markov NS</b>*,
+      […],
+      Budinger GRS, Misharin AV, Singer BD, Wunderink RG.
+      <div class="details">
+        Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
+        <em>Nature</em>.
+        <a href="https://doi.org/10.1038/s41586-020-03148-w">10.1038/s41586-020-03148-w</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+</section>
+
+<section style="margin-top: 15px;">
+  <h2>Education</h2>
+  <div class="entry">
+      <div><b>Ph.D. in Computational Biology</b>, Northwestern University, Chicago, USA
+      <div class="details">
+          Driskill Graduate Program in Life Sciences
+      </div>
+      </div>
+      <div class="date">2022–2025 (anticipated in June)</div>
+  </div>
+  <div class="entry">
+      <div><b>M.S. in Bioinformatics</b>, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">
+          <em>With distinction</em>
+      </div>
+      </div>
+      <div class="date">2017–2018</div>
+  </div>
+  <div class="entry">
+      <div>Undergraduate coursework in Biology, Genetics, Moscow State University, Moscow, Russia
+      </div>
+      <div class="date">2003–2006</div>
+  </div>
+</section>
+
+</body>
+</html>
