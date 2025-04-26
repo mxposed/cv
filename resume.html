@@ -144,6 +144,16 @@ u {
   text-decoration: none;
   border-bottom: 0.5px solid gray;
 }
+.entry.two-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+}
+.entry.two-col > div {
+  flex: 1 1 calc(50% - 21px);
+  padding-left: 10px;
+  text-indent: -10px;
+}
 </style></head>
 <body>
 <h1>Nikolay S. Markov</h1>
@@ -158,28 +168,25 @@ u {
     <s>I excel</s> in applying machine learning tools (newly published or custom built) to high-resolution and multimodal data, such as single-cell RNA-seq, spatial transcriptomics or EHR data, to deliver high-quality analytics, interpretability and interactive visualizations. My interest is to use vast amount of published and private multimodal data via novel machine learning models to improve our understanding of common diseases and factors that determine patient individual outcomes.
 </div>
 
-<section style="margin-top: 15px;">
-  <h2>Education</h2>
-  <div class="entry">
-      <div><b>Ph.D. in Computational Biology</b>, Northwestern University, Chicago, USA
-      <div class="details">
-          Driskill Graduate Program in Life Sciences
-      </div>
-      </div>
-      <div class="date">2022–2025 (anticipated in June)</div>
-  </div>
-  <div class="entry">
-      <div><b>M.S. in Bioinformatics</b>, Newcastle University, Newcastle upon Tyne, UK
-      <div class="details">
-          <em>With distinction</em>
-      </div>
-      </div>
-      <div class="date">2017–2018</div>
-  </div>
-  <div class="entry">
-      <div>Undergraduate coursework in Biology, Genetics, Moscow State University, Moscow, Russia
-      </div>
-      <div class="date">2003–2006</div>
+<section>
+  <h2>Technical expertise</h2>
+  <div class="entry two-col">
+    <div>
+      • <b>Machine learning</b><br/>
+      Deep learning frameworks (torch, jax), large language models, multimodal fusion, embedding representations, bayesian modeling
+    </div>
+    <div>
+      • <b>Healthcare data</b><br/>
+      Electronic health records (EHR), clinical notes analysis, single-cell RNA-seq, spatial transcriptomics, imaging data, statistics
+    </div>
+    <div>
+      • <b>Software & tools</b><br/>
+      Python, R, SQL, Linux, computational clusters, interactive visualizations, pipelines
+    </div>
+    <div>
+      • <b>Leadership</b><br/>
+      Cross-functional collaboration, project management, team management, mentorship, scientific communication
+    </div>
   </div>
 </section>
 
@@ -191,13 +198,13 @@ u {
       <div class="details">
         <ul>
           <li>Analyzed scRNAseq and EHR data jointly to understand patient response to severe pneumonia, including COVID-19</li>
-          <li>Acquired external funding for the project (AHA predoctoral fellowship)</li>
+          <li>Acquired external funding for the project (competitive AHA predoctoral fellowship)</li>
           <li>Consulted Northwestern students and faculty on deep learning, data science and data visualization</li>
           <li>Presented and published our research in 3 peer-reviewed papers</li>
         </ul>
       </div>
     </div>
-    <div class="date">2022–2025</div>
+    <div class="date">2022–present</div>
   </div>
   <div class="entry">
     <div><b>Post-baccalaureate research fellow, bioinformatics</b>, Division of Pulmonary and Critical Care Medicine,<br/>
@@ -240,22 +247,6 @@ u {
       <div class="details">Developed and supported web-sites and a content management system</div>
     </div>
     <div class="date">2006–2007</div>
-  </div>
-</section>
-
-<section>
-  <h2>Computational skills</h2>
-  <div class="entry">
-    <div>Programming languages:
-      <div class="details">
-        Python, R, Java, C++, Ruby, Perl. Linux. Latex. SQL. HTML, JavaScript.
-        Github: <a href="https://github.com/mxposed">https://github.com/mxposed</a>
-      </div>
-      Techniques:
-      <div class="details">
-        Machine learning, deep learning (torch, jax), statistics, bayesian modeling, scRNAseq (scanpy, Seurat), <br/>bioinformatics tools, interactive visualizations (d3.js, plotly), pipelines (nextflow, snakemake).
-      </div>
-    </div>
   </div>
 </section>
 
@@ -325,6 +316,31 @@ u {
       </div>
     </div>
     <div class="date">2021</div>
+  </div>
+</section>
+
+<section style="margin-top: 15px;">
+  <h2>Education</h2>
+  <div class="entry">
+      <div><b>Ph.D. in Computational Biology</b>, Northwestern University, Chicago, USA
+      <div class="details">
+          Driskill Graduate Program in Life Sciences
+      </div>
+      </div>
+      <div class="date">2022–2025 (anticipated in June)</div>
+  </div>
+  <div class="entry">
+      <div><b>M.S. in Bioinformatics</b>, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">
+          <em>With distinction</em>
+      </div>
+      </div>
+      <div class="date">2017–2018</div>
+  </div>
+  <div class="entry">
+      <div>Undergraduate coursework in Biology, Genetics, Moscow State University, Moscow, Russia
+      </div>
+      <div class="date">2003–2006</div>
   </div>
 </section>
 
