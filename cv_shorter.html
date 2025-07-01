@@ -1,0 +1,728 @@
+<!doctype html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
+<script type="text/javascript">
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+String.prototype.replaceAll = function(a, b) {
+  var result = [this];
+  var idx = result.last().indexOf(a);
+  while (idx > -1) {
+    var item = result.pop();
+    result.push(item.substr(0, idx));
+    result.push(b);
+    result.push(item.substr(idx + a.length));
+    idx = result.last().indexOf(a);
+  }
+  return result.join("");
+};
+
+document.addEventListener('readystatechange', function() {
+  if (document.readyState == "complete") {
+    var all = document.body.innerHTML;
+    all = all.replaceAll('—', '<span class="dash">—</span>');
+    all = all.replaceAll('–', '<span class="dash">–</span>');
+    document.body.innerHTML = all;
+
+    document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
+        'en-US', {year: 'numeric', month: 'long'}
+    );
+  }
+});
+
+document.addEventListener('readystatechange', function () {
+    if (document.readyState === "complete") {
+        const pageHeight = 1082;
+        const bodyHeight = document.body.scrollHeight;
+        const totalPages = Math.ceil(bodyHeight / pageHeight);
+
+        for (let i = 0; i < totalPages; i++) {
+            const pageNumber = document.createElement('div');
+            pageNumber.textContent = `page ${i + 1}/${totalPages}`;
+            if (i > 0) {
+                pageNumber.textContent = 'Markov CV ' + pageNumber.textContent;
+            }
+            pageNumber.className = 'page-number';
+            pageNumber.style.top = `${pageHeight * i + pageHeight - 20}px`; // Position at the bottom of the page
+            document.body.appendChild(pageNumber);
+        }
+    }
+});
+</script>
+<style type="text/css">
+@page {
+  size: A4 portrait;
+  margin: 20px;
+}
+html {margin: 0; padding: 0;}
+body {
+  margin: 0;
+  padding: 0 20px;
+  font-family: 'Avenir';
+  font-size: 13px;
+}
+.dash {
+  position: relative;
+  /* top: -2px; */
+}
+h1, h2, h3, h4 {
+  font-family: 'Quattrocento';
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 150%;
+}
+h2 {
+  font-size: 140%;
+}
+h3 {
+  font-size: 130%;
+}
+section {
+  margin-bottom: 20px;
+  /* padding-left: 10px; */
+}
+section h2 {
+  margin: 0 80px 4px 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+section h3 {
+  font-family: 'Quattrocento';
+  margin: -5px 0 8px 50px;
+}
+.remark {
+  font-size: 11px;
+  font-family: 'Avenir';
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  line-height: 1.05em;
+}
+sup { /* will not change line height */
+  line-height: 0em;
+}
+a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #abc6ce;
+    display: inline-block;
+    white-space: nowrap;
+}
+a:after {
+    display: inline-block;
+    content: "⎋";
+    transform: scaleX(-1);
+    font-style: normal;
+    font-size: 80%;
+    margin-left: 4px;
+}
+a.no-icon:after {
+    content: "";
+}
+s { /* non-breakable unit */
+  text-decoration: none;
+  white-space: nowrap;
+}
+tt {
+  font-family: 'PT Mono';
+  font-size: 12px;
+}
+.entry .date {
+  white-space: nowrap;
+  min-width: 80px;
+  flex-shrink: 0;
+  justify-self: flex-end;
+  margin-left: 5px;
+  text-align: right;
+}
+.entry .details {
+  margin-left: 20px;
+}
+.publications .details {
+    margin-top: 5px;
+}
+.separator {
+  height: 1px;
+  width: 80px;
+  border-bottom: 0.5px solid gray;
+  position: relative;
+  left: 42px;
+  bottom: -8.5px;
+}
+u {
+  text-decoration: none;
+  border-bottom: 0.5px solid gray;
+}
+.page-number {
+  position: absolute;
+  right: 10px;
+  font-size: 11px;
+  color: gray;
+  text-align: right;
+  width: 100%;
+}
+</style></head>
+<body>
+<h1>Nikolay S. Markov</h1>
+<div>
+  <a href="mailto:nikolay.markov@northwestern.edu" class="no-icon">nikolay.markov@northwestern.edu</a> |
+  <a href="https://mxposed.github.io" class="no-icon">mxposed.github.io</a> |
+  <a href="https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en">Google Scholar profile</a>
+  <span style="float: right; font-size: 11px;" id="updated-dt">updated</span>
+</div>
+
+<section style="margin-top: 20px;">
+  <h2>Education</h2>
+  <div class="entry">
+    <div>Ph.D. candidate, Northwestern University, Chicago, USA
+      <div class="details">
+        Driskill Graduate Program in Life Sciences<br/>
+        Advisors:<br/>— Alexander Misharin, Associate Professor at Northwestern University;
+        <br/>— Rosemary Braun, Associate Professor at Northwestern University.
+      </div>
+    </div>
+    <div class="date">2022–present</div>
+  </div>
+  <div class="entry">
+    <div>M.S. in Bioinformatics, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">
+        <em>With distinction</em><br/>
+        Advisors:<br/>— Jaume Bacardit, Reader at Newcastle University;
+        <br/>— Alexander Misharin, Assistant Professor at Northwestern University.
+      </div>
+    </div>
+    <div class="date">2017–2018</div>
+  </div>
+  <div class="entry">
+    <div>Undergraduate coursework in Biology, Moscow State University, Moscow, Russia
+      <div class="details">
+        Genetics major
+      </div>
+    </div>
+    <div class="date">2003–2006</div>
+  </div>
+</section>
+
+<section>
+  <h2>Work Experience</h2>
+  <div class="entry">
+    <div>Ph.D. researcher, Division of Pulmonary and Critical Care Medicine,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">
+        Analyzed scRNAseq and EHR data jointly to understand patient response to severe pneumonia, including COVID-19.
+        Consulted Northwestern students and faculty on deep learning, data science and data visualization.
+      </div>
+    </div>
+    <div class="date">2022–present</div>
+  </div>
+  <div class="entry">
+    <div>Post-Baccalaureate Research Fellow, Division of Pulmonary and Critical Care Medicine,<br/>
+        Feinberg School of Medicine, Northwestern University, Chicago, USA
+      <div class="details">
+        Analyzed transcriptomic data from human samples and mouse experiments to gain insights into
+        pulmonary fibrosis, systemic sclerosis and other pulmonary diseases. Supported and organized
+        data exchange, data management infrastructure, computational pipelines.
+      </div>
+    </div>
+    <div class="date">2019–2022</div>
+  </div>
+  <div class="entry">
+    <div>Head of maintenance tools development group, Yandex, Moscow, Russia
+      <div class="details">
+        Manage a team of developers: mentoring, resolving conflicts, improving performance, code
+        review. Develop, design and support tools for system administrators and other employees.
+    </div>
+    </div>
+    <div class="date">2014–2017</div>
+  </div>
+  <div class="entry">
+    <div>Full-stack software engineer, Yandex, Moscow, Russia
+      <div class="details">
+        Develop, design and support web-services and console tools for improving employees’ workflows.
+      </div>
+    </div>
+    <div class="date">2007–2014</div>
+  </div>
+  <div class="entry" style="padding-top: 10px;">
+    <div>Software engineer, Art. Lebedev Studio, Moscow, Russia
+      <div class="details">Develop and support web-sites and a content management system.</div>
+    </div>
+    <div class="date">2006–2007</div>
+  </div>
+</section>
+
+<section class="publications">
+  <h2>
+    Publications
+    <span class="remark">(* denotes equal contribution)</span>
+  </h2>
+  <h3>1.&nbsp;&nbsp;Research articles under peer-review</h3>
+  <div class="entry">
+    <div>
+        Amagai S, Chaudhari V, Chhikara K, Ingraham NE, Hochberg CH, Barker AK, Mao C, Ortiz AC,
+        Weissman GE, Schmid BE, Schwinne M, Bhavani SV, Guleria S, Liao Z, <b>Markov N</b>, Lyons PG,
+        Park-Egan B, CLIF Consortium, Parker WF, Luo Y, Rojas JC, Gao CA.
+      <div class="details">
+        The Epidemiology of Intensive Care Unit Readmissions Across Ten Health Systems.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2025.03.10.25323672">https://doi.org/10.1101/2025.03.10.25323672</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+        Grudzinski KM, Fenske S, Peltekian A, <b>Markov NS</b>, Pawlowski A, Kang M, Walter JM,
+        Pickens CI, Nadig NR, Agrawal A, Singer BD, Wunderink RG, Gao CA.
+      <div class="details">
+        Neutrophil percentages in bronchoalveolar lavage fluid: Implications for diagnosing
+        bacterial pneumonia in patients with immunocompromise and neutropenia.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2024.05.04.24306709">https://doi.org/10.1101/2024.05.04.24306709</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      Luo L, Możejko M, <b>Markov N</b>, Peltekian A, Mohsin S, Carns M, Cooper P, Lysne J, Joudi A,
+      Betensley A, Bemiss BC, Myers C, Bharat A, Tomic R, Arunachalam A, Szczurek E, Budinger GS,
+      Misharin AV, Subramani MV.
+      <div class="details">
+        Machine learning analysis of the UNOS database fails to predict lung transplant outcomes.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2024.10.19.24315817v1">https://doi.org/10.1101/2024.10.19.24315817v1</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
+      Fenske SW, Peltekian A, Kang M, <b>Markov NS</b>, Zhu M, Grudzinski K, Bak MJ,
+      Pawlowski A, Gupta V, Mao Y, Bratchikov S, Stoeger T, Rasmussen LV,
+      Choudhary AN, Misharin AV, Singer BD, Budinger GS, Wunderink RG, Agrawal A, Gao CA,
+      NU SCRIPT Study Investigators.
+      <div class="details">
+        Developing and validating a machine learning model to predict successful next-day
+        extubation<br/>in the ICU.
+        <em>medRxiv</em>.
+        <a href="https://doi.org/10.1101/2024.06.28.24309547">https://doi.org/10.1101/2024.06.28.24309547</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry" style="margin-top: 100px; padding-top: 10px;">
+    <div>
+      Luecken M, Gigante S, Burkhardt D, Cannoodt R, Strobl D, <b>Markov N</b>, Zappia L, Palla G,
+      Lewis W, Dimitrov D, Vinyard M, Magruder D, Andersson A, Dann E, Qin Q, Otto D, Klein M,
+      Botvinnik O,
+      […],
+      Bloom J, Pisco A, Saez-Rodriguez J, Wulsin D, Pinello L, Saeys Y, Theis F,
+      <s>Krishnaswamy S.</s>
+      <div class="details">
+        Defining and benchmarking open problems in single-cell analysis.
+        <em>Research Square</em>.
+        <a href="https://doi.org/10.21203/rs.3.rs-4181617/v1">https://doi.org/10.21203/rs.3.rs-4181617/v1</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+
+  <h3>2.&nbsp;&nbsp;Peer-reviewed research articles</h3>
+  <div class="entry">
+    <div>
+      Zhu M, Pickens CI, <b>Markov NS</b>, Pawlowski A, Kang M, Rasmussen LV, Walter JM, Nadig NR,
+      Singer BD, Wunderink RG, Gao CA, NU SCRIPT Study Investigators.
+      <div class="details">
+        Antibiotic de-escalation patterns and outcomes in critically ill patients with suspected
+        pneumonia as informed by bronchoalveolar lavage results.
+        <em>European Journal of Clinical Microbiology & Infectious Diseases</em>.
+        <a href="https://doi.org/10.1007/s10096-025-05144-2">https://doi.org/10.1007/s10096-025-05144-2</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
+  <div class="entry">
+    <div>
+      Cannoodt R*, Deconinck L*, Couckuyt A*, <b>Markov NS*</b>, Zappia L, Luecken MD, Interlandi M,
+      Saeys Y, Saelens W.
+      <div class="details">
+        funkyheatmap: Visualising data frames with mixed data types.
+        <em>Journal of Open Source Software</em>.
+        <a href="https://doi.org/10.21105/joss.07698">https://doi.org/10.21105/joss.07698</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
+  <div class="entry">
+    <div>
+      Gao CA, <b>Markov NS</b>, Pickens C, Pawlowski A, Kang M, Walter JM, Singer BD, Wunderink RG.
+      <div class="details">
+        An observational cohort study of bronchoalveolar lavage fluid galactomannan and Aspergillus
+        culture positivity in patients requiring mechanical ventilation.
+        <em>Open Forum Infectious Diseases</em>.
+        <a href="https://doi.org/10.1093/ofid/ofaf090">https://doi.org/10.1093/ofid/ofaf090</a>
+      </div>
+    </div>
+    <div class="date">2025</div>
+  </div>
+  <div class="entry">
+    <div>
+      <b>Markov NS</b>, Ren Z, Senkow KJ, Grant RA, Gao CA, Malsin ES, Sichizya L, Kihshen H,
+      […],
+      Nwaezeapu J, Kang M, Rasmussen L, Ozer EA, Lorenzo-Redondo R, Hultquist JF, Simons LM,
+      Rios-Guzman E, Misharin AV, Wunderink RG, Budinger GRS, Singer BD, Morales-Nebreda L;
+      NU SCRIPT Study Investigators.
+      <div class="details">
+        A distinctive evolution of alveolar T cell responses is associated with clinical outcomes
+        in unvaccinated patients with SARS-CoV-2 pneumonia.
+        <em>Nature Immunology</em>.
+        <a href="https://doi.org/10.1038/s41590-024-01914-w">https://doi.org/10.1038/s41590-024-01914-w</a>
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
+      Bailey JI, Puritz CH, Senkow KJ, <b>Markov NS</b>, Diaz E, Jonasson E, Yu Z, Swaminathan S,
+      Lu Z, Fenske S, Grant RA, Abdala-Valencia H, […], Jain M, Bharat A, Kurihara C, Estepar Ruben SJ, Estepar Raul SJ,
+      Washko GR, Shilatifard A, Sznajder JI, Ridge KM, Budinger GRS, Braun R, Misharin AV, Sala MA.
+      <div class="details">
+        Profibrotic monocyte-derived alveolar macrophages are expanded in patients with persistent
+        respiratory symptoms and radiographic abnormalities after COVID-19.
+        <em>Nature Immunology</em>.
+        <a href="https://doi.org/10.1038/s41590-024-01975-x">https://doi.org/10.1038/s41590-024-01975-x</a>.
+      </div>
+    </div>
+    <div class="date">2024</div>
+  </div>
+  <div class="entry">
+    <div>
+      Gao CA*, <b>Markov NS</b>*, Stoeger T*, Pawlowski A, Kang M, Nannapaneni P, Grant RA, Pickens C,
+      Walter JM, Kruser JM, Rasmussen L, Schneider D, Starren J, Donnelly HK, Donayre A, Luo Y,
+      Budinger GRS, Wunderink RG, Misharin AV, Singer BD, NU SCRIPT Study Investigators.
+      <div class="details">
+        Machine learning links unresolving secondary pneumonia to mortality in patients with severe
+        pneumonia, including COVID-19.
+        <em>The Journal of Clinical Investigation (JCI)</em>, 133(12).
+        <a href="https://doi.org/10.1172/JCI170682">https://doi.org/10.1172/JCI170682</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Sikkema L, Ramírez-Suástegui C, Strobl DC, Gillett TE, Zappia L, Madissoon E, <b>Markov NS</b>,
+      Zaragosi LE, Ji Y, Ansari M, Arguel MJ, Apperloo L, Banchero M, Bécavin C, Berg M,
+      […],
+      Falk CS, Meyer KB, Kropski JA, Pe’er D, Schiller HB, Tata PR, Schultze JL, Teichmann SA,
+      Misharin AV, Nawijn MC, Luecken MD, Theis FJ.
+      <div class="details">
+        An integrated cell atlas of the lung in health and disease.
+        <em>Nature Medicine</em>. 29, 1563–1577.
+        <a href="https://doi.org/10.1038/s41591-023-02327-2">https://doi.org/10.1038/s41591-023-02327-2</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Gao CA, Howard FM, <b>Markov NS</b>, Dyer EC, Ramesh S, Luo Y, Pearson AT.
+      <div class="details">
+        Comparing scientific abstracts generated by ChatGPT to real abstracts with detectors and
+        blinded human reviewers.
+        <em>npj Digital Medicine</em>, 6(1):1–5.
+        <a href="https://doi.org/10.1038/s41746-023-00819-6">https://doi.org/10.1038/s41746-023-00819-6</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+      Villéger R, Chulkina M, Mifflin RC, <b>Markov NS</b>, Trieu J, Sinha M, Johnson P, Saada JI,
+      Adegboyega PA, Luxon BA, Beswick EJ, Powell DW, Pinchuk IV.
+      <div class="details">
+        Loss of alcohol dehydrogenase 1B in cancer-associated fibroblasts: contribution to the
+        increase of tumor-promoting IL-6 in colon cancer.
+        <em>British Journal of Cancer</em>, 128(4):537–548.
+        <a href="https://doi.org/10.1038/s41416-022-02066-0">https://doi.org/10.1038/s41416-022-02066-0</a>
+      </div>
+    </div>
+    <div class="date">2023</div>
+  </div>
+  <div class="entry">
+    <div>
+        Sala MA*, <b>Markov NS</b>*, Politanska Y, Abdala-Valencia H, Misharin AV, Jain M.
+      <div class="details">
+        Expression of <i>ACE2</i>–A Key SARS-CoV-2 Entry Factor–Is Not Increased in the Nasal Mucosa
+        of People with Cystic Fibrosis.
+        <em>American Journal of Respiratory Cell and Molecular Biology (AJRCMB)</em>, 67(1):132–137.
+        <a href="https://doi.org/10.1165/rcmb.2021-0341LE">https://doi.org/10.1165/rcmb.2021-0341LE</a>
+      </div>
+    </div>
+    <div class="date">2022</div>
+  </div>
+  <div class="entry" style="margin-top: 100px; padding-top: 10px;">
+    <div>
+      Yoshida M, Worlock KB, Huang N, Lindeboom RGH, Butler CR,
+      […],
+      <s><b>NU SCRIPT Study Investigators</b><sup>†</sup></s>, Reynolds G, Haniffa M, Bowyer GS,
+      Coates M, Clatworthy MR, Calero-Nieto FJ, Göttgens B, O’Callaghan C, Sebire NJ, Jolly C,
+      De Coppi P, Smith CM, Misharin AV, Janes SM, Teichmann SA, Nikolić MZ, Meyer KB.
+      <div class="details">
+        Local and systemic responses to SARS-CoV-2 infection in children and adults.
+        <em>Nature</em>, 602, 321–327.
+        <a href="https://doi.org/10.1038/s41586-021-04345-x">https://doi.org/10.1038/s41586-021-04345-x</a>
+        <br/><sup>†</sup> <b>Markov NS</b> among NU SCRIPT Study Investigators.
+      </div>
+    </div>
+    <div class="date">2022</div>
+  </div>
+  <div class="entry">
+    <div>
+      Koch CM, Prigge AD, Anekalla KR, Shukla A, Do Umehara HC, Setar L, Chavez J, Abdala-Valencia H,
+      Politanska Y, <b>Markov NS</b>, Hahn GR, Heald-Sargent T, Sanchez- Pinto LN, Muller WJ, Singer BD,
+      Misharin AV, Ridge KM, Coates BM.
+      <div class="details">
+        Age-related Differences in the Nasal Mucosal Immune Response to SARS-CoV-2.
+        <em>American Journal of Respiratory Cell and Molecular Biology (AJRCMB)</em>, 66(2):206–222.
+        <a href="https://doi.org/10.1165/rcmb.2021-0292OC">https://doi.org/10.1165/rcmb.2021-0292OC</a>
+      </div>
+    </div>
+    <div class="date">2022</div>
+  </div>
+  <div class="entry">
+    <div>
+      Speir ML, Bhaduri A, <b>Markov NS</b>, Moreno P, Nowakowski TJ, Papatheodorou I, Pollen AA,
+      Raney BJ, Seninge L, Kent WJ, Haeussler M.
+      <div class="details">
+        UCSC Cell Browser: visualize your single-cell data.
+        <em>Bioinformatics</em>, 37(23):4578–4580.
+        <a href="https://doi.org/10.1093/bioinformatics/btab503">https://doi.org/10.1093/bioinformatics/btab503</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Watanabe S, <b>Markov NS</b>, Lu Z, Piseaux Aillon R, Soberanes S, Runyan CE, Ren Z, Grant RA,
+      Maciel M, Abdala-Valencia H, Politanska Y, Nam K, Sichizya L, Kihshen HG, Joshi N,
+      McQuattie-Pimentel AC, Gruner KA, Jain M, Sznajder JI, Morimoto RI, Reyfman PA, Gottardi CJ,
+      Budinger GRS, Misharin AV.
+      <div class="details">
+        Resetting proteostasis with ISRIB promotes epithelial differentiation to attenuate pulmonary fibrosis.
+        <em>Proceedings of the National Academy of Sciences (PNAS)</em>, 118(20):e2101100118.
+        <a href="https://doi.org/10.1073/pnas.2101100118">https://doi.org/10.1073/pnas.2101100118</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Morales-Nebreda L, Helmin KA, Acosta MAT, <b>Markov NS</b>, Hu JYS, Joudi AM, Piseaux-Aillon R,
+      Abdala-Valencia H, Politanska Y, Singer BD.
+      Available from: https://insight.jci.org/articles/view/141690 PMID: 0
+      <div class="details">
+        Aging imparts cell-autonomous dysfunction to regulatory T cells during
+        recovery from influenza pneumonia.
+        <em>JCI Insight</em>, 6(6): e141690.
+        <a href="https://doi.org/10.1172/jci.insight.141690">https://doi.org/10.1172/jci.insight.141690</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Grant RA*, Morales-Nebreda L*, <b>Markov NS</b>*, Swaminathan S, Querrey M, Guzman ER,
+      Abbott DA,
+      […],
+      Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P,
+      Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG.
+      <div class="details">
+        Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
+        <em>Nature</em>, 590, 635–641.
+        <a href="https://doi.org/10.1038/s41586-020-03148-w">https://doi.org/10.1038/s41586-020-03148-w</a>
+      </div>
+    </div>
+    <div class="date">2021</div>
+  </div>
+  <div class="entry">
+    <div>
+      Bharat A, Querrey M, <b>Markov NS</b>, Kim S, Kurihara C, Garza-Castillon R, Manerikar A,
+      Shilatifard A, Tomic R, Politanska Y, Abdala-Valencia H, Yeldandi AV, Lomasney JW, Misharin AV,
+      Budinger GRS.
+      <div class="details">
+        Lung transplantation for pulmonary fibrosis secondary to severe COVID-19.
+        <em>Science Translational Medicine</em>, 12, eabe4282.
+        <a href="https://doi.org/10.1126/scitranslmed.abe4282">https://doi.org/10.1126/scitranslmed.abe4282</a>
+      </div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>
+      Runyan CE, Welch LC, Lecuona E, Shigemura M, Amarelle L, Abdala‐Valencia H, Joshi N, Lu Z,
+      Nam K, <b>Markov NS</b>, McQuattie‐Pimentel AC, Piseaux‐Aillon R, Politanska Y, Sichizya L,
+      Watanabe S, Williams KJN, Budinger GRS, Sznajder JI, Misharin AV.
+      <div class="details">
+        Impaired phagocytic function in CX3CR1<sup>+</sup> tissue-resident
+        skeletal muscle macrophages prevents muscle recovery after influenza A
+        virus-induced pneumonia in old mice.
+      <em>Aging Cell</em>, 19(9):e13180.
+      <a href="https://doi.org/10.1111/acel.13180">https://doi.org/10.1111/acel.13180</a>
+      </div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>
+      Joshi N, Watanabe S, Verma R, Jablonski RP, Chen CI, Cheresh P, <b>Markov NS</b>, Reyfman PA,
+      McQuattie-Pimentel AC, Sichizya L, Lu Z, Piseaux R, Kirchenbuechler D, Flozak AS, Gottardi CJ,
+      Cuda CM, Perlman H, Jain M, Kamp DW, Scott Budinger GR, Misharin AV.
+      <div class="details">
+        A spatially restricted fibrotic niche in pulmonary fibrosis is
+        sustained by M-CSF/M-CSFR signalling in monocyte-derived
+        alveolar macrophages.
+      <em>European Respiratory Journal (ERJ)</em>, 55 (1) 1900646.
+      <a href="https://doi.org/10.1183/13993003.00646-2019">https://doi.org/10.1183/13993003.00646-2019</a>
+      </div>
+    </div>
+    <div class="date">2019</div>
+  </div>
+</section>
+
+<section>
+  <h2>Invited Talks</h2>
+  <div class="entry">
+    <div>Distinct pathogen-specific host responses in patients with severe pneumonia.
+        <div class="details">
+            Systems Biology Consortium for Infectious Diseases Lecture Series.
+        </div>
+    </div>
+    <div class="date">March 2025</div>
+  </div>
+  <div class="entry">
+    <div>Host response in severe pneumonia is pathogen-specific.
+        <div class="details">
+             Systems Biology for Infectious Diseases Annual Meeting.
+        </div>
+    </div>
+    <div class="date">September 2024</div>
+  </div>
+  <div class="entry">
+    <div>Cellular and molecular biomarkers of successful responses to therapy in severe pneumonia,
+        including COVID-19.
+        <div class="details">
+            CZI Single-Cell Biology 2022 Annual meeting.
+            <a href="https://fast.wistia.com/embed/channel/n9ne6nikz4?wchannelid=n9ne6nikz4&wmediaid=x46zqa026r">Recording</a>
+        </div>
+    </div>
+    <div class="date">November 2022</div>
+  </div>
+  <div class="entry">
+    <div>Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
+      <div class="details">
+        American Thoracic Society Allergy, Immunology and Inflammation (AII) assembly
+        journal club.<br/>
+        <a href="https://www.thoracic.org/members/assemblies/assemblies/aii/journal-club/circuits-between-infected-macrophages-and-t-cells-in-sars-cov-2-pneumonia.php">Recording</a>
+      </div>
+    </div>
+    <div class="date">June 2021</div>
+  </div>
+</section>
+
+<section>
+  <h2>Awards and Grant</h2>
+  <div class="entry">
+    <div>
+      American Heart Association Predoctoral Fellowship
+      <div class="details">
+        Machine learning approaches to predict outcomes and complications in ICU patients.
+        <br/>24PRE1196998 ($67000)
+        <br/><a href="https://doi.org/10.58275/AHA.24PRE1196998.pc.gr.190609">https://doi.org/10.58275/AHA.24PRE1196998.pc.gr.190609</a>
+      </div>
+    </div>
+    <div class="date">2024–2026</div>
+  </div>
+  <div class="entry">
+    <div>Northwestern Institute on Complex Systems Data Science Fellow ($12500)</div>
+    <div class="date">2022</div>
+  </div>
+</section>
+
+<section>
+  <h2>Teaching Experience</h2>
+  <div class="entry">
+    <div>Summer Students Program 2022 at Division of Pulmonary and Critical Care Medicine
+      <div class="details">Co-mentored 1 college student in automated image
+        analysis. Helped develop project goals, methodology and results interpretation.
+      </div>
+    </div>
+    <div class="date">2022</div>
+  </div>
+  <div class="entry">
+    <div>Summer Students Program 2020 at Division of Pulmonary and Critical Care Medicine
+      <div class="details">Co-mentored a group of 4 college students on a bioinformatics
+          project. Contributed to project's design, teaching R programming environment, single-cell
+          RNA-seq experimental technology and analysis.</div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Python, Introduction to Pandas and Matplotlib
+      <div class="details">Small introductory lecture series during Data Science Nights
+          at NICO, Northwestern University.</div>
+    </div>
+    <div class="date">2020</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Programming, Newcastle University, Newcastle upon Tyne, UK
+      <div class="details">Unofficial 5-lecture course for fellow students.</div>
+    </div>
+    <div class="date">2017</div>
+  </div>
+  <div class="entry">
+    <div>Introduction to Computer Science with Python 3, Yandex, Moscow, Russia
+      <div class="details">High-school students.</div>
+    </div>
+    <div class="date">2013</div>
+  </div>
+</section>
+
+<section>
+  <h2>Miscalleneous</h2>
+  <div class="entry">
+    <div>Open Problems for Single-Cell Analysis Jamboree
+      <div class="details"><a href="https://openproblems.bio/jamboree/">https://openproblems.bio/jamboree/</a></div>
+    </div>
+    <div class="date">March 2021</div>
+  </div>
+  <div class="entry">
+    <div>Contributor to open-source software:
+      <div class="details">
+        <tt>Seurat</tt>, <tt>CellBrowser</tt>, <tt>biopython</tt>,
+        <tt>funkyheatmap</tt>, <tt>statannotations</tt>, <tt>scanpy</tt>, <tt>CellBender</tt>.
+      </div>
+    </div>
+    <div class="date">2018–present</div>
+  </div>
+  <div class="entry">
+    <div>Programming languages:
+      <div class="details">
+        Python, R, Java, C++, Ruby, Perl. Linux. Latex. HTML, JavaScript.<br/>
+        Github: <a href="https://github.com/mxposed">https://github.com/mxposed</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
