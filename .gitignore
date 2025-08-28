@@ -1,2 +1,5 @@
 node_modules/
-
+archive/
+.DS_store
+# exported names
+Markov_*.pdf
