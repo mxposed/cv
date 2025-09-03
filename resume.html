@@ -6,10 +6,10 @@ Array.prototype.last = function() {
   return this[this.length - 1];
 };
 String.prototype.replaceAll = function(a, b) {
-  var result = [this];
-  var idx = result.last().indexOf(a);
+  let result = [this];
+  let idx = result.last().indexOf(a);
   while (idx > -1) {
-    var item = result.pop();
+    let item = result.pop();
     result.push(item.substr(0, idx));
     result.push(b);
     result.push(item.substr(idx + a.length));
@@ -20,7 +20,7 @@ String.prototype.replaceAll = function(a, b) {
 
 document.addEventListener('readystatechange', function() {
   if (document.readyState == "complete") {
-    var all = document.body.innerHTML;
+    let all = document.body.innerHTML;
     all = all.replaceAll('—', '<span class="dash">—</span>');
     all = all.replaceAll('–', '<span class="dash">–</span>');
     document.body.innerHTML = all;
@@ -28,6 +28,14 @@ document.addEventListener('readystatechange', function() {
     document.getElementById('updated-dt').innerHTML += ' ' + new Date().toLocaleDateString(
         'en-US', {year: 'numeric', month: 'long'}
     );
+
+    document.querySelectorAll('.entry .details').forEach(function(el) {
+      let txt = el.innerHTML.replace(/^\s+/, '');
+      if (txt.startsWith('*')) {
+        txt = '<span class="star">* </span>' + txt.substr(1);
+        el.innerHTML = txt;
+      }
+    });
   }
 });
 </script>
@@ -62,8 +70,13 @@ h3 {
   font-size: 130%;
 }
 section {
-  margin-bottom: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid #bbb;
   /* padding-left: 10px; */
+}
+section:last-child {
+  border-bottom: none;
 }
 section h2 {
   margin: 0 80px 4px 0;
@@ -147,12 +160,24 @@ u {
 .entry.two-col {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px 20px;
+  flex-direction: column;
+  gap: 10px 15px;
+  max-height: 120px;
 }
 .entry.two-col > div {
   flex: 1 1 calc(50% - 21px);
   padding-left: 10px;
   text-indent: -10px;
+  width: calc(50% - 21px);
+}
+.star {
+  width: 0;
+  display: inline-block;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+.publications .details em {
+  font-weight: bold;
 }
 </style></head>
 <body>
@@ -164,33 +189,39 @@ u {
   <span style="float: right; font-size: 11px;" id="updated-dt">updated</span>
 </div>
 
-<div style="margin: 10px 40px; line-height: 1.05em;">
-    <s>I excel</s> in applying machine learning tools (newly published or custom built) to high-resolution and multimodal data, such as single-cell RNA-seq, spatial transcriptomics or EHR data, to deliver high-quality analytics, interpretability and interactive visualizations. My interest is to use vast amount of published and private multimodal data via novel machine learning models to improve our understanding of common diseases and factors that determine patient individual outcomes.
+<div style="margin: 8px 20px; line-height: 1.05em;">
+    Computational biology researcher and leader. After pivoting my career from software engineering leadership
+    to reunite with my passion for biological research in 2017, I came to the Pulmonary division at Northwestern.
+    Here, I&nbsp;set up computational biology operations from sample tracking to interpretable multimodal analyses
+    to support translational research in lung diseases, building the foundation for the division NIH funding of $5M+
+    and impactful publications.
+    My interest is to use vast amount of published and private multimodal data via novel machine learning models
+    to improve our understanding of common diseases and factors that determine patient individual outcomes.
 </div>
 
 <section>
-  <h2>Technical expertise</h2>
+  <h2>Expertise</h2>
   <div class="entry two-col">
+    <div>
+      • <b>Research leadership</b><br/>
+      Cross-functional collaboration, project management, team management, mentorship, scientific communication
+    </div>
     <div>
       • <b>Machine learning</b><br/>
       Deep learning frameworks (torch, jax), large language models, multimodal fusion, embedding representations, bayesian modeling
     </div>
     <div>
-      • <b>Healthcare data</b><br/>
-      Electronic health records (EHR), clinical notes analysis, single-cell RNA-seq, spatial transcriptomics, imaging data, statistics
+      • <b>Healthcare and biological data</b><br/>
+      Electronic health records (EHR), clinical notes analysis, single-cell RNA-seq, TCR-seq, spatial transcriptomics, imaging data, statistics
     </div>
     <div>
       • <b>Software & tools</b><br/>
       Python, R, SQL, Linux, computational clusters, interactive visualizations, pipelines
     </div>
-    <div>
-      • <b>Leadership</b><br/>
-      Cross-functional collaboration, project management, team management, mentorship, scientific communication
-    </div>
   </div>
 </section>
 
-<section style="margin-top: 15px;">
+<section>
   <h2>Education</h2>
   <div class="entry">
       <div><b>Ph.D. in Computational Biology</b>, Northwestern University, Chicago, USA
@@ -222,10 +253,13 @@ u {
         Feinberg School of Medicine, Northwestern University, Chicago, USA
       <div class="details">
         <ul>
-          <li>Analyzed scRNAseq and EHR data jointly to understand patient response to severe pneumonia, including COVID-19</li>
-          <li>Acquired external funding for the project (competitive AHA predoctoral fellowship)</li>
-          <li>Consulted Northwestern students and faculty on deep learning, data science and data visualization</li>
-          <li>Presented and published our research in 3 peer-reviewed papers</li>
+          <li>Lead 4 large scientific collaborative projects with 500+ patients and multimodal data to publication</li>
+          <li>Acquired external funding for my training (competitive AHA predoctoral fellowship, $67,000)</li>
+          <li>Authored and co-authored 18, including 4 first/co-first, publications or preprints</li>
+          <li>Enabled analysis of scRNAseq patient samples in the context of their clinical course with novel machine learning approach
+            (clustering of patient-day representations and late fusion, <em>JCI</em> 2023)</li>
+          <li>Consulted 7 Northwestern grad students, postdocs and faculty on deep learning, data science and data visualization,
+            including setting up and training in paw tracking on videos for mouse experiments</li>
         </ul>
       </div>
     </div>
@@ -236,10 +270,11 @@ u {
         Feinberg School of Medicine, Northwestern University, Chicago, USA
       <div class="details">
         <ul>
-          <li>Analyzed scRNAseq and other high-throughput data from human samples and mouse experiments</li>
-          <li>Cleaned and analyzed clinical EHR data from patient cohorts</li>
-          <li>Delivered analytical insights to principal investigators in presentations and data exploration tools</li>
-          <li>Developed and maintained data processing pipelines, data exchange and management infrastructure</li>
+          <li>Created data processing pipelines, data exploration and management infrastructure for the division</li>
+          <li>Delivered analytical insights from scRNAseq and other data to principal investigators for 7 publications</li>
+          <li>Formulated activated T cell–macrophage circuit in <em>Nature</em> 2021, which supported successful clinical trials of Auxora (NCT04345614)</li>
+          <li>Supported grant writing for U19, R01 and other NIH grants for the division, resulting in $5M+ funding</li>
+          <li>Hired and trained incoming data analysts to grow the team and replace myself</li>
         </ul>
       </div>
     </div>
@@ -250,7 +285,8 @@ u {
       <div class="details">
         <ul>
           <li>Managed a team of 6 engineers: hiring, mentoring, resolving conflicts, improving performance</li>
-          <li>Developed, designed and supported tools for system administrators and other employees</li>
+          <li>Synthesized internal customers' needs into technical roadmaps for supporting web-services</li>
+          <li>Owned various web-services to improve employees' workflows</li>
         </ul>
     </div>
     </div>
@@ -260,30 +296,21 @@ u {
     <div><b>Full-stack software engineer</b>, Yandex, Moscow, Russia
       <div class="details">
         <ul>
-          <li>Identified employees’ workflows bottlenecks for automation</li>
-          <li>Developed, designed and supported web-services and console tools for system administrators and other employees</li>
+          <li>Automated deploy workflows of system administrators for better consistency and transparency</li>
+          <li>Deployed and maintained various web-services to improve employees' workflows</li>
         </ul>
       </div>
     </div>
     <div class="date">2007–2014</div>
   </div>
-  <div class="entry">
-    <div><b>Software engineer</b>, Art. Lebedev Studio, Moscow, Russia
-      <div class="details">Developed and supported web-sites and a content management system</div>
-    </div>
-    <div class="date">2006–2007</div>
-  </div>
 </section>
 
-<section>
-  <h2>Key publications<span class="remark">(* denotes equal contribution)</span></h2>
+<section class="publications">
+  <h2>Key publications<span class="remark">(* denotes first/co-first contribution)</span></h2>
   <div class="entry">
     <div>
-        <b>Markov NS*</b>, Esposito AJ*,
-        […],
-        Perlman H, Lam AP, Gottardi CJ, Budinger GRS, Misharin AV, Hinchcliff ME.
       <div class="details">
-        Profibrotic monocyte-derived alveolar macrophages as a biomarker and therapeutic target in systemic sclerosis-associated interstitial lung disease.
+        *Profibrotic monocyte-derived alveolar macrophages as a biomarker and therapeutic target in systemic sclerosis-associated interstitial lung disease.
         <em>bioRxiv</em>.
         <a href="https://doi.org/10.1101/2025.08.07.669006">https://doi.org/10.1101/2025.08.07.669006</a>
       </div>
@@ -292,8 +319,6 @@ u {
   </div>
   <div class="entry">
     <div>
-      Luecken MD, Gigante S, Burkhardt DB, Cannoodt R, Strobl DC, <b>Markov NS</b>, […], Theis FJ,
-      <s>Krishnaswamy S.</s>
       <div class="details">
         Defining and benchmarking open problems in single-cell analysis.
         <em>Nature Biotechnilogy</em>.
@@ -304,12 +329,8 @@ u {
   </div>
   <div class="entry">
     <div>
-      <b>Markov NS</b>,
-      […],
-      Budinger GRS, Singer BD, Morales-Nebreda L,
-      NU SCRIPT Study Investigators.
       <div class="details">
-        A distinctive evolution of alveolar T cell responses is associated with clinical outcomes
+        *A distinctive evolution of alveolar T cell responses is associated with clinical outcomes
         in unvaccinated patients with SARS-CoV-2 pneumonia.
         <em>Nature Immunology</em>.
         <a href="https://doi.org/10.1038/s41590-024-01914-w">10.1038/s41590-024-01914-w</a>
@@ -319,9 +340,8 @@ u {
   </div>
   <div class="entry">
     <div>
-      Gao CA*, <b>Markov NS</b>*, Stoeger T*, […], Misharin AV, Singer BD, NU SCRIPT Study Investigators.
       <div class="details">
-        Machine learning links unresolving secondary pneumonia to mortality in patients with severe
+        *Machine learning links unresolving secondary pneumonia to mortality in patients with severe
         pneumonia, including COVID-19.
         <em>The Journal of Clinical Investigation (JCI)</em>.
         <a href="https://doi.org/10.1172/JCI170682">10.1172/JCI170682</a>
@@ -331,9 +351,6 @@ u {
   </div>
   <div class="entry">
     <div>
-      Sikkema L, Ramírez-Suástegui C, Strobl DC, Gillett TE, Zappia L, Madissoon E, <b>Markov NS</b>,
-      […],
-      Theis FJ.
       <div class="details">
         An integrated cell atlas of the lung in health and disease.
         <em>Nature Medicine</em>.
@@ -344,8 +361,6 @@ u {
   </div>
   <div class="entry">
     <div>
-      Speir ML, Bhaduri A, <b>Markov NS</b>, […], Pollen AA,
-      Raney BJ, Seninge L, Kent WJ, Haeussler M.
       <div class="details">
         UCSC Cell Browser: visualize your single-cell data.
         <em>Bioinformatics</em>.
@@ -356,11 +371,8 @@ u {
   </div>
   <div class="entry">
     <div>
-      Grant RA*, Morales-Nebreda L*, <b>Markov NS</b>*,
-      […],
-      Budinger GRS, Misharin AV, Singer BD, Wunderink RG.
       <div class="details">
-        Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
+        *Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.
         <em>Nature</em>.
         <a href="https://doi.org/10.1038/s41586-020-03148-w">10.1038/s41586-020-03148-w</a>
       </div>
