@@ -51,7 +51,7 @@ def main():
                 select=[
                     'type', 'author', 'DOI', 'URL', 'created', 'publisher',
                     'container-title', 'issue', 'published', 'short-container-title',
-                    'title', 'volume', 'indexed', 'resource', 'page'
+                    'title', 'volume', 'indexed', 'resource', 'page', 'relation'
                 ],
                 filter={
                     'from-index-date': last_indexed_date,

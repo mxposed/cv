@@ -1,0 +1,8 @@
+# Efficiency of Using a Proxy Model for Modeling of Reservoir Pressure
+10.2118/206553-ms
+# 344 ACTIVATION OF MK2-TTP SIGNALING AS A DRIVER OF PATHOLOGICAL CHANGES IN INTESTINAL FIBROBLASTS IN CROHN'S DISEASE
+10.1016/s0016-5085(23)01097-1
+# Author correction for long covid
+10.1038/s41590-025-02076-z
+# Рroxy Model of Two-Phase Fluid Filtration Process in a Porous Medium by the Boundary Element Method
+10.2139/ssrn.4475291
