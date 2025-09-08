@@ -74,25 +74,52 @@ def format_authors(authors):
         return "No authors listed"
 
     author_strings = []
+    n_first = 0
+    for author in authors:
+        if 'sequence' in author and author['sequence'] == 'first':
+            n_first += 1
+
     for author in authors:
         if 'given' in author and 'family' in author:
             initials = ''.join([name[0] for name in author['given'].split()])
             author_strings.append(f"{author['family']} {initials}")
         elif 'family' in author:
             author_strings.append(author['family'])
+        if 'sequence' in author and author['sequence'] == 'first' and n_first > 1:
+            author_strings[-1] += '*'
 
     return ", ".join(author_strings)
 
-def get_journal(item):
+def format_journal(item):
     """Extract the journal name"""
+    name = None
     if item['type'] == 'journal-article':
-        return item['container-title'][0]
+        name = item['container-title'][0]
     if item['type'] == 'posted-content':
         if 'biorxiv' in item['resource']['primary']['URL']:
-            return 'bioRxiv'
+            name = 'bioRxiv'
         if 'medrxiv' in item['resource']['primary']['URL']:
-            return 'medRxiv'
-    raise ValueError(f"Cannot extract journal")
+            name = 'medRxiv'
+    if name is None:
+        raise ValueError(f"Cannot extract journal")
+    issue = item.get('issue', '')
+    volume = item.get('volume', '')
+    pages = item.get('page', '')
+    if '-' in pages:
+        pages = pages.split('-')
+        if pages[0] == pages[1]:
+            pages = pages[0]
+        else:
+            pages = '-'.join(pages)
+    if volume and issue and pages:
+        return f'{name} {volume}({issue}):{pages}'
+    if volume and issue:
+        return f'{name} {volume}({issue})'
+    if volume and pages:
+        return f'{name} {volume}:{pages}'
+    if volume:
+        return f'{name} {volume}'
+    return name
 
 EXCEPTIONS = [
     'covid-19',
@@ -138,12 +165,26 @@ def format_title(title):
     title = re.sub(r'<sup>(.+)</sup>', r'#super[\1]', title)
     return title
 
+def apply_override(item, override):
+    """Apply overrides to a publication item."""
+    if not override:
+        return item
+    for key, value in override.items():
+        if key == 'author':
+            for author in value:
+                for item_author in item['author']:
+                    if item_author['given'] == author['given'] and item_author['family'] == author['family']:
+                        item_author.update(author)
+                        break
+    return item
+
 def convert_item(item):
     """Convert a publication item to a simplified dictionary format."""
     return {
         "title": format_title(item['title'][0]),
-        "journal": get_journal(item),
+        "journal": format_journal(item),
         "date": format_publication_date(item.get('published')),
+        "year": str(item['published']['date-parts'][0][0]),
         "authors": format_authors(item.get('author', [])),
         "doi": item.get('DOI', 'No DOI'),
         "url": item.get('URL', 'No URL'),
@@ -151,11 +192,14 @@ def convert_item(item):
         "raw": item  # Include the raw item for reference
     }
 
-def filter_publications(data, target_first="Nikolay", target_middle="S", target_last="Markov", to_exclude=None):
+def filter_publications(data, target_first="Nikolay", target_middle="S", target_last="Markov", to_exclude=None, overrides=None):
     """Filter publications by target author and print details."""
     found_publications = []
     if to_exclude is None:
         to_exclude = set()
+    if overrides is None:
+        overrides = []
+    override_dict = {item['DOI']: item for item in overrides}
 
     for item in data:
         if 'author' not in item:
@@ -163,6 +207,7 @@ def filter_publications(data, target_first="Nikolay", target_middle="S", target_
 
         for author in item['author']:
             if is_author_match(author, target_first, target_middle, target_last) and item.get('DOI') not in to_exclude:
+                item = apply_override(item, override_dict.get(item['DOI']))
                 # Extract publication details
                 found_publications.append(convert_item(item))
 
@@ -208,6 +253,19 @@ def dedup_publications_by_title(publications):
             result.append(pub1)
     return result
 
+def split_sort(publications):
+    """Split publications into journal articles and others, sort by date."""
+    journal_articles = [pub for pub in publications if pub['type'] == 'journal-article']
+    other_articles = [pub for pub in publications if pub['type'] != 'journal-article']
+
+    journal_articles.sort(key=lambda x: x['date'], reverse=True)
+    other_articles.sort(key=lambda x: x['date'], reverse=True)
+
+    return {
+        'preprints': other_articles,
+        'articles': journal_articles
+    }
+
 
 def main():
     print("Loading publication data...")
@@ -217,12 +275,15 @@ def main():
     to_exclude = load_exclude_list("exclude.txt")
     print(f"Loaded {len(to_exclude)} DOIs to exclude.")
 
+    overrides = json.load(open("overrides.json", "r"))
+    print(f"Loaded {len(overrides)} overrides.")
+
     target_first = "Nikolay"
     target_middle = "S"
     target_last = "Markov"
 
     print(f"Filtering publications for author: {target_first} {target_middle} {target_last}")
-    pubs = filter_publications(data, target_first, target_middle, target_last, to_exclude)
+    pubs = filter_publications(data, target_first, target_middle, target_last, to_exclude, overrides)
     print(f"Found {len(pubs)} publications for {target_first} {target_middle} {target_last}")
     dedup_pubs = dedup_publications_by_relation(pubs)
     print(f'Removed {len(pubs) - len(dedup_pubs)} duplicate publications based on relations.')
@@ -230,7 +291,9 @@ def main():
     dedup_pubs = dedup_publications_by_title(pubs)
     print(f'Removed {len(pubs) - len(dedup_pubs)} duplicate publications based on title similarity.')
     print(f"{len(dedup_pubs)} publications remain after deduplication.")
-    json.dump(dedup_pubs, open("filtered_publications.json", "w"), indent=2)
+
+    data = split_sort(dedup_pubs)
+    json.dump(data, open("filtered_publications.json", "w"), indent=2)
     # for pub in dedup_pubs:
     #     print('-' * 80)
     #     print(pub['title'])

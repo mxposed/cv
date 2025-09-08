@@ -1,0 +1,27 @@
+[
+    {
+        "DOI": "10.1101/2025.08.07.669006",
+        "author": [
+            {
+                "given": "Anthony J.",
+                "family": "Esposito",
+                "sequence": "first"
+            }
+        ]
+    },
+    {
+        "DOI": "10.1038/s41586-020-03148-w",
+        "author": [
+            {
+                "given": "Luisa",
+                "family": "Morales-Nebreda",
+                "sequence": "first"
+            },
+            {
+                "given": "Nikolay S.",
+                "family": "Markov",
+                "sequence": "first"
+            }
+        ]
+    }
+]
