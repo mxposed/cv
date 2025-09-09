@@ -52,10 +52,17 @@
   ))
 }
 
+#let paper-n(n) = context {
+  let nn = [#text(font: "PT Mono", size: 7pt, fill: gray.darken(50%))[#if n < 10 { [0#n] } else { [#n] }]]
+  let width = measure(nn).width
+  let gap = 1.5mm
+  [#h(-width - gap)#nn#h(gap)]
+}
+
 #let show-authors(authors) = context {
   layout(size => {
     let authors-display = authors
-    let authors-size = measure(block(width: size.width, authors))
+    let authors-size = measure(block(width: size.width, eval(authors, mode: "markup")))
     let line-height = measure([A]).height
     let two-line-height = measure([A\ A]).height
     let line-space-height = two-line-height - line-height
@@ -71,9 +78,10 @@
       let second-chunk = total-authors - first-chunk
       authors-display = authors-temp.slice(0, first-chunk).join(", ") + ", […], " + authors-temp.slice(-second-chunk).join(", ")
     }
-    [#authors-display]
+    [#eval(authors-display, mode: "markup")]
   })
 }
+
 
 = Nikolay S. Markov
 #link("mailto:nikolai.markov@northwestern.edu") | #link("https://mxposed.github.io")[mxposed.github.io] | #link("https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en")[Google Scholar profile] #h(1fr) #updated
@@ -108,7 +116,7 @@
 == Publications
 #v(-1.6em)#h(60%)#box(fill: white)[#text(size: 9pt)[#h(1mm) (\*denotes equal contribution) #h(1mm)]]
 
-#show "Markov NS": strong
+#show "Markov NS": strong("Markov NS", delta: 500)
 #let pubs = json("publications/filtered_publications.json")
 #let n_preprints = pubs.at("preprints").len()
 #let n_articles = pubs.at("articles").len()
@@ -118,7 +126,7 @@
   [==== 1. Preprints #text(size: 10pt, font: "PT Mono", fill: gray.darken(50%))[(#n_preprints)]]
   for pub in pubs.at("preprints") {
     item-with-date(
-      [#eval(pub.title, mode: "markup"). #emph[#pub.journal]. #link(pub.url)[#pub.doi]],
+      [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #emph[#pub.journal]. #link(pub.url)[#pub.doi]],
       show-authors(pub.authors),
       pub.year
     )
@@ -129,7 +137,7 @@
 ==== 2. Peer-reviewed research articles #text(size: 10pt, font: "PT Mono", fill: gray.darken(50%))[(#n_articles)]
 #for pub in pubs.at("articles") {
   item-with-date(
-    [#eval(pub.title, mode: "markup"). #emph[#pub.journal]. #link(pub.url)[#pub.doi]],
+    [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #emph[#strong(pub.journal, delta: 200)] #pub.details. #link(pub.url)[#pub.doi]],
     show-authors(pub.authors),
     pub.year
   )

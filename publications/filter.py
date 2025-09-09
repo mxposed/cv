@@ -29,6 +29,16 @@ def load_exclude_list(filepath):
         print(f"Error loading exclude list from {filepath}: {str(e)}")
         return set()
 
+def read_journal_abbreviations(filepath):
+    """List of journal abbreviations from https://github.com/kaiifu/Journal-Abbreviation"""
+    result = {}
+    for line in open(filepath, 'rb'):
+        parts = line.decode('latin1').strip().split('\t')
+        if len(parts) == 2:
+            full, abbr = parts
+            result[full.strip(' \n"')] = abbr.strip(' \n"')
+    return result
+
 def is_author_match(author, target_first="Nikolay", target_middle="S", target_last="Markov"):
     """Check if the author matches the target name components."""
     if 'given' not in author or 'family' not in author:
@@ -37,6 +47,8 @@ def is_author_match(author, target_first="Nikolay", target_middle="S", target_la
     # Get author's name components
     given = author['given'].lower()
     family = author['family'].lower()
+    given = re.sub(r'[^a-z]', '', given)
+    family = re.sub(r'[^a-z]', '', family)
 
     # Check last name first (faster rejection)
     if family != target_last.lower():
@@ -80,13 +92,25 @@ def format_authors(authors):
             n_first += 1
 
     for author in authors:
-        if 'given' in author and 'family' in author:
-            initials = ''.join([name[0] for name in author['given'].split()])
-            author_strings.append(f"{author['family']} {initials}")
-        elif 'family' in author:
-            author_strings.append(author['family'])
+        given = author.get('given', '')
+        family = author.get('family', '')
+        suffix = ''
+        if family.endswith('*'):
+            family = family[:-1]
+            author['sequence'] = 'first'
+            n_first = 2
+        if family.endswith('†'):
+            family = family[:-1]
+            suffix = '#super[†]'
+        if given and family:
+            initials = ''.join([name[0] for name in given.split()])
+            author_strings.append(f"{family} {initials}")
+        elif family:
+            author_strings.append(family)
         if 'sequence' in author and author['sequence'] == 'first' and n_first > 1:
-            author_strings[-1] += '*'
+            author_strings[-1] += '\\*'
+        if suffix:
+            author_strings[-1] += suffix
 
     return ", ".join(author_strings)
 
@@ -102,6 +126,7 @@ def format_journal(item):
             name = 'medRxiv'
     if name is None:
         raise ValueError(f"Cannot extract journal")
+    name = name.replace('&amp;', '&')
     issue = item.get('issue', '')
     volume = item.get('volume', '')
     pages = item.get('page', '')
@@ -112,14 +137,14 @@ def format_journal(item):
         else:
             pages = '-'.join(pages)
     if volume and issue and pages:
-        return f'{name} {volume}({issue}):{pages}'
+        return name, f'{volume}({issue}):{pages}'
     if volume and issue:
-        return f'{name} {volume}({issue})'
+        return name, f'{volume}({issue})'
     if volume and pages:
-        return f'{name} {volume}:{pages}'
+        return name, f'{volume}:{pages}'
     if volume:
-        return f'{name} {volume}'
-    return name
+        return name, volume
+    return name, ''
 
 EXCEPTIONS = [
     'covid-19',
@@ -178,11 +203,13 @@ def apply_override(item, override):
                         break
     return item
 
-def convert_item(item):
+def convert_item(item, journal_abbrevs):
     """Convert a publication item to a simplified dictionary format."""
+    journal, details = format_journal(item)
     return {
         "title": format_title(item['title'][0]),
-        "journal": format_journal(item),
+        "journal": journal_abbrevs.get(journal, journal),
+        "details": details,
         "date": format_publication_date(item.get('published')),
         "year": str(item['published']['date-parts'][0][0]),
         "authors": format_authors(item.get('author', [])),
@@ -192,7 +219,7 @@ def convert_item(item):
         "raw": item  # Include the raw item for reference
     }
 
-def filter_publications(data, target_first="Nikolay", target_middle="S", target_last="Markov", to_exclude=None, overrides=None):
+def filter_publications(data, target_first="Nikolay", target_middle="S", target_last="Markov", to_exclude=None, overrides=None, abbrevs=None):
     """Filter publications by target author and print details."""
     found_publications = []
     if to_exclude is None:
@@ -200,6 +227,8 @@ def filter_publications(data, target_first="Nikolay", target_middle="S", target_
     if overrides is None:
         overrides = []
     override_dict = {item['DOI']: item for item in overrides}
+    if abbrevs is None:
+        abbrevs = {}
 
     for item in data:
         if 'author' not in item:
@@ -209,7 +238,7 @@ def filter_publications(data, target_first="Nikolay", target_middle="S", target_
             if is_author_match(author, target_first, target_middle, target_last) and item.get('DOI') not in to_exclude:
                 item = apply_override(item, override_dict.get(item['DOI']))
                 # Extract publication details
-                found_publications.append(convert_item(item))
+                found_publications.append(convert_item(item, abbrevs))
 
                 # Break once we find a match in the current item
                 break
@@ -259,7 +288,14 @@ def split_sort(publications):
     other_articles = [pub for pub in publications if pub['type'] != 'journal-article']
 
     journal_articles.sort(key=lambda x: x['date'], reverse=True)
+    i = 0
+    for article in journal_articles:
+        article['rank'] = len(journal_articles) - i
+        i += 1
     other_articles.sort(key=lambda x: x['date'], reverse=True)
+    for article in other_articles:
+        article['rank'] = 2 * len(journal_articles) + len(other_articles) - i
+        i += 1
 
     return {
         'preprints': other_articles,
@@ -278,12 +314,23 @@ def main():
     overrides = json.load(open("overrides.json", "r"))
     print(f"Loaded {len(overrides)} overrides.")
 
+    journal_abbrevs = read_journal_abbreviations("Journal-Abbreviation.txt")
+    print(f"Loaded {len(journal_abbrevs)} journal abbreviations.")
+
     target_first = "Nikolay"
     target_middle = "S"
     target_last = "Markov"
 
     print(f"Filtering publications for author: {target_first} {target_middle} {target_last}")
-    pubs = filter_publications(data, target_first, target_middle, target_last, to_exclude, overrides)
+    pubs = filter_publications(
+        data,
+        target_first,
+        target_middle,
+        target_last,
+        to_exclude,
+        overrides,
+        journal_abbrevs
+    )
     print(f"Found {len(pubs)} publications for {target_first} {target_middle} {target_last}")
     dedup_pubs = dedup_publications_by_relation(pubs)
     print(f'Removed {len(pubs) - len(dedup_pubs)} duplicate publications based on relations.')

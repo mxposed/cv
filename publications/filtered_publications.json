@@ -3,9 +3,10 @@
     {
       "title": "Profibrotic monocyte-derived alveolar macrophages as a biomarker and therapeutic target in systemic sclerosis-associated interstitial lung disease",
       "journal": "bioRxiv",
+      "details": "",
       "date": "2025-08-11",
       "year": "2025",
-      "authors": "Markov NS*, Esposito AJ*, Senkow KJ, Schleck M, Cusick L, Yu Z, Sokolenko YV, Diaz E, Jonasson E, Swaminathan S, Lu Z, Nafikova R, Fenske S, Bunyan EG, P\u00e9rez-Leonor XG, Abdala-Valencia H, Flozak AS, Joshi N, Argento AC, Malsin ES, Reyfman PA, Puchalski J, Gulati M, Carns M, Aren K, Cooper P, Field NS, Mohsin S, Shawabkeh M, Soriano A, Gundersheimer AN, Goldberg IA, Damore B, Peltekian A, Agrawal A, Cheung C, Perez S, Teaw S, Williams A, Page N, Kujawski SE, Odell W, Gunes BI, Cheng M, Emokpae M, Cumming RI, Tighe RM, Grudzinski K, Savas H, Rubinowitz AN, Kadhim BA, Kurihara C, Bharat A, Mehta V, Dematte JE, Bemiss BC, Makinde HM, Cuda CM, Dapas M, Richardson C, Perlman H, Lam AP, Gottardi CJ, Budinger GS, Misharin AV, Hinchcliff ME",
+      "authors": "Markov NS\\*, Esposito AJ\\*, Senkow KJ, Schleck M, Cusick L, Yu Z, Sokolenko YV, Diaz E, Jonasson E, Swaminathan S, Lu Z, Nafikova R, Fenske S, Bunyan EG, P\u00e9rez-Leonor XG, Abdala-Valencia H, Flozak AS, Joshi N, Argento AC, Malsin ES, Reyfman PA, Puchalski J, Gulati M, Carns M, Aren K, Cooper P, Field NS, Mohsin S, Shawabkeh M, Soriano A, Gundersheimer AN, Goldberg IA, Damore B, Peltekian A, Agrawal A, Cheung C, Perez S, Teaw S, Williams A, Page N, Kujawski SE, Odell W, Gunes BI, Cheng M, Emokpae M, Cumming RI, Tighe RM, Grudzinski K, Savas H, Rubinowitz AN, Kadhim BA, Kurihara C, Bharat A, Mehta V, Dematte JE, Bemiss BC, Makinde HM, Cuda CM, Dapas M, Richardson C, Perlman H, Lam AP, Gottardi CJ, Budinger GS, Misharin AV, Hinchcliff ME",
       "doi": "10.1101/2025.08.07.669006",
       "url": "https://doi.org/10.1101/2025.08.07.669006",
       "type": "posted-content",
@@ -577,11 +578,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 27
     },
     {
       "title": "Development of a pilot machine learning model to predict successful cure in critically ill patients with community-acquired pneumonia",
       "journal": "medRxiv",
+      "details": "",
       "date": "2025-07-16",
       "year": "2025",
       "authors": "Zhu M, Liao W, Peltekian A, Markov NS, Kang M, Rasmussen LV, Stoeger T, Walunas TL, Misharin AV, Singer BD, Budinger GRS, Wunderink RG, Agrawal A, Gao CA",
@@ -742,11 +745,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 26
     },
     {
       "title": "Machine learning analysis of electronic health records identifies interstitial lung disease and predicts mortality in patients with systemic sclerosis",
       "journal": "medRxiv",
+      "details": "",
       "date": "2025-06-04",
       "year": "2025",
       "authors": "Peltekian AK, Grudzinski KM, Bemiss BC, Dematte JE, Richardson C, Markov NS, Carns M, Aren K, Field NS, Zhu M, Soriano A, Dapas M, Perlman H, Gundersheimer A, Selvan KC, Moore DF, Rasmussen LV, Varga J, Hinchcliff M, Warrior K, Gao CA, Wunderink RG, Budinger GS, Choudhary A, Misharin AV, Agrawal A, Esposito AJ",
@@ -1013,11 +1018,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 25
     },
     {
       "title": "_In silico_ perturbations provide multivariate interpretability in predicting post-lung transplant outcomes",
       "journal": "medRxiv",
+      "details": "",
       "date": "2024-10-21",
       "year": "2024",
       "authors": "Luo L, Mo\u017cejko M, Markov NS, Peltekian A, Mohsin S, Carns M, Cooper P, Lysne J, Joudi A, Betensley A, Bemiss BC, Myers C, Bharat A, Tomic R, Arunachalam A, Szczurek E, Budinger GS, Misharin AV, Subramani MV",
@@ -1212,11 +1219,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 24
     },
     {
       "title": "Neutrophil percentages in bronchoalveolar lavage fluid: implications for diagnosing bacterial pneumonia in patients with immunocompromise and neutropenia",
       "journal": "medRxiv",
+      "details": "",
       "date": "2024-05-07",
       "year": "2024",
       "authors": "Grudzinski KM, Fenske S, Peltekian A, Markov NS, Pawlowski A, Kang M, Walter JM, Pickens CI, Nadig NR, Agrawal A, Singer BD, Wunderink RG, Gao CA",
@@ -1371,13 +1380,15 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 23
     }
   ],
   "articles": [
     {
       "title": "Developing and validating machine learning models to predict next-day extubation",
-      "journal": "Scientific Reports 15(1)",
+      "journal": "Sci. Rep.",
+      "details": "15(1)",
       "date": "2025-07-29",
       "year": "2025",
       "authors": "Fenske SW, Peltekian A, Kang M, Markov NS, Zhu M, Grudzinski K, Bak MJ, Pawlowski A, Gupta V, Mao Y, Bratchikov S, Stoeger T, Rasmussen LV, Choudhary AN, Misharin AV, Singer BD, Budinger GRS, Wunderink RG, Agrawal A, Gao CA",
@@ -1563,11 +1574,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 22
     },
     {
       "title": "Defining and benchmarking open problems in single-cell analysis",
-      "journal": "Nature Biotechnology 43(7):1035-1040",
+      "journal": "Nat. Biotechnol.",
+      "details": "43(7):1035-1040",
       "date": "2025-07",
       "year": "2025",
       "authors": "Luecken MD, Gigante S, Burkhardt DB, Cannoodt R, Strobl DC, Markov NS, Zappia L, Palla G, Lewis W, Dimitrov D, Vinyard ME, Magruder DS, Mueller MF, Andersson A, Dann E, Qin Q, Otto DJ, Klein M, Botvinnik OB, Deconinck L, Waldrant K, Yasa SN, Sza\u0142ata A, Benz A, Li Z, Rieck B, Ahlmann-Eltze C, da Veiga Beltrame E, Bravo Gonz\u00e1lez-Blas C, Chen AT, DeMeo B, Ergen C, Floc\u2019hlay S, Gayoso A, Hicks S, Ji Y, Kleshchevnikov V, La Manno G, Lombardo MG, Lopez R, Righelli D, Sarkar H, Svensson V, Tong A, Xing G, Xu C, Bloom JM, Pisco AO, Saez-Rodriguez J, Wulsin D, Pinello L, Saeys Y, Theis FJ, Krishnaswamy S",
@@ -2012,11 +2025,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 21
     },
     {
       "title": "Antibiotic de-escalation patterns and outcomes in critically ill patients with suspected pneumonia as informed by bronchoalveolar lavage results",
-      "journal": "European Journal of Clinical Microbiology &amp; Infectious Diseases 44(8):1861-1871",
+      "journal": "Eur. J. Clin. Microbiol. Infect. Dis.",
+      "details": "44(8):1861-1871",
       "date": "2025-05-03",
       "year": "2025",
       "authors": "Zhu M, Pickens CI, Markov NS, Pawlowski A, Kang M, Rasmussen LV, Walter JM, Nadig NR, Singer BD, Wunderink RG, Gao CA",
@@ -2158,11 +2173,232 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 20
+    },
+    {
+      "title": "funkyheatmap: visualising data frames with mixed data types",
+      "journal": "Journal of Open Source Software",
+      "details": "10(108):7698",
+      "date": "2025-04-11",
+      "year": "2025",
+      "authors": "Cannoodt R\\*, Deconinck L\\*, Couckuyt A\\*, Markov NS\\*, Zappia L, Luecken MD, Interlandi M, Saeys Y#super[\u2020], Saelens W#super[\u2020]",
+      "doi": "10.21105/joss.07698",
+      "url": "https://doi.org/10.21105/joss.07698",
+      "type": "journal-article",
+      "raw": {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              12
+            ]
+          ],
+          "date-time": "2025-04-12T04:10:57Z",
+          "timestamp": 1744431057339
+        },
+        "publisher": "The Open Journal",
+        "issue": "108",
+        "short-container-title": [
+          "JOSS"
+        ],
+        "DOI": "10.21105/joss.07698",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              11
+            ]
+          ],
+          "date-time": "2025-04-11T12:38:01Z",
+          "timestamp": 1744375081000
+        },
+        "page": "7698",
+        "title": [
+          "funkyheatmap: Visualising data frames with mixed data types"
+        ],
+        "volume": "10",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-3641-729X",
+            "authenticated-orcid": false,
+            "given": "Robrecht",
+            "family": "Cannoodt*",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Data Mining and Modelling for Biomedicine group, VIB Center for Inflammation Research, Ghent, Belgium"
+              },
+              {
+                "name": "Department of Applied Mathematics, Computer Science, and Statistics, Ghent University, Belgium"
+              },
+              {
+                "name": "Data Intuitive, Lebbeke, Belgium"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8100-6823",
+            "authenticated-orcid": false,
+            "given": "Louise",
+            "family": "Deconinck*",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Data Mining and Modelling for Biomedicine group, VIB Center for Inflammation Research, Ghent, Belgium"
+              },
+              {
+                "name": "Department of Applied Mathematics, Computer Science, and Statistics, Ghent University, Belgium"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7858-6521",
+            "authenticated-orcid": false,
+            "given": "Artuur",
+            "family": "Couckuyt*",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Data Mining and Modelling for Biomedicine group, VIB Center for Inflammation Research, Ghent, Belgium"
+              },
+              {
+                "name": "Department of Applied Mathematics, Computer Science, and Statistics, Ghent University, Belgium"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3659-4387",
+            "authenticated-orcid": false,
+            "given": "Nikolay S.",
+            "family": "Markov*",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Division of Pulmonary and Critical Care Medicine, Northwestern University, Chicago, USA"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7744-8565",
+            "authenticated-orcid": false,
+            "given": "Luke",
+            "family": "Zappia",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Data Intuitive, Lebbeke, Belgium"
+              },
+              {
+                "name": "Institute of Computational Biology, Computational Health Center, Helmholtz Munich, Munich, Germany"
+              },
+              {
+                "name": "Department of Mathematics, School of Computation, Information and Technology, Technical University of Munich, Munich, Germany"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7464-7921",
+            "authenticated-orcid": false,
+            "given": "Malte D.",
+            "family": "Luecken",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Computational Biology, Computational Health Center, Helmholtz Munich, Munich, Germany"
+              },
+              {
+                "name": "Institute of Lung Health and Immunity (LHI), Helmholtz Munich, Comprehensive Pneumology Center (CPC-M), Germany; Member of the German Center for Lung Research (DZL)"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6863-2552",
+            "authenticated-orcid": false,
+            "given": "Marta",
+            "family": "Interlandi",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Medical Informatics, University of Muenster, Muenster, Germany"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0415-1506",
+            "authenticated-orcid": false,
+            "given": "Yvan",
+            "family": "Saeys\u2020",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Data Mining and Modelling for Biomedicine group, VIB Center for Inflammation Research, Ghent, Belgium"
+              },
+              {
+                "name": "Department of Applied Mathematics, Computer Science, and Statistics, Ghent University, Belgium"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-7114-6248",
+            "authenticated-orcid": false,
+            "given": "Wouter",
+            "family": "Saelens\u2020",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Laboratory of Myeloid Cell Biology in tissue homeostasis and regeneration, VIB Center for Inflammation Research, Ghent, Belgium"
+              },
+              {
+                "name": "Department of Biomedical Molecular Biology, Ghent University, Ghent, Belgium"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Journal of Open Source Software"
+        ],
+        "resource": {
+          "primary": {
+            "URL": "https://joss.theoj.org/papers/10.21105/joss.07698"
+          }
+        },
+        "URL": "https://doi.org/10.21105/joss.07698",
+        "relation": {
+          "has-review": [
+            {
+              "id-type": "uri",
+              "id": "https://github.com/openjournals/joss-reviews/issues/7698",
+              "asserted-by": "subject"
+            }
+          ],
+          "references": [
+            {
+              "id-type": "doi",
+              "id": "10.5281/zenodo.15182434",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              11
+            ]
+          ]
+        }
+      },
+      "rank": 19
     },
     {
       "title": "An observational cohort study of bronchoalveolar lavage fluid galactomannan and _Aspergillus_ culture positivity in patients requiring mechanical ventilation",
-      "journal": "Open Forum Infectious Diseases 12(3)",
+      "journal": "Open Forum Infectious Diseases",
+      "details": "12(3)",
       "date": "2025-02-15",
       "year": "2025",
       "authors": "Gao CA, Markov NS, Pickens C, Pawlowski A, Kang M, Walter JM, Singer BD, Wunderink RG",
@@ -2336,11 +2572,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 18
     },
     {
       "title": "Profibrotic monocyte-derived alveolar macrophages are expanded in patients with persistent respiratory symptoms and radiographic abnormalities after COVID-19",
-      "journal": "Nature Immunology 25(11):2097-2109",
+      "journal": "Nat. Immunol.",
+      "details": "25(11):2097-2109",
       "date": "2024-10-04",
       "year": "2024",
       "authors": "Bailey JI, Puritz CH, Senkow KJ, Markov NS, Diaz E, Jonasson E, Yu Z, Swaminathan S, Lu Z, Fenske S, Grant RA, Abdala-Valencia H, Mylvaganam RJ, Ludwig A, Miller J, Cumming RI, Tighe RM, Gowdy KM, Kalhan R, Jain M, Bharat A, Kurihara C, San Jose Estepar R, San Jose Estepar R, Washko GR, Shilatifard A, Sznajder JI, Ridge KM, Budinger GRS, Braun R, Misharin AV, Sala MA",
@@ -2626,11 +2864,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 17
     },
     {
       "title": "Distinctive evolution of alveolar T cell responses is associated with clinical outcomes in unvaccinated patients with SARS-CoV-2 pneumonia",
-      "journal": "Nature Immunology 25(9):1607-1622",
+      "journal": "Nat. Immunol.",
+      "details": "25(9):1607-1622",
       "date": "2024-08-13",
       "year": "2024",
       "authors": "Markov NS, Ren Z, Senkow KJ, Grant RA, Gao CA, Malsin ES, Sichizya L, Kihshen H, Helmin KA, Jovisic M, Arnold JM, P\u00e9rez-Leonor XG, Abdala-Valencia H, Swaminathan S, Nwaezeapu J, Kang M, Rasmussen L, Ozer EA, Lorenzo-Redondo R, Hultquist JF, Simons LM, Rios-Guzman E, Misharin AV, Wunderink RG, Budinger GRS, Singer BD, Morales-Nebreda L, Abdala-Valencia H, Rasmussen LV, Hultquist J, Simmons L, Guzman ER, Alexander MJ, Alisoltanidehkordi A, Bailey JI, Bartom ET, Bharat A, Bolig T, Borkowski N, Chandel NS, Clepp RK, Coleman J, Cuttica MJ, Cybulski TR, Dematte JE, Deters JS, Diaz E, Donayre A, Donnelly HK, Fiala JA, Gadhvi GT, Gates KL, Gatesy SWM, Go PD, Gottardi CJ, Green SJ, Gusman E, Han S, Hartmann EM, Hauser AR, Horvath CM, Hukamdad M, Hyder SM, Jain M, Jonasson E, Joudi AM, Kadar RB, Kalhan R, Kamp DW, Kandpal M, Kidd DA, Klug ZM, Korth EA, Kruser JM, Lawrence R, Leibenguth EM, Levenson AR, Gradone LD, Liu GY, Lomasney JW, Lombardo TA, Lu Z, Ludwig A, Mahmoud A, McQuattie-Pimentel AC, Meza D, Mylvaganam RJ, Nannapaneni P, Nozick S, Nunes Amaral LA, Patel R, Pawlowski AE, Pickens CO, Politanska Y, Poor TA, Prickett MH, Qi C, Querrey M, Ridge KM, Rosenbaum ML, Rosenberg SR, Rowe T, Russell SR, Sala MA, Schneider D, Schroedl CJ, Secunda K, Seed PC, Shanes ED, Shen J, Shilatifard A, Smith S, Sporn PHS, Starren J, Stoeger T, Sumner J, Sznajder JI, Textor LN, Thakkar S, Tomic R, Tran B, Vitale K, Wagh AA, Walter JM, Wehbe F, Winter DR, Wolfe AR, Wolfe LF, Yeldandi AV, Yu Z, Castellanos J, Johnson L, Laurenzo S, Matias G, Olson EM, Rowell J, Smith-Nunez A, Szabo A, White B",
@@ -3594,14 +3834,16 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 16
     },
     {
       "title": "Machine learning links unresolving secondary pneumonia to mortality in patients with severe pneumonia, including COVID-19",
-      "journal": "Journal of Clinical Investigation 133(12)",
+      "journal": "Journal of Clinical Investigation",
+      "details": "133(12)",
       "date": "2023-06-15",
       "year": "2023",
-      "authors": "Gao CA, Markov NS, Stoeger T, Pawlowski A, Kang M, Nannapaneni P, Grant RA, Pickens C, Walter JM, Kruser JM, Rasmussen L, Schneider D, Starren J, Donnelly HK, Donayre A, Luo Y, Budinger GS, Wunderink RG, Misharin AV, Singer BD",
+      "authors": "Gao CA\\*, Markov NS\\*, Stoeger T\\*, Pawlowski A, Kang M, Nannapaneni P, Grant RA, Pickens C, Walter JM, Kruser JM, Rasmussen L, Schneider D, Starren J, Donnelly HK, Donayre A, Luo Y, Budinger GS, Wunderink RG, Misharin AV, Singer BD",
       "doi": "10.1172/jci170682",
       "url": "https://doi.org/10.1172/jci170682",
       "type": "journal-article",
@@ -3650,7 +3892,7 @@
             "authenticated-orcid": false,
             "given": "Nikolay S.",
             "family": "Markov",
-            "sequence": "additional",
+            "sequence": "first",
             "affiliation": []
           },
           {
@@ -3658,7 +3900,7 @@
             "authenticated-orcid": false,
             "given": "Thomas",
             "family": "Stoeger",
-            "sequence": "additional",
+            "sequence": "first",
             "affiliation": []
           },
           {
@@ -3806,11 +4048,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 15
     },
     {
       "title": "An integrated cell atlas of the lung in health and disease",
-      "journal": "Nature Medicine 29(6):1563-1577",
+      "journal": "Nat. Med.",
+      "details": "29(6):1563-1577",
       "date": "2023-06",
       "year": "2023",
       "authors": "Sikkema L, Ram\u00edrez-Su\u00e1stegui C, Strobl DC, Gillett TE, Zappia L, Madissoon E, Markov NS, Zaragosi L, Ji Y, Ansari M, Arguel M, Apperloo L, Banchero M, B\u00e9cavin C, Berg M, Chichelnitskiy E, Chung M, Collin A, Gay ACA, Gote-Schniering J, Hooshiar Kashani B, Inecik K, Jain M, Kapellos TS, Kole TM, Leroy S, Mayr CH, Oliver AJ, von Papen M, Peter L, Taylor CJ, Walzthoeni T, Xu C, Bui LT, De Donno C, Dony L, Faiz A, Guo M, Gutierrez AJ, Heumos L, Huang N, Ibarra IL, Jackson ND, Kadur Lakshminarasimha Murthy P, Lotfollahi M, Tabib T, Talavera-L\u00f3pez C, Travaglini KJ, Wilbrey-Clark A, Worlock KB, Yoshida M, Chen Y, Hagood JS, Agami A, Horvath P, Lundeberg J, Marquette C, Pryhuber G, Samakovlis C, Sun X, Ware LB, Zhang K, van den Berge M, Boss\u00e9 Y, Desai TJ, Eickelberg O, Kaminski N, Krasnow MA, Lafyatis R, Nikolic MZ, Powell JE, Rajagopal J, Rojas M, Rozenblatt-Rosen O, Seibold MA, Sheppard D, Shepherd DP, Sin DD, Timens W, Tsankov AM, Whitsett J, Xu Y, Banovich NE, Barbry P, Duong TE, Falk CS, Meyer KB, Kropski JA, Pe\u2019er D, Schiller HB, Tata PR, Schultze JL, Teichmann SA, Misharin AV, Nawijn MC, Luecken MD, Theis FJ",
@@ -4562,11 +4806,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 14
     },
     {
       "title": "Comparing scientific abstracts generated by ChatGPT to real abstracts with detectors and blinded human reviewers",
-      "journal": "npj Digital Medicine 6(1)",
+      "journal": "npj Digital Med.",
+      "details": "6(1)",
       "date": "2023-04-26",
       "year": "2023",
       "authors": "Gao CA, Howard FM, Markov NS, Dyer EC, Ramesh S, Luo Y, Pearson AT",
@@ -4688,11 +4934,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 13
     },
     {
       "title": "Loss of alcohol dehydrogenase 1B in cancer-associated fibroblasts: contribution to the increase of tumor-promoting IL-6 in colon cancer",
-      "journal": "British Journal of Cancer 128(4):537-548",
+      "journal": "Br. J. Cancer",
+      "details": "128(4):537-548",
       "date": "2022-12-08",
       "year": "2022",
       "authors": "Vill\u00e9ger R, Chulkina M, Mifflin RC, Markov NS, Trieu J, Sinha M, Johnson P, Saada JI, Adegboyega PA, Luxon BA, Beswick EJ, Powell DW, Pinchuk IV",
@@ -4836,11 +5084,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 12
     },
     {
       "title": "Expression of _ACE2_\u2014a key SARS-CoV-2 entry factor\u2014is not increased in the nasal mucosa of people with cystic fibrosis",
-      "journal": "American Journal of Respiratory Cell and Molecular Biology 67(1):132-137",
+      "journal": "Am. J. Respir. Cell Mol. Biol.",
+      "details": "67(1):132-137",
       "date": "2022-07",
       "year": "2022",
       "authors": "Sala MA, Markov NS, Politanska Y, Abdala-Valencia H, Misharin AV, Jain M",
@@ -4966,11 +5216,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 11
     },
     {
       "title": "MyD88-mediated signaling in myo-/fibroblasts is required for control of macrophage maturation under mucosal tolerance in the gut",
-      "journal": "The Journal of Immunology 208(Supplement_1):113.14",
+      "journal": "The Journal of Immunology",
+      "details": "208(Supplement_1):113.14",
       "date": "2022-05-01",
       "year": "2022",
       "authors": "Chulkina M, Uribe G, He B, McAninch S, Khanipov K, Golovko G, Markov NS, Powell DW, Beswick E, Pinchuk IV",
@@ -5129,11 +5381,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 10
     },
     {
       "title": "Age-related differences in the nasal mucosal immune response to SARS-CoV-2",
-      "journal": "American Journal of Respiratory Cell and Molecular Biology 66(2):206-222",
+      "journal": "Am. J. Respir. Cell Mol. Biol.",
+      "details": "66(2):206-222",
       "date": "2022-02",
       "year": "2022",
       "authors": "Koch CM, Prigge AD, Anekalla KR, Shukla A, Do Umehara HC, Setar L, Chavez J, Abdala-Valencia H, Politanska Y, Markov NS, Hahn GR, Heald-Sargent T, Sanchez- Pinto LN, Muller WJ, Singer BD, Misharin AV, Ridge KM, Coates BM",
@@ -5437,11 +5691,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 9
     },
     {
       "title": "Local and systemic responses to SARS-CoV-2 infection in children and adults",
-      "journal": "Nature 602(7896):321-327",
+      "journal": "Nature",
+      "details": "602(7896):321-327",
       "date": "2021-12-22",
       "year": "2021",
       "authors": "Yoshida M, Worlock KB, Huang N, Lindeboom RGH, Butler CR, Kumasaka N, Dominguez Conde C, Mamanova L, Bolt L, Richardson L, Polanski K, Madissoon E, Barnes JL, Allen-Hyttinen J, Kilich E, Jones BC, de Wilton A, Wilbrey-Clark A, Sungnak W, Pett JP, Weller J, Prigmore E, Yung H, Mehta P, Saleh A, Saigal A, Chu V, Cohen JM, Cane C, Iordanidou A, Shibuya S, Reuschl A, Herczeg IT, Argento AC, Wunderink RG, Smith SB, Poor TA, Gao CA, Dematte JE, Budinger GRS, Donnelly HK, Markov NS, Lu Z, Reynolds G, Haniffa M, Bowyer GS, Coates M, Clatworthy MR, Calero-Nieto FJ, G\u00f6ttgens B, O\u2019Callaghan C, Sebire NJ, Jolly C, De Coppi P, Smith CM, Misharin AV, Janes SM, Teichmann SA, Nikoli\u0107 MZ, Meyer KB",
@@ -5949,11 +6205,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 8
     },
     {
       "title": "UCSC Cell Browser: visualize your single-cell data",
-      "journal": "Bioinformatics 37(23):4578-4580",
+      "journal": "Bioinformatics",
+      "details": "37(23):4578-4580",
       "date": "2021-07-09",
       "year": "2021",
       "authors": "Speir ML, Bhaduri A, Markov NS, Moreno P, Nowakowski TJ, Papatheodorou I, Pollen AA, Raney BJ, Seninge L, Kent WJ, Haeussler M",
@@ -6150,11 +6408,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 7
     },
     {
       "title": "Resetting proteostasis with ISRIB promotes epithelial differentiation to attenuate pulmonary fibrosis",
-      "journal": "Proceedings of the National Academy of Sciences 118(20)",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "details": "118(20)",
       "date": "2021-05-10",
       "year": "2021",
       "authors": "Watanabe S, Markov NS, Lu Z, Piseaux Aillon R, Soberanes S, Runyan CE, Ren Z, Grant RA, Maciel M, Abdala-Valencia H, Politanska Y, Nam K, Sichizya L, Kihshen HG, Joshi N, McQuattie-Pimentel AC, Gruner KA, Jain M, Sznajder JI, Morimoto RI, Reyfman PA, Gottardi CJ, Budinger GRS, Misharin AV",
@@ -6480,11 +6740,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 6
     },
     {
       "title": "Aging imparts cell-autonomous dysfunction to regulatory T cells during recovery from influenza pneumonia",
-      "journal": "JCI Insight 6(6)",
+      "journal": "JCI Insight",
+      "details": "6(6)",
       "date": "2021-03-22",
       "year": "2021",
       "authors": "Morales-Nebreda L, Helmin KA, Torres Acosta MA, Markov NS, Hu JY, Joudi AM, Piseaux-Aillon R, Abdala-Valencia H, Politanska Y, Singer BD",
@@ -6625,14 +6887,16 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 5
     },
     {
       "title": "Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia",
-      "journal": "Nature 590(7847):635-641",
+      "journal": "Nature",
+      "details": "590(7847):635-641",
       "date": "2021-01-11",
       "year": "2021",
-      "authors": "Grant RA*, Morales-Nebreda L*, Markov NS*, Swaminathan S, Querrey M, Guzman ER, Abbott DA, Donnelly HK, Donayre A, Goldberg IA, Klug ZM, Borkowski N, Lu Z, Kihshen H, Politanska Y, Sichizya L, Kang M, Shilatifard A, Qi C, Lomasney JW, Argento AC, Kruser JM, Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P, Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG, Grant RA, Morales-Nebreda L, Markov NS, Swaminathan S, Querrey M, Guzman ER, Abbott DA, Donnelly HK, Donayre A, Goldberg IA, Klug ZM, Borkowski N, Lu Z, Kihshen H, Politanska Y, Sichizya L, Kang M, Shilatifard A, Qi C, Lomasney JW, Argento AC, Kruser JM, Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P, Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG, Wagh AA, Hauser AR, Wolfe AR, Thakrar A, Yeldandi AV, Wang AA, Levenson AR, Joudi AM, Tran B, Gao CA, Kurihara C, Schroedl CJ, Horvath CM, Meza D, Odell DD, Kamp DW, Winter DR, Ozer EA, Shanes ED, Bartom ET, Rendleman EJ, Leibenguth EM, Wehbe F, Liu GY, Gadhvi GT, Navarro HT, Sznajder JI, Dematte JE, Le J, Arnold JM, Du JC, Coleman J, Bailey JI, Deters JS, Fiala JA, Starren J, Ridge KM, Secunda K, Aren K, Gates KL, Todd K, Gradone LD, Textor LN, Wolfe LF, Pesce LL, Nunes Amaral LA, Rosenbaum ML, Kandpal M, Jain M, Sala MA, Saine M, Carns M, Alexander MJ, Cuttica MJ, Prickett MH, Khan NH, Chandel NS, Soulakis ND, Rivas OR, Seed PC, Reyfman PA, Go PD, Sporn PHS, Cooper PR, Tomic R, Patel R, Garza-Castillon R, Kalhan R, Morimoto RI, Mylvaganam RJ, Kim SS, Gatesy SWM, Thakkar S, Ben Maamar S, Han S, Rosenberg SR, Nozick S, Green SJ, Russell SR, Poor TA, Zak TJ, Lombardo TA, Stoeger T, Shamaly T, Ren Z",
+      "authors": "Grant RA\\*, Morales-Nebreda L\\*, Markov NS\\*, Swaminathan S, Querrey M, Guzman ER, Abbott DA, Donnelly HK, Donayre A, Goldberg IA, Klug ZM, Borkowski N, Lu Z, Kihshen H, Politanska Y, Sichizya L, Kang M, Shilatifard A, Qi C, Lomasney JW, Argento AC, Kruser JM, Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P, Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG, Grant RA, Morales-Nebreda L, Markov NS, Swaminathan S, Querrey M, Guzman ER, Abbott DA, Donnelly HK, Donayre A, Goldberg IA, Klug ZM, Borkowski N, Lu Z, Kihshen H, Politanska Y, Sichizya L, Kang M, Shilatifard A, Qi C, Lomasney JW, Argento AC, Kruser JM, Malsin ES, Pickens CO, Smith SB, Walter JM, Pawlowski AE, Schneider D, Nannapaneni P, Abdala-Valencia H, Bharat A, Gottardi CJ, Budinger GRS, Misharin AV, Singer BD, Wunderink RG, Wagh AA, Hauser AR, Wolfe AR, Thakrar A, Yeldandi AV, Wang AA, Levenson AR, Joudi AM, Tran B, Gao CA, Kurihara C, Schroedl CJ, Horvath CM, Meza D, Odell DD, Kamp DW, Winter DR, Ozer EA, Shanes ED, Bartom ET, Rendleman EJ, Leibenguth EM, Wehbe F, Liu GY, Gadhvi GT, Navarro HT, Sznajder JI, Dematte JE, Le J, Arnold JM, Du JC, Coleman J, Bailey JI, Deters JS, Fiala JA, Starren J, Ridge KM, Secunda K, Aren K, Gates KL, Todd K, Gradone LD, Textor LN, Wolfe LF, Pesce LL, Nunes Amaral LA, Rosenbaum ML, Kandpal M, Jain M, Sala MA, Saine M, Carns M, Alexander MJ, Cuttica MJ, Prickett MH, Khan NH, Chandel NS, Soulakis ND, Rivas OR, Seed PC, Reyfman PA, Go PD, Sporn PHS, Cooper PR, Tomic R, Patel R, Garza-Castillon R, Kalhan R, Morimoto RI, Mylvaganam RJ, Kim SS, Gatesy SWM, Thakkar S, Ben Maamar S, Han S, Rosenberg SR, Nozick S, Green SJ, Russell SR, Poor TA, Zak TJ, Lombardo TA, Stoeger T, Shamaly T, Ren Z",
       "doi": "10.1038/s41586-020-03148-w",
       "url": "https://doi.org/10.1038/s41586-020-03148-w",
       "type": "journal-article",
@@ -7674,11 +7938,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 4
     },
     {
       "title": "Lung transplantation for patients with severe COVID-19",
-      "journal": "Science Translational Medicine 12(574)",
+      "journal": "Sci. Transl. Med.",
+      "details": "12(574)",
       "date": "2020-12-16",
       "year": "2020",
       "authors": "Bharat A, Querrey M, Markov NS, Kim S, Kurihara C, Garza-Castillon R, Manerikar A, Shilatifard A, Tomic R, Politanska Y, Abdala-Valencia H, Yeldandi AV, Lomasney JW, Misharin AV, Budinger GRS",
@@ -7922,11 +8188,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 3
     },
     {
       "title": "Impaired phagocytic function in CX3CR1#super[+] tissue\u2010resident skeletal muscle macrophages prevents muscle recovery after influenza A virus\u2010induced pneumonia in old mice",
-      "journal": "Aging Cell 19(9)",
+      "journal": "Aging Cell",
+      "details": "19(9)",
       "date": "2020-07-28",
       "year": "2020",
       "authors": "Runyan CE, Welch LC, Lecuona E, Shigemura M, Amarelle L, Abdala\u2010Valencia H, Joshi N, Lu Z, Nam K, Markov NS, McQuattie\u2010Pimentel AC, Piseaux\u2010Aillon R, Politanska Y, Sichizya L, Watanabe S, Williams KJ, Budinger GRS, Sznajder JI, Misharin AV",
@@ -8216,11 +8484,13 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 2
     },
     {
       "title": "A spatially restricted fibrotic niche in pulmonary fibrosis is sustained by M-CSF/M-CSFR signalling in monocyte-derived alveolar macrophages",
-      "journal": "European Respiratory Journal 55(1):1900646",
+      "journal": "European Respiratory Journal",
+      "details": "55(1):1900646",
       "date": "2019-10-10",
       "year": "2019",
       "authors": "Joshi N, Watanabe S, Verma R, Jablonski RP, Chen C, Cheresh P, Markov NS, Reyfman PA, McQuattie-Pimentel AC, Sichizya L, Lu Z, Piseaux-Aillon R, Kirchenbuechler D, Flozak AS, Gottardi CJ, Cuda CM, Perlman H, Jain M, Kamp DW, Budinger GS, Misharin AV",
@@ -8421,7 +8691,8 @@
             ]
           ]
         }
-      }
+      },
+      "rank": 1
     }
   ]
 }

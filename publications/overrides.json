@@ -10,6 +10,21 @@
         ]
     },
     {
+        "DOI": "10.1172/jci170682",
+        "author": [
+            {
+                "given": "Nikolay S.",
+                "family": "Markov",
+                "sequence": "first"
+            },
+            {
+                "given": "Thomas",
+                "family": "Stoeger",
+                "sequence": "first"
+            }
+        ]
+    },
+    {
         "DOI": "10.1038/s41586-020-03148-w",
         "author": [
             {
