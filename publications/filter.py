@@ -94,6 +94,7 @@ def format_authors(authors):
     for author in authors:
         given = author.get('given', '')
         family = author.get('family', '')
+        name = author.get('name', '')
         suffix = ''
         if family.endswith('*'):
             family = family[:-1]
@@ -107,10 +108,14 @@ def format_authors(authors):
             author_strings.append(f"{family} {initials}")
         elif family:
             author_strings.append(family)
+        elif name:
+            author_strings.append(name)
         if 'sequence' in author and author['sequence'] == 'first' and n_first > 1:
             author_strings[-1] += '\\*'
         if suffix:
             author_strings[-1] += suffix
+        if 'truncate' in author and author['truncate']:
+            break
 
     return ", ".join(author_strings)
 
@@ -198,9 +203,14 @@ def apply_override(item, override):
         if key == 'author':
             for author in value:
                 for item_author in item['author']:
-                    if item_author['given'] == author['given'] and item_author['family'] == author['family']:
-                        item_author.update(author)
-                        break
+                    if 'given' in author and 'given' in item_author:
+                        if item_author['given'] == author['given'] and item_author['family'] == author['family']:
+                            item_author.update(author)
+                            break
+                    if 'name' in author and 'name' in item_author:
+                        if item_author['name'] == author['name']:
+                            item_author.update(author)
+                            break
     return item
 
 def convert_item(item, journal_abbrevs):

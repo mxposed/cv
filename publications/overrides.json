@@ -10,6 +10,15 @@
         ]
     },
     {
+        "DOI": "10.1038/s41590-024-01914-w",
+        "author": [
+            {
+                "name": "The NU SCRIPT Study Investigators",
+                "truncate": true
+            }
+        ]
+    },
+    {
         "DOI": "10.1172/jci170682",
         "author": [
             {
@@ -20,6 +29,16 @@
             {
                 "given": "Thomas",
                 "family": "Stoeger",
+                "sequence": "first"
+            }
+        ]
+    },
+    {
+        "DOI": "10.1165/rcmb.2021-0341le",
+        "author": [
+            {
+                "given": "Nikolay S.",
+                "family": "Markov",
                 "sequence": "first"
             }
         ]
@@ -36,6 +55,10 @@
                 "given": "Nikolay S.",
                 "family": "Markov",
                 "sequence": "first"
+            },
+            {
+                "name": "The NU SCRIPT Study Investigators",
+                "truncate": true
             }
         ]
     }

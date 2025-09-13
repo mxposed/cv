@@ -1,8 +1,15 @@
 #set page(
   paper: "a4",
   margin: (
+    bottom: 0.75in,
     rest: 0.5in
-  )
+  ),
+  footer: context {
+    set text(size: 8pt, fill: gray.darken(50%))
+    h(1fr)
+    if counter(page).get().first() > 1 [Markov CV page #counter(page).display("1 of 1", both: true)]
+    else [page #counter(page).display("1 of 1", both: true)]
+  }
 )
 
 #set text(font: "Avenir", size: 10pt)
@@ -25,11 +32,8 @@
 }
 
 #show link: it => {
-  set text(bottom-edge: "descender")
-  box(
-    stroke: (bottom: 0.5pt + rgb("#abc6ce")),
-    baseline: 3pt
-  )[#it]
+  // set text(bottom-edge: "descender")
+  box(underline(stroke: 0.5pt + rgb("#abc6ce"), offset: 3pt)[#it])
 }
 
 #let updated = {
@@ -37,10 +41,10 @@
   [updated #datetime.today().display("[month repr:long] [year]")]
 }
 
-#let item(header, details) = {
+#let item(header, details, inset: 6mm) = {
   set par(spacing: 0.5em)
   header
-  block(inset: (left: 6mm), details)
+  block(inset: (left: inset), details)
 }
 
 #let item-with-date(header, details, date) = {
@@ -56,13 +60,13 @@
   let nn = [#text(font: "PT Mono", size: 7pt, fill: gray.darken(50%))[#if n < 10 { [0#n] } else { [#n] }]]
   let width = measure(nn).width
   let gap = 1.5mm
-  [#h(-width - gap)#nn#h(gap)]
+  [#metadata(none)#label("paper" + str(n))#h(-width - gap)#nn#h(gap)]
 }
 
 #let show-authors(authors) = context {
   layout(size => {
-    let authors-display = authors
-    let authors-size = measure(block(width: size.width, eval(authors, mode: "markup")))
+    let authors-display = authors.split(", ").map(x => "#box[" + x + "]").join(", ")
+    let authors-size = measure(block(width: size.width, eval(authors-display, mode: "markup")))
     let line-height = measure([A]).height
     let two-line-height = measure([A\ A]).height
     let line-space-height = two-line-height - line-height
@@ -74,9 +78,41 @@
       let authors-temp = authors.split(", ")
       let approx-authors-per-line = calc.floor(authors-temp.len() / num-lines)
       let total-authors = approx-authors-per-line * 3
-      let first-chunk = calc.ceil(total-authors / 2)
-      let second-chunk = total-authors - first-chunk
-      authors-display = authors-temp.slice(0, first-chunk).join(", ") + ", […], " + authors-temp.slice(-second-chunk).join(", ")
+      let pos = authors-temp.position((x) => x.starts-with("Markov NS"))
+      if pos != none {
+        let first-chunk = calc.ceil(total-authors / 2)
+        let second-chunk = total-authors - first-chunk - 2
+        if pos < total-authors - 2 and pos > first-chunk - 1 {
+          first-chunk = pos + 1
+          second-chunk = total-authors - first-chunk
+        }
+        if authors-temp.len() - pos <= total-authors - 2 and authors-temp.len() - pos >= first-chunk - 1 {
+          second-chunk = authors-temp.len() - pos + 1
+          first-chunk = total-authors - second-chunk
+        }
+        if pos > total-authors - 2 and authors-temp.len() - pos > total-authors - 2 {
+          let first-chunk = calc.floor(total-authors / 3) - 1
+          let second-chunk = first-chunk
+          let third-chunk = total-authors - first-chunk - second-chunk
+          let second-begin = calc.floor(pos - second-chunk / 2)
+          let first-skipped = second-begin - first-chunk
+          let second-skipped = authors-temp.len() - (second-begin + second-chunk) - third-chunk
+          authors-display = (
+            authors-temp.map(x => "#box[" + x + "]").slice(0, first-chunk).join(", ")
+            + ", #box[#emph[#text(gray.darken(50%))[\[…" + str(first-skipped) + " more…\]]]], "
+            + authors-temp.map(x => "#box[" + x + "]").slice(second-begin, count: second-chunk).join(", ")
+            + ", #box[#emph[#text(gray.darken(50%))[\[…" + str(second-skipped) + " more…\]]]], "
+            + authors-temp.map(x => "#box[" + x + "]").slice(-third-chunk).join(", ")
+          )
+        } else {
+          let skipped = authors-temp.len() - first-chunk - second-chunk
+          authors-display = (
+            authors-temp.map(x => "#box[" + x + "]").slice(0, first-chunk).join(", ")
+            + ", #box[#emph[#text(gray.darken(50%))[\[…" + str(skipped) + " more…\]]]], "
+            + authors-temp.map(x => "#box[" + x + "]").slice(-second-chunk).join(", ")
+          )
+        }
+      }
     }
     [#eval(authors-display, mode: "markup")]
   })
@@ -165,7 +201,7 @@
   ), [November 2022],
   item(
     [Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.],
-    [American Thoracic Society Allergy, Immunology and Inflammation (AII) assembly journal club.. #link("https://www.thoracic.org/members/assemblies/assemblies/aii/journal-club/circuits-between-infected-macrophages-and-t-cells-in-sars-cov-2-pneumonia.php")[Recording]]
+    [American Thoracic Society Allergy, Immunology and Inflammation (AII) assembly journal club. #link("https://www.thoracic.org/members/assemblies/assemblies/aii/journal-club/circuits-between-infected-macrophages-and-t-cells-in-sars-cov-2-pneumonia.php")[Recording]]
   ), [June 2021]
 )
 
@@ -200,67 +236,100 @@
   item(
     [*Ph.D. researcher*, Division of Pulmonary and Critical Care Medicine,\
     Feinberg School of Medicine, Northwestern University, Chicago, USA],
-    [- Led 4 large scientific collaborative projects with 500+ patients and multimodal data to publication
-    - Acquired external funding for my training (competitive AHA predoctoral fellowship, \$67,000)
+    [- Led 4 large collaborative projects with 500+ patients and multimodal data to publication
+    - Acquired external funding for my training (AHA predoctoral fellowship)
     - Authored and co-authored 18, including 4 first/co-first, publications or preprints
     - Led analysis of scRNAseq patient samples in the context of their clinical course with novel machine learning approach (clustering of patient-day representations and late fusion)
-    - Identified cell population as a biomarker and potential therapeutic target of ILD in SSc (bioRxiv 2025)
-    - Consulted 7 Northwestern grad students, postdocs and faculty on deep learning, data science and data visualization, including setting up and training in paw tracking on videos for mouse experiments]
+    - Identified cell population as a biomarker and potential therapeutic target of ILD in SSc (#link(label("paper26"))[Markov et al., #emph[bioRxiv], 2025])
+    - Consulted 7 Northwestern grad students, postdocs and faculty on deep learning, data science and data visualization, including setting up and training in paw tracking on videos for mouse experiments],
+    inset: 2.4mm
   ), [2022–present],
   item(
     [*Research data analyst, bioinformatics*, Division of Pulmonary and Critical Care Medicine,\
 Feinberg School of Medicine, Northwestern University, Chicago, USA],
     [- Created data processing pipelines, data exploration and management infrastructure for the division
     - Delivered analytical insights from scRNAseq and other data to principal investigators for 7 publications
-    - Formulated activated T cell macrophage circuit in Nature 2021, which supported successful clinical trials of Auxora in COVID-19 (NCT04345614)
+    - Formulated activated T cell#[#sym.arrow.l.r]macrophage circuit in #link(label("paper4"))[#emph[Nature] 2021], which supported successful clinical trials of Auxora in COVID-19 (NCT04345614)
     - Supported grant writing for U19, R01 and other NIH grants for the division, resulting in \$5M+ funding
-    - Hired and trained incoming data analysts to grow the team and replace myself]
+    - Hired and trained incoming data analysts to grow the team and replace myself],
+    inset: 2.4mm
   ), [2019–2022],
   item(
     [*Head of maintenance tools development group*, Yandex, Moscow, Russia],
     [- Managed a team of 6 engineers: hiring, mentoring, resolving conflicts, improving performance
     - Synthesized internal customers' needs into technical roadmaps for supporting web-services
-    - Owned various web-services to improve employees' workflows]
+    - Owned various web-services to improve employees' workflows],
+    inset: 2.4mm
   ), [2014–2017],
   item(
     [*Full-stack software engineer*, Yandex, Moscow, Russia],
     [- Automated deploy workflows of system administrators for better consistency and transparency
-    - Deployed and maintained various web-services to improve employees' workflows]
+    - Deployed and maintained various web-services to improve employees' workflows],
+    inset: 2.4mm
   ), [2007–2014],
   item(
     [*Software engineer*, Art. Lebedev Studio, Moscow, Russia],
-    [- Supported and developed Samsung Russia website, including new features and database management]
+    [- Supported and developed Samsung Russia website, including new features and database management],
+    inset: 2.4mm
   ), [2006–2007]
 )
 
 == Teaching experience
 
-Summer Students Program 2022 at Division of Pulmonary and Critical Care Medicine
-Co-mentored 1 college student in automated image analysis. Helped develop project goals,
-methodology and results interpretation.
-2022
-Summer Students Program 2020 at Division of Pulmonary and Critical Care Medicine
-Co-mentored a group of 4 college students on a bioinformatics project. Contributed to project's design,
-teaching R programming environment, single-cell RNA-seq experimental technology and analysis.
-2020
-Introduction to Python, Introduction to Pandas and Matplotlib
-Small introductory lecture series during Data Science Nights at NICO, Northwestern University.
-2020
-Introduction to Programming, Newcastle University, Newcastle upon Tyne, UK
-Unofficial 5-lecture course for fellow students.
-2017
-Introduction to Computer Science with Python 3, Yandex, Moscow, Russia
-High-school students.
-2013
+#grid(
+  columns: (1fr, auto),
+  column-gutter: 1em,
+  row-gutter: 1em,
+  align: (left, right),
+  item(
+    [Biological Science Teaching Assistant, Northwestern University],
+    [- Presented weekly lecture recap and experimental objectives
+    - Supervized lab sessions for 22 students
+    - Graded assignments and provided detailed written feedback],
+    inset: 2.4mm
+  ), [2024],
+  item(
+    [Summer Students Program 2022 at Division of Pulmonary and Critical Care Medicine],
+    [Co-mentored 1 college student in automated image analysis. Helped develop project goals,
+methodology and results interpretation]
+  ), [2022],
+  item(
+    [Summer Students Program 2020 at Division of Pulmonary and Critical Care Medicine],
+    [Co-mentored a group of 4 college students on a bioinformatics project. Contributed to project's design,
+teaching R programming environment, single-cell RNA-seq experimental technology and analysis]
+  ), [2020],
+  item(
+    [Introduction to Python, Introduction to Pandas and Matplotlib],
+    [Small introductory lecture series during Data Science Nights at NICO, Northwestern University]
+  ), [2020],
+  item(
+    [Introduction to Programming, Newcastle University, Newcastle upon Tyne, UK],
+    [Unofficial 5-lecture course for fellow students]
+  ), [2017],
+  item(
+    [Introduction to Computer Science with Python 3, Yandex, Moscow, Russia],
+    [Logical and mathematical problems with strict proofs for high-school students in python]
+  ), [2013],
+)
 
 == Miscallaneous
 
-Open Problems for Single-Cell Analysis Jamboree
-https://openproblems.bio/jamboree/
-March 2021
-Contributor to open-source software:
-Seurat, CellBrowser, biopython, funkyheatmap, statannotations, scanpy, CellBender.
-2018 present
-Programming languages:
-Python, R, Java, C++, Ruby, Perl. Linux. Latex. HTML, JavaScript.
-Github: https://github.com/mxposed
+#grid(
+  columns: (1fr, auto),
+  column-gutter: 1em,
+  row-gutter: 1em,
+  align: (left, right),
+  item(
+    [Open Problems for Single-Cell Analysis],
+    [Initial jamboree contributor and label projection task leader. #link("https://openproblems.bio")]
+  ), [2021–present],
+  item(
+    [Contributor to open-source software],
+    [Seurat, CellBrowser, biopython, funkyheatmap, statannotations, scanpy, CellBender]
+  ), [2018–present],
+  item(
+    [Programming languages],
+    [Python, R, Java, C++, Ruby, Perl. Linux. Latex. HTML, JavaScript.\
+    Github: #link("https://github.com/mxposed")]
+  )
+)
