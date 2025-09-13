@@ -42,7 +42,7 @@
 }
 
 #let item(header, details, inset: 6mm) = {
-  set par(spacing: 0.5em)
+  set par(spacing: 0.65em)
   header
   block(inset: (left: inset), details)
 }
