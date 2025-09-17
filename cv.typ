@@ -180,13 +180,17 @@
   v(0.2em)
 }
 
-== Invited talks
+== Invited talks and meetings
 
 #grid(
   columns: (1fr, auto),
   column-gutter: 1em,
   row-gutter: 1em,
   align: (left, right),
+  item(
+    [Poster: Machine learning and single-cell genomics identify distinct pathogen-specific host responses in patients with severe pneumonia.],
+    [AI in Molecular Biology Keystone Symposium.]
+  ), [September 2025],
   item(
     [Distinct pathogen-specific host responses in patients with severe pneumonia.],
     [Systems Biology Consortium for Infectious Diseases Lecture Series.]
@@ -198,6 +202,11 @@
   item(
     [Cellular and molecular biomarkers of successful responses to therapy in severe pneumonia, including COVID-19.],
     [CZI Single-Cell Biology 2022 Annual meeting. #link("https://fast.wistia.com/embed/channel/n9ne6nikz4?wchannelid=n9ne6nikz4&wmediaid=x46zqa026r")[Recording]]
+  ), [November 2022],
+  item(
+    [Poster: Integrative analysis of longitudinal clinical and single-cell RNA-seq data
+predicts outcomes in patients with severe SARS-CoV-2 pneumonia],
+    [CSHL Biological Data Science Meeting.]
   ), [November 2022],
   item(
     [Circuits between infected macrophages and T cells in SARS-CoV-2 pneumonia.],
