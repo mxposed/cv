@@ -134,7 +134,7 @@
     [Driskill Graduate Program in Life Sciences\
     Advisors: Dr. Alexander Misharin, Dr. Rosemary Braun.
     ]
-  ), [2022–2025 (expected in December)],
+  ), [2022–2025],
   item(
     [*M.S. in Bioinformatics*, Newcastle University, Newcastle upon Tyne, UK],
     [_With distinction_\
@@ -252,7 +252,7 @@ predicts outcomes in patients with severe SARS-CoV-2 pneumonia],
     - Identified cell population as a biomarker and potential therapeutic target of ILD in SSc (#link(label("paper26"))[Markov et al., #emph[bioRxiv], 2025])
     - Consulted 7 Northwestern grad students, postdocs and faculty on deep learning, data science and data visualization, including setting up and training in paw tracking on videos for mouse experiments],
     inset: 2.4mm
-  ), [2022–present],
+  ), [2022–2025],
   item(
     [*Research data analyst, bioinformatics*, Division of Pulmonary and Critical Care Medicine,\
 Feinberg School of Medicine, Northwestern University, Chicago, USA],
