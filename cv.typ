@@ -120,7 +120,7 @@
 
 
 = Nikolay S. Markov
-#link("mailto:nikolai.markov@northwestern.edu") | #link("https://mxposed.github.io")[mxposed.github.io] | #link("https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en")[Google Scholar profile] #h(1fr) #updated
+#link("mailto:nick@nickmarkov.me") | #link("https://nickmarkov.me")[nickmarkov.me] | #link("https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en")[Google Scholar profile] #h(1fr) #updated
 
 == Education
 
