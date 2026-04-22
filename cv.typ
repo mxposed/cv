@@ -149,6 +149,59 @@
   [2003–2006]
 )
 
+== Research experience
+
+#grid(
+  columns: (1fr, auto),
+  column-gutter: 1em,
+  row-gutter: 1em,
+  align: (left, right),
+  item(
+    [*Post-doctoral scholar*, Dana Pe'er lab,
+    Memorial Sloan Kettering Cancer Center, New York, NY],
+    [- Studying spatial distribution of T cell subtypes and their effect on response to immunotherapy in kidney cancer],
+    inset: 2.4mm
+  ), [2026–present],
+  item(
+    [*Ph.D. researcher*, Misharin lab, Division of Pulmonary and Critical Care Medicine,\
+    Feinberg School of Medicine, Northwestern University, Chicago, USA],
+    [- Endotypes of host response to severe pneumonia and associations with causing pathogen and outcomes
+    - Clonal evolution of T cells in severe SARS-CoV-2 pneumonia in unvaccinated patients
+    - _SPP1+_ macrophages as a biomarker of lung function decline in patients with systemic sclerosis-associated interstitial lung disease],
+    inset: 2.4mm
+  ), [2022–2025],
+  item(
+    [*Research data analyst, bioinformatics*, Division of Pulmonary and Critical Care Medicine,\
+Feinberg School of Medicine, Northwestern University, Chicago, USA],
+    [- Data processing pipelines, data exploration and management infrastructure for the division
+    - Analysis of scRNAseq, bulk RNA-seq and other data for 7 publications
+    - Dynamics of immune response to severe SARS-CoV-2 pneumonia (#link(label("paper4"))[#emph[Nature] 2021])
+    ],
+    inset: 2.4mm
+  ), [2019–2022]
+)
+
+== Awards and grants
+
+#grid(
+  columns: (1fr, auto),
+  column-gutter: 1em,
+  row-gutter: 1em,
+  align: (left, right),
+  item(
+    [Driskill Research Award],
+    []
+  ), [2025],
+  item(
+    [American Heart Association Predoctoral Fellowship],
+    [Machine learning approaches to predict outcomes and complications in ICU patients. 24PRE1196998 (\$67000)]
+  ), [2024–2025],
+  item(
+    [Northwestern Institute on Complex Systems Data Science Fellow (\$12500)],
+    []
+  ), [2022]
+)
+
 == Publications
 #v(-1.6em)#h(60%)#box(fill: white)[#text(size: 9pt)[#h(1mm) (\*denotes equal contribution) #h(1mm)]]
 
@@ -214,27 +267,6 @@ predicts outcomes in patients with severe SARS-CoV-2 pneumonia],
   ), [June 2021]
 )
 
-== Awards and grants
-
-#grid(
-  columns: (1fr, auto),
-  column-gutter: 1em,
-  row-gutter: 1em,
-  align: (left, right),
-  item(
-    [Driskill Research Award],
-    []
-  ), [2025],
-  item(
-    [American Heart Association Predoctoral Fellowship],
-    [Machine learning approaches to predict outcomes and complications in ICU patients. 24PRE1196998 (\$67000)]
-  ), [2024–2026],
-  item(
-    [Northwestern Institute on Complex Systems Data Science Fellow (\$12500)],
-    []
-  ), [2022]
-)
-
 == Work experience
 
 #grid(
@@ -242,27 +274,6 @@ predicts outcomes in patients with severe SARS-CoV-2 pneumonia],
   column-gutter: 1em,
   row-gutter: 1em,
   align: (left, right),
-  item(
-    [*Ph.D. researcher*, Division of Pulmonary and Critical Care Medicine,\
-    Feinberg School of Medicine, Northwestern University, Chicago, USA],
-    [- Led 4 large collaborative projects with 500+ patients and multimodal data to publication
-    - Acquired external funding for my training (AHA predoctoral fellowship)
-    - Authored and co-authored 18, including 4 first/co-first, publications or preprints
-    - Led analysis of scRNAseq patient samples in the context of their clinical course with novel machine learning approach (clustering of patient-day representations and late fusion)
-    - Identified cell population as a biomarker and potential therapeutic target of ILD in SSc (#link(label("paper26"))[Markov et al., #emph[bioRxiv], 2025])
-    - Consulted 7 Northwestern grad students, postdocs and faculty on deep learning, data science and data visualization, including setting up and training in paw tracking on videos for mouse experiments],
-    inset: 2.4mm
-  ), [2022–2025],
-  item(
-    [*Research data analyst, bioinformatics*, Division of Pulmonary and Critical Care Medicine,\
-Feinberg School of Medicine, Northwestern University, Chicago, USA],
-    [- Created data processing pipelines, data exploration and management infrastructure for the division
-    - Delivered analytical insights from scRNAseq and other data to principal investigators for 7 publications
-    - Formulated activated T cell#[#sym.arrow.l.r]macrophage circuit in #link(label("paper4"))[#emph[Nature] 2021], which supported successful clinical trials of Auxora in COVID-19 (NCT04345614)
-    - Supported grant writing for U19, R01 and other NIH grants for the division, resulting in \$5M+ funding
-    - Hired and trained incoming data analysts to grow the team and replace myself],
-    inset: 2.4mm
-  ), [2019–2022],
   item(
     [*Head of maintenance tools development group*, Yandex, Moscow, Russia],
     [- Managed a team of 6 engineers: hiring, mentoring, resolving conflicts, improving performance
