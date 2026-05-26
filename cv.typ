@@ -167,7 +167,8 @@
     Feinberg School of Medicine, Northwestern University, Chicago, USA],
     [- Endotypes of host response to severe pneumonia and associations with causing pathogen and outcomes
     - Clonal evolution of T cells in severe SARS-CoV-2 pneumonia in unvaccinated patients
-    - _SPP1+_ macrophages as a biomarker of lung function decline in patients with systemic sclerosis-associated interstitial lung disease],
+    - _SPP1+_ macrophages as a biomarker of lung function decline in patients with systemic sclerosis-associated interstitial lung disease
+    - Effect of ventilator-associated pneumonia on patient trajectories and outcomes in ICU],
     inset: 2.4mm
   ), [2022–2025],
   item(
