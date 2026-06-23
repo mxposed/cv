@@ -28,7 +28,7 @@ def save_results(data):
 
 
 def main():
-    cr = habanero.Crossref(mailto='nikolai.markov@icloud.com', ua_string='publication-tracker', timeout=30)
+    cr = habanero.Crossref(mailto='nick@nickmarkov.me', ua_string='publication-tracker', timeout=30)
 
     last_indexed_date = load_last_indexed_date()
     print(f"Starting from indexed date: {last_indexed_date}")

@@ -14,3 +14,5 @@
 # Abstract
 # MyD88-mediated signaling in myo-/fibroblasts is required for control of macrophage maturation under mucosal tolerance in the gut
 10.4049/jimmunol.208.supp.113.14
+# Imaging-Based Mortality Prediction in Patients with Systemic Sclerosis, Alec's conference paper
+10.1007/978-3-032-07904-6_2

@@ -3,19 +3,16 @@ import os
 import glob
 import re
 
+import compress
 
-def load_json_files(directory="data"):
-    """Load all JSON files from the specified directory."""
-    json_files = glob.glob(os.path.join(directory, "**/*.json"))
+
+def load_data(input="pubs.jsonl.zst"):
+    """Load all JSON files from the input file."""
+    docs = compress.read_data(input)
     data = []
 
-    for file in sorted(json_files):
-        try:
-            with open(file, 'r') as f:
-                file_data = json.load(f)
-                data.extend(file_data['items'])
-        except Exception as e:
-            print(f"Error loading {file}: {str(e)}")
+    for file_data in docs:
+        data.extend(file_data['items'])
 
     return data
 
@@ -124,12 +121,15 @@ def format_journal(item):
     name = None
     if item['type'] == 'journal-article':
         name = item['container-title'][0]
+    if item['type'] == 'book-chapter':
+        name = item['title'][0]
     if item['type'] == 'posted-content':
         if 'biorxiv' in item['resource']['primary']['URL']:
             name = 'bioRxiv'
         if 'medrxiv' in item['resource']['primary']['URL']:
             name = 'medRxiv'
     if name is None:
+        print(json.dumps(item, indent=2))
         raise ValueError(f"Cannot extract journal")
     name = name.replace('&amp;', '&')
     issue = item.get('issue', '')
@@ -162,7 +162,9 @@ EXCEPTIONS = [
     'il-6',
     'chatgpt',
     'isrib',
-    '1b'
+    '1b',
+    'rnaseq',
+    'pwcf'
 ]
 
 def format_title(title):
@@ -265,6 +267,14 @@ def dedup_publications_by_relation(publications):
     result = [pub for pub in publications if pub['doi'] not in preprints_to_exclude]
     return result
 
+def is_preprint_type(pub_type):
+    if pub_type in ('journal-article', 'book-chapter'):
+        return False
+    return True
+
+def pub_key(pub):
+    return (pub['doi'], pub['raw']['indexed']['timestamp'])
+
 def dedup_publications_by_title(publications):
     """Deduplicate publications based on title word overlap."""
     result = []
@@ -283,19 +293,23 @@ def dedup_publications_by_title(publications):
                 overlap_ratio = len(overlap) / min(len(words1), len(words2))
                 if overlap_ratio > 0.8:
                     print(f"Duplicate detected: {pub1['title']} ({pub1['journal']}, {pub2['journal']}) with overlap {overlap_ratio:.2f}")
-                    if pub1['type'] == 'journal-article':
-                        to_remove.add(pub2['doi'])
+                    if not is_preprint_type(pub1['type']):
+                        to_remove.add(pub_key(pub2))
                     else:
-                        to_remove.add(pub1['doi'])
-                    break
-        if pub1['doi'] not in to_remove:
+                        to_remove.add(pub_key(pub1))
+            else:
+                if pub1['raw']['indexed']['timestamp'] > pub2['raw']['indexed']['timestamp']:
+                    to_remove.add(pub_key(pub2))
+                else:
+                    to_remove.add(pub_key(pub1))
+        if pub_key(pub1) not in to_remove:
             result.append(pub1)
     return result
 
 def split_sort(publications):
     """Split publications into journal articles and others, sort by date."""
-    journal_articles = [pub for pub in publications if pub['type'] == 'journal-article']
-    other_articles = [pub for pub in publications if pub['type'] != 'journal-article']
+    journal_articles = [pub for pub in publications if not is_preprint_type(pub['type'])]
+    other_articles = [pub for pub in publications if is_preprint_type(pub['type'])]
 
     journal_articles.sort(key=lambda x: x['date'], reverse=True)
     i = 0
@@ -313,9 +327,27 @@ def split_sort(publications):
     }
 
 
+def check_and_save(data, output="filtered_publications.json"):
+    if not os.path.exists(output):
+        json.dump(data, open(output, "w"), indent=2)
+        return
+    old_data = json.load(open(output, 'r'))
+    # ensure articles are the same in the same order
+    valid = True
+    for i, pub in enumerate(reversed(old_data['articles'])):
+        new_pub = data['articles'][-i - 1]
+        if pub['doi'] != new_pub['doi'] or pub['rank'] != new_pub['rank']:
+            print(f'Old publication {pub["doi"]} ({pub["rank"]}) not in place in the new list')
+            valid = False
+    if not valid:
+        raise ValueError('Publication mismatch for peer-reviewed articles!')
+    print('All old peer-reviewed articles in place')
+    json.dump(data, open(output, "w"), indent=2)
+
+
 def main():
     print("Loading publication data...")
-    data = load_json_files()
+    data = load_data()
     print(f"Loaded {len(data)} publication records.")
 
     to_exclude = load_exclude_list("exclude.txt")
@@ -350,7 +382,7 @@ def main():
     print(f"{len(dedup_pubs)} publications remain after deduplication.")
 
     data = split_sort(dedup_pubs)
-    json.dump(data, open("filtered_publications.json", "w"), indent=2)
+    check_and_save(data)
     # for pub in dedup_pubs:
     #     print('-' * 80)
     #     print(pub['title'])
