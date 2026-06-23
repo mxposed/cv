@@ -120,7 +120,7 @@
 
 
 = Nikolay S. Markov
-#link("mailto:nick@nickmarkov.me") | #link("https://nickmarkov.me")[nickmarkov.me] | #link("https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en")[Google Scholar profile] #h(1fr) #updated
+#link("mailto:nick@nickmarkov.me") | #link("https://nickmarkov.me")[nickmarkov.me] | #link("https://scholar.google.com/citations?user=-E-79qkAAAAJ&hl=en")[Google Scholar profile] | 100% human written #h(1fr) #updated
 
 == Education
 
@@ -158,8 +158,8 @@
   align: (left, right),
   item(
     [*Post-doctoral scholar*, Dana Pe'er lab,
-    Memorial Sloan Kettering Cancer Center, New York, NY],
-    [- Studying spatial distribution of T cell subtypes and their effect on response to immunotherapy in kidney cancer],
+    Memorial Sloan Kettering Cancer Center, New York, USA],
+    [- Spatial distribution of T cell subtypes and their effect on response to immunotherapy in kidney cancer],
     inset: 2.4mm
   ), [2026–present],
   item(
@@ -216,7 +216,7 @@ Feinberg School of Medicine, Northwestern University, Chicago, USA],
   [==== 1. Preprints #text(size: 10pt, font: "PT Mono", fill: gray.darken(50%))[(#n_preprints)]]
   for pub in pubs.at("preprints") {
     item-with-date(
-      [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #emph[#pub.journal]. #link(pub.url)[#pub.doi]],
+      [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #emph[#strong(pub.journal, delta: 200)]. #link(pub.url)[#pub.doi]],
       show-authors(pub.authors),
       pub.year
     )
@@ -227,7 +227,7 @@ Feinberg School of Medicine, Northwestern University, Chicago, USA],
 ==== 2. Peer-reviewed research articles #text(size: 10pt, font: "PT Mono", fill: gray.darken(50%))[(#n_articles)]
 #for pub in pubs.at("articles") {
   item-with-date(
-    [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #emph[#strong(pub.journal, delta: 200)] #pub.details. #link(pub.url)[#pub.doi]],
+    [#paper-n(pub.rank)#eval(pub.title, mode: "markup"). #box[#emph[#strong(pub.journal, delta: 200)]] #pub.details. #link(pub.url)[#pub.doi]],
     show-authors(pub.authors),
     pub.year
   )
